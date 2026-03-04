@@ -10,35 +10,35 @@ eu <- c(
 )
 
 
-# Section: EU country to ISO code mapping (as in CSVs)
-eu_iso <- c(
-  austria = "aut",
-  belgium = "bel",
-  bulgaria = "bgr",
-  croatia = "hrv",
-  cyprus = "cyp",
-  czechia = "cze",
-  denmark = "dnk",
-  estonia = "est",
-  finland = "fin",
-  france = "fra",
-  germany = "deu",
-  greece = "grc",
-  hungary = "hun",
-  ireland = "irl",
-  italy = "ita",
-  latvia = "lva",
-  lithuania = "ltu",
-  luxembourg = "lux",
-  malta = "mlt",
-  netherlands = "nld",
-  poland = "pol",
-  portugal = "prt",
-  romania = "rou",
-  slovakia = "svk",
-  slovenia = "svn",
-  spain = "esp",
-  sweden = "swe"
+# Section: ISO code to itself mapping (one-to-one, for energy2007 data)
+iso <- c(
+  at = "austria",
+  be = "belgium",
+  bg = "bulgaria",
+  cy = "cyprus",
+  cz = "czechia",
+  de = "germany",
+  dk = "denmark",
+  ee = "estonia",
+  el = "greece",
+  es = "spain",
+  fi = "finland",
+  fr = "france",
+  hr = "croatia",
+  hu = "hungary",
+  ie = "ireland",
+  it = "italy",
+  lt = "lithuania",
+  lu = "luxembourg",
+  lv = "latvia",
+  mt = "malta",
+  nl = "netherlands",
+  pl = "poland",
+  pt = "portugal",
+  ro = "romania",
+  se = "sweden",
+  si = "slovenia",
+  sk = "slovakia"
 )
 
 
