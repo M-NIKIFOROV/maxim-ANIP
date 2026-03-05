@@ -1,1 +1,2 @@
+gasdep(eurostat).csv filter=lfs diff=lfs merge=lfs -text
 data/raw/csv/gasdep(eurostat).csv filter=lfs diff=lfs merge=lfs -text
