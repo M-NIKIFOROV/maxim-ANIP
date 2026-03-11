@@ -8,6 +8,7 @@ library(dplyr)
 library(tidyr)
 library(stringr)
 library(fixest)
+library(gt)
 
 source("01_cleaning/definitions.R")
 
@@ -109,8 +110,11 @@ panel <- panel_defence %>%
   filter(country %in% eu) %>%
   arrange(country, year) %>%
   group_by(country) %>%
-  mutate(energy_lag = dplyr::lag(energy_price, 1)) %>%
-  mutate(ideol_seats = ideology * seats) %>%
+  mutate(
+    energy_lag = dplyr::lag(energy_price, 1),
+    energy_lag2 = dplyr::lag(energy_price, 2),
+    ideol_seats = ideology * seats
+  ) %>%
   ungroup()
 
 # Keep complete observations for model variables
@@ -131,6 +135,23 @@ model_data <- panel %>%
     area > 0
   )
 
+model_data2 <- panel %>%
+  filter(
+    !is.na(def_spend),
+    !is.na(energy_lag2),
+    !is.na(gdp_pc),
+    !is.na(threat),
+    !is.na(area),
+    !is.na(nato),
+    !is.na(ideology),
+    !is.na(seats),
+    !is.na(ideol_seats),
+    def_spend > 0,
+    energy_lag2 > 0,
+    gdp_pc > 0,
+    area > 0
+  )
+
 # FE model with clustered SE by country
 pretest_model <- feols(
   log(def_spend) ~ log(energy_lag) + log(gdp_pc) + threat + log(area) + nato + ideology + seats + ideol_seats,
@@ -139,23 +160,39 @@ pretest_model <- feols(
   cluster = "country"
 )
 
-# Output: model summary
-print(summary(pretest_model))
+# Second regression with t-2 lag
+pretest_model2 <- feols(
+  log(def_spend) ~ log(energy_lag2) + log(gdp_pc) + threat + log(area) + nato + ideology + seats + ideol_seats,
+  data = model_data2,
+  fixef = c("country", "year"),
+  cluster = "country"
+)
 
-# Output: coefficient table
+print(summary(pretest_model))
 coef_table <- as.data.frame(coeftable(pretest_model))
 coef_table$term <- rownames(coef_table)
 coef_table <- coef_table %>% select(term, everything())
 print(coef_table)
-
-# Output: significance of log(energy_lag)
 energy_lag_row <- coef_table %>% filter(term == "log(energy_lag)")
 print(energy_lag_row)
-
-# Output: R-squared and number of observations
 fit_stats <- tibble(
   n_obs = nobs(pretest_model),
   r2 = as.numeric(fitstat(pretest_model, "r2")),
   r2_within = as.numeric(fitstat(pretest_model, "wr2"))
 )
 print(fit_stats)
+
+# Output: second model summary and table
+print(summary(pretest_model2))
+coef_table2 <- as.data.frame(coeftable(pretest_model2))
+coef_table2$term <- rownames(coef_table2)
+coef_table2 <- coef_table2 %>% select(term, everything())
+print(coef_table2)
+energy_lag2_row <- coef_table2 %>% filter(term == "log(energy_lag2)")
+print(energy_lag2_row)
+fit_stats2 <- tibble(
+  n_obs = nobs(pretest_model2),
+  r2 = as.numeric(fitstat(pretest_model2, "r2")),
+  r2_within = as.numeric(fitstat(pretest_model2, "wr2"))
+)
+print(fit_stats2)
