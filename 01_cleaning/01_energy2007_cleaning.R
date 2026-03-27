@@ -88,6 +88,8 @@ energy_raw <- clean_energy_dataset("data/raw/csv/energy(eurostat).csv", remove_2
 # Combine them
 energy_combined <- bind_rows(energy2007_raw, energy_raw)
 
+energyc <- unique(energy_combined$country)
+
 # Write combined output
 write_csv(energy_combined, "data/clean/energy_cleaned.csv", na = "")
 

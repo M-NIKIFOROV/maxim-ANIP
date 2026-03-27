@@ -66,5 +66,7 @@ nato_wide <- pivot_wider(
   values_from = nato_member
 )
 
+natoc <- unique(nato_wide$country)
+
 # Export
 write_csv(nato_wide, "data/clean/nato_cleaned.csv", na = "")

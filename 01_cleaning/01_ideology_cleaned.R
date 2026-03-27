@@ -90,6 +90,8 @@ ideology_annual <- pivot_wider(
     names_sep = "_"
 )
 
+ideologyc <- unique(ideology_annual$country)
+
 # Export
 write_csv(ideology_annual, "data/clean/ideology_cleaned.csv", na = "")
 

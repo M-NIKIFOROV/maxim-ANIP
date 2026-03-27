@@ -1,53 +1,46 @@
 # 01_gasdep_cleaning.R
 #
-# Cleans gasdep(eurostat).csv:
-# - Splits first column by comma (same as energy cleaning)
-# - Renames geo\TIME_PERIOD to country, lowercases values
-# - Maps ISO codes to country names using eu/iso from definitions.R
-# - Filters to EU countries only
-# - Uses same column names for split as energy datasets
+# Cleans gasdep(IEA).csv:
+# - Skips first (copyright) row; row 2 becomes header
+# - Lowercases column names
+# - Filters to EU countries using eu vector from definitions.R
+# - Filters to Natural Gas / Imports (PJ) only
+# - Removes '2024 provisional', nocountry, noproduct, noflow columns
 
 library(readr)
 library(dplyr)
-library(stringr)
 
 source("01_cleaning/definitions.R")
 
-split_first_column <- function(df) {
-  split_names <- c("frequency", "balance", "type", "unit", "country")
-  split_matrix <- do.call(rbind, strsplit(as.character(df[[1]]), ",", fixed = TRUE))
-  split_df <- as.data.frame(split_matrix, stringsAsFactors = FALSE)
-  names(split_df) <- split_names
-  split_df[] <- lapply(split_df, trimws)
-  split_df[] <- lapply(split_df, tolower)
-  cbind(split_df, df[-1])
-}
+# (a) Read without first row
+gasdep_raw <- read_csv(
+  "data/raw/csv/gasdep(IEA).csv",
+  skip = 1,
+  show_col_types = FALSE
+)
 
-map_and_filter_countries <- function(df) {
-  if (!"country" %in% names(df)) return(df)
-  country_lower <- tolower(df$country)
-  matched <- country_lower %in% names(iso)
-  df$country[matched] <- iso[country_lower[matched]]
-  df$country <- tolower(df$country)
-  df[df$country %in% eu, ]
-}
+# Lowercase column names
+gasdep_raw <- rename_with(gasdep_raw, tolower)
 
-# Read data
-gasdep_raw <- read_csv("data/raw/csv/gasdep(eurostat).csv", show_col_types = FALSE)
+# (b) Filter to EU countries
+gasdep_raw <- gasdep_raw %>%
+  mutate(country = tolower(country)) %>%
+  filter(country %in% eu)
 
-# Split first column
-gasdep_raw <- split_first_column(gasdep_raw)
+# (c) Filter by product and flow
+gasdep_raw <- gasdep_raw %>%
+  filter(tolower(product) == "natural gas",
+         tolower(flow) == "imports (pj)")
 
-# geo\TIME_PERIOD is now handled in split_first_column as 'country', so just ensure lowercase
-gasdep_raw$country <- tolower(gasdep_raw$country)
+# (d) Remove '2024 provisional' column
+gasdep_raw <- gasdep_raw %>%
+  select(-`2024 provisional`)
 
+# (e) Remove nocountry, noproduct, noflow
+gasdep_raw <- gasdep_raw %>%
+  select(-nocountry, -noproduct, -noflow)
 
+gasdepc <- unique(gasdep_raw$country)
 
-# Keep only rows where type is 'n900h' or 'total', and balance is 'imp'
-gasdep_raw <- gasdep_raw %>% filter(type %in% c("n900h", "total"), balance == "imp")
-
-# Map ISO to country names and filter to EU
-gasdep_raw <- map_and_filter_countries(gasdep_raw)
-
-# Write cleaned output
 write_csv(gasdep_raw, "data/clean/gasdep_cleaned.csv", na = "")
+

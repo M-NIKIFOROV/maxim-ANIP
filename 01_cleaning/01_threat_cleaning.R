@@ -147,4 +147,6 @@ threat_cleaned <- pivot_wider(
   names_sep = "_"
 )
 
+threatc <- unique(threat_cleaned$country)
+
 write_csv(threat_cleaned, "data/clean/threat_cleaned.csv", na = "")

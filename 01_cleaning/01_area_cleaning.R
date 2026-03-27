@@ -55,4 +55,6 @@ area_raw <- area_raw %>%
 cols_to_remove <- as.character(c(1960:1979, 2024:2025))
 area_raw <- area_raw %>% select(-all_of(cols_to_remove))
 
+areac <- unique(area_raw$country)
+
 write_csv(area_raw, "data/clean/area_cleaned.csv")

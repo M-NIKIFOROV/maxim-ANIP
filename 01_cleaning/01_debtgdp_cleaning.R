@@ -72,4 +72,6 @@ debtgdp_raw <- debtgdp_raw %>%
   filter(country %in% eu)
   
 
+debtgdpc <- unique(debtgdp_raw$country)
+
 write_csv(debtgdp_raw, "data/clean/debtgdp_cleaned.csv")

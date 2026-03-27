@@ -68,4 +68,6 @@ if (length(country_col) == 1) {
   gdppc_raw <- gdppc_raw %>% filter(.data[[names(gdppc_raw)[country_col]]] %in% eu)
 }
 
+gdppcc <- unique(gdppc_raw$country)
+
 write_csv(gdppc_raw, "data/clean/gdppc_cleaned.csv")

@@ -67,4 +67,6 @@ if (length(country_col) == 1) {
   defence_raw <- defence_raw %>% filter(.data[[names(defence_raw)[country_col]]] %in% eu)
 }
 
+defencec <- unique(defence_raw[[names(defence_raw)[country_col]]])
+
 write_csv(defence_raw, "data/clean/defence_cleaned.csv")
