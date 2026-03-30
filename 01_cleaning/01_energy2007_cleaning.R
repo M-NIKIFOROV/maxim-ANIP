@@ -93,3 +93,4 @@ energyc <- unique(energy_combined$country)
 # Write combined output
 write_csv(energy_combined, "data/clean/energy_cleaned.csv", na = "")
 
+# has years 1985-2025. Missing none.

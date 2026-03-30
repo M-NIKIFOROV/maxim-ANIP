@@ -70,3 +70,5 @@ natoc <- unique(nato_wide$country)
 
 # Export
 write_csv(nato_wide, "data/clean/nato_cleaned.csv", na = "")
+
+Has all years and all countries.

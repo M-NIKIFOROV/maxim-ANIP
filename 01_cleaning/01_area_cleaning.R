@@ -58,3 +58,5 @@ area_raw <- area_raw %>% select(-all_of(cols_to_remove))
 areac <- unique(area_raw$country)
 
 write_csv(area_raw, "data/clean/area_cleaned.csv")
+
+# has years: 1980-2023. Missing Slovakia

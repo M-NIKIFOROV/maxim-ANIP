@@ -44,3 +44,4 @@ gasdepc <- unique(gasdep_raw$country)
 
 write_csv(gasdep_raw, "data/clean/gasdep_cleaned.csv", na = "")
 
+# Has years 1971-2023. Missing Croatia, Bulgaria, Cyprus, Czechia, Malta, Romania, Slovakia.

@@ -139,6 +139,14 @@ build_threat_panel <- function(years = 1980:2024, eu_countries = eu) {
 
 threat_cleaned <- build_threat_panel(years = 1980:2024, eu_countries = eu)
 
+# Forward-fill 2019 values to 2020-2023 (time-invariant variable)
+threat_2019_fill <- threat_cleaned %>%
+  filter(year == 2019) %>%
+  crossing(year = 2020:2023) %>%
+  select(country, year, dist_border_km, dist_capital_km)
+
+threat_cleaned <- bind_rows(threat_cleaned, threat_2019_fill)
+
 threat_cleaned <- pivot_wider(
   threat_cleaned,
   id_cols = country,
@@ -150,3 +158,6 @@ threat_cleaned <- pivot_wider(
 threatc <- unique(threat_cleaned$country)
 
 write_csv(threat_cleaned, "data/clean/threat_cleaned.csv", na = "")
+
+# Has years 1980-2019 (but variable is time invariant). Copied values from the year 2019 to 2020-2023.
+# Missing Germany, Italy, and Romania.

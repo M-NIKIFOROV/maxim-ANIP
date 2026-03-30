@@ -95,3 +95,4 @@ ideologyc <- unique(ideology_annual$country)
 # Export
 write_csv(ideology_annual, "data/clean/ideology_cleaned.csv", na = "")
 
+# Has years 1919-2023. Missing Czechia.

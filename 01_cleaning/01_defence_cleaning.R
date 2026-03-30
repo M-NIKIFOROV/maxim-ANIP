@@ -70,3 +70,5 @@ if (length(country_col) == 1) {
 defencec <- unique(defence_raw[[names(defence_raw)[country_col]]])
 
 write_csv(defence_raw, "data/clean/defence_cleaned.csv")
+
+# has years 1980-2024. Missing none.

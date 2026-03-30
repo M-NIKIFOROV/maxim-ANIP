@@ -47,3 +47,5 @@ militaryconfidence_clean <- raw %>%
 militaryconfidencec <- unique(militaryconfidence_clean$country)
 
 write_csv(militaryconfidence_clean, "data/clean/militaryconfidence_cleaned.csv", na = "")
+
+# Has years 2006-2023. Missing Czechia and Netherlands.

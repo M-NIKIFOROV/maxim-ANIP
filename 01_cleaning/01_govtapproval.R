@@ -47,3 +47,5 @@ govtapproval_clean <- raw %>%
 govtapprovalc <- unique(govtapproval_clean$country)
 
 write_csv(govtapproval_clean, "data/clean/govtapproval_cleaned.csv", na = "")
+
+# Has years 2006-2023. Missing Czechia and Netherlands.

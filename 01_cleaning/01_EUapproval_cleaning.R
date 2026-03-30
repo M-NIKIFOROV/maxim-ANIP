@@ -47,3 +47,5 @@ euapproval_clean <- raw %>%
 euapprovalc <- unique(euapproval_clean$country)
 
 write_csv(euapproval_clean, "data/clean/EUapproval_cleaned.csv", na = "")
+
+# Has years 2006 to 2023. Missing Czechia and Netherlands.

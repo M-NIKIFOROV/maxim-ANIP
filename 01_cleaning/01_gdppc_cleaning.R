@@ -71,3 +71,5 @@ if (length(country_col) == 1) {
 gdppcc <- unique(gdppc_raw$country)
 
 write_csv(gdppc_raw, "data/clean/gdppc_cleaned.csv")
+
+# Has years 1980-2024. Missing Slovakia.

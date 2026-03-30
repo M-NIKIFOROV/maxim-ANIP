@@ -75,3 +75,5 @@ debtgdp_raw <- debtgdp_raw %>%
 debtgdpc <- unique(debtgdp_raw$country)
 
 write_csv(debtgdp_raw, "data/clean/debtgdp_cleaned.csv")
+
+# has years: 2015-2024. Missing none
