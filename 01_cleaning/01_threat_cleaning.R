@@ -27,7 +27,10 @@ build_threat_panel <- function(years = 1980:2024, eu_countries = eu) {
   years <- years[years <= max_year]
   cshapes_name_map <- c(
     "czech republic" = "czechia",
-    "slovak republic" = "slovakia"
+    "slovak republic" = "slovakia",
+    "german federal republic" = "germany",
+    "italy/sardinia" = "italy",
+    "rumania" = "romania"
   )
 
   ne_name_map <- c(
@@ -159,5 +162,5 @@ threatc <- unique(threat_cleaned$country)
 
 write_csv(threat_cleaned, "data/clean/threat_cleaned.csv", na = "")
 
-# Has years 1980-2019 (but variable is time invariant). Copied values from the year 2019 to 2020-2023.
-# Missing Germany, Italy, and Romania.
+# Has years 1980-2023 (but variable is time invariant). Copied values from 2019 to 2020-2023.
+# None missing
