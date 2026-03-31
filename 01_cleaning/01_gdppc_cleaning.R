@@ -54,6 +54,14 @@ if (length(name_col) == 1) {
   names(gdppc_raw)[name_col] <- 'country'
 }
 
+# Recode country names to match eu vector
+gdppc_name_map <- c(
+  "czech republic" = "czechia",
+  "slovak republic" = "slovakia"
+)
+gdppc_raw <- gdppc_raw %>%
+  mutate(country = recode(country, !!!gdppc_name_map))
+
 # h) Check for missing countries (as in other scripts)
 country_col <- which(tolower(names(gdppc_raw)) %in% c('country', 'country_name', 'name'))
 if (length(country_col) == 1) {

@@ -23,8 +23,16 @@ gasdep_raw <- read_csv(
 gasdep_raw <- rename_with(gasdep_raw, tolower)
 
 # (b) Filter to EU countries
+gazdep_name_map <- c(
+  "czech republic" = "czechia",
+  "slovak republic" = "slovakia"
+)
+
 gasdep_raw <- gasdep_raw %>%
-  mutate(country = tolower(country)) %>%
+  mutate(
+    country = tolower(country),
+    country = recode(country, !!!gazdep_name_map)
+  ) %>%
   filter(country %in% eu)
 
 # (c) Filter by product and flow

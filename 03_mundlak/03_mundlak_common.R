@@ -58,19 +58,19 @@ build_panel <- function() {
     mutate(debtgdp = as.numeric(debtgdp)) %>%
     select(country, year, debtgdp)
 
-  panel_opinion <- read_csv("data/clean/EUapproval_cleaned.csv", show_col_types = FALSE) %>%
+  panel_political_stress <- read_csv("data/clean/govtapproval_cleaned.csv", show_col_types = FALSE) %>%
     mutate(country = tolower(country)) %>%
     pivot_longer(
-      cols = starts_with("disapprove_"),
+      cols = starts_with("no_"),
       names_to = "year",
-      values_to = "neg_opinion",
-      names_prefix = "disapprove_"
+      values_to = "political_stress",
+      names_prefix = "no_"
     ) %>%
     mutate(
       year = as.integer(year),
-      neg_opinion = as.numeric(neg_opinion)
+      political_stress = as.numeric(political_stress)
     ) %>%
-    select(country, year, neg_opinion)
+    select(country, year, political_stress)
 
   panel_threat <- read_csv("data/clean/threat_cleaned.csv", show_col_types = FALSE) %>%
     mutate(country = tolower(country)) %>%
@@ -122,7 +122,7 @@ build_panel <- function() {
     left_join(panel_gasdep, by = c("country", "year")) %>%
     left_join(panel_gdp, by = c("country", "year")) %>%
     left_join(panel_debt, by = c("country", "year")) %>%
-    left_join(panel_opinion, by = c("country", "year")) %>%
+    left_join(panel_political_stress, by = c("country", "year")) %>%
     left_join(panel_threat, by = c("country", "year")) %>%
     left_join(panel_area, by = c("country", "year")) %>%
     left_join(panel_nato, by = c("country", "year")) %>%
@@ -134,7 +134,7 @@ build_panel <- function() {
     mutate(
       energy_lag = dplyr::lag(energy_price, 1),
       debtgdp_lag = dplyr::lag(debtgdp, 1),
-      neg_opinion_lag = dplyr::lag(neg_opinion, 1),
+      political_stress_lag = dplyr::lag(political_stress, 1),
       ideol_seats = ideology * seats
     ) %>%
     ungroup()
@@ -183,16 +183,16 @@ prepare_data <- function(panel, model_name, type_name) {
 
   if (model_name == "baseline") {
     model_data <- common_filter %>%
-      filter(!is.na(log_def_spend))
+      filter(!is.na(log_def_spend), !is.na(debtgdp_lag), !is.na(political_stress_lag))
   } else if (model_name == "aux_fiscal") {
     model_data <- common_filter %>%
       filter(!is.na(debtgdp))
   } else if (model_name == "aux_political") {
     model_data <- common_filter %>%
-      filter(!is.na(neg_opinion))
+      filter(!is.na(political_stress))
   } else if (model_name == "main") {
     model_data <- common_filter %>%
-      filter(!is.na(log_def_spend), !is.na(debtgdp_lag), !is.na(neg_opinion_lag))
+      filter(!is.na(log_def_spend), !is.na(debtgdp_lag), !is.na(political_stress_lag))
   } else {
     stop("Unknown model name")
   }
@@ -211,7 +211,7 @@ prepare_data <- function(panel, model_name, type_name) {
       mean_seats = mean(seats, na.rm = TRUE),
       mean_ideol_seats = mean(ideol_seats, na.rm = TRUE),
       mean_debtgdp_lag = mean(debtgdp_lag, na.rm = TRUE),
-      mean_neg_opinion_lag = mean(neg_opinion_lag, na.rm = TRUE)
+      mean_political_stress_lag = mean(political_stress_lag, na.rm = TRUE)
     ) %>%
     ungroup()
 }
@@ -236,7 +236,7 @@ run_one_model <- function(panel, type_name, model_name, header_text) {
       mean_ideology + mean_seats + mean_ideol_seats |
       year
   } else if (model_name == "aux_political") {
-    fml <- neg_opinion ~
+    fml <- political_stress ~
       log_energy_lag + log1p_gasdep + energy_gasdep_int +
       log_gdp_pc + threat + log_area + nato + ideology + seats + ideol_seats +
       mean_log_energy_lag + mean_log1p_gasdep + mean_energy_gasdep_int +
@@ -246,10 +246,10 @@ run_one_model <- function(panel, type_name, model_name, header_text) {
   } else if (model_name == "main") {
     fml <- log_def_spend ~
       log_energy_lag + log1p_gasdep + energy_gasdep_int +
-      debtgdp_lag + neg_opinion_lag +
+      debtgdp_lag + political_stress_lag +
       log_gdp_pc + threat + log_area + nato + ideology + seats + ideol_seats +
       mean_log_energy_lag + mean_log1p_gasdep + mean_energy_gasdep_int +
-      mean_debtgdp_lag + mean_neg_opinion_lag +
+      mean_debtgdp_lag + mean_political_stress_lag +
       mean_log_gdp_pc + mean_threat + mean_log_area + mean_nato +
       mean_ideology + mean_seats + mean_ideol_seats |
       year

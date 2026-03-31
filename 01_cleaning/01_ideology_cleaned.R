@@ -18,9 +18,17 @@ source("01_cleaning/definitions.R")
 # Read and pre-clean
 ideology_raw <- read_csv("data/raw/csv/ideology(parlgov).csv", show_col_types = FALSE)
 
+ideology_name_map <- c(
+  "czech republic" = "czechia",
+  "slovak republic" = "slovakia"
+)
+
 ideology_raw <- ideology_raw %>%
   rename(country = country_name) %>%
-  mutate(country = tolower(country)) %>%
+  mutate(
+    country = tolower(country),
+    country = recode(country, !!!ideology_name_map)
+  ) %>%
   filter(country %in% eu, election_type == "parliament") %>%
   mutate(
     election_date = as.Date(election_date),
