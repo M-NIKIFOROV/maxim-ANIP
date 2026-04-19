@@ -63,6 +63,7 @@ defence_long <- read_csv("data/clean/defence_cleaned.csv", show_col_types = FALS
 # Energy prices (semi-annual → annual mean)
 energy_long <- read_csv("data/clean/energy_cleaned.csv", show_col_types = FALSE) %>%
   mutate(country = tolower(country)) %>%
+  filter(currency == "eur", tax == "i_tax") %>%
   pivot_yv("energy_price") %>%
   mutate(energy_price = as.numeric(energy_price)) %>%
   filter(country %in% eu) %>%

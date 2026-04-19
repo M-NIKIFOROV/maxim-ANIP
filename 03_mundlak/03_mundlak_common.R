@@ -28,6 +28,7 @@ build_panel <- function() {
 
   panel_energy <- read_csv("data/clean/energy_cleaned.csv", show_col_types = FALSE) %>%
     mutate(country = tolower(country)) %>%
+    filter(currency == "eur", tax == "i_tax") %>%
     pivot_year_values("energy_price") %>%
     mutate(energy_price = as.numeric(energy_price)) %>%
     group_by(country, year) %>%
