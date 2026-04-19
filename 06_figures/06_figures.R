@@ -256,7 +256,8 @@ def_2023 <- defence_long %>%
   filter(year == 2023, country %in% common_countries, !is.na(def_spend))
 
 energy_2023 <- energy_long %>%
-  filter(year == 2023, country %in% common_countries, !is.na(energy_price))
+  filter(year == 2023, country %in% common_countries, !is.na(energy_price),
+         country != "hungary")
 
 iso_map <- c(iso, gr = "greece")
 
