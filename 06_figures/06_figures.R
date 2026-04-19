@@ -19,6 +19,12 @@ source("05_models/05_models_common.R")
 
 dir.create("06_figures/output", showWarnings = FALSE, recursive = TRUE)
 
+# ANU-inspired high-contrast palette for white-background outputs
+anu_black <- "#000000"
+anu_gold  <- "#BE830E"
+anu_blue  <- "#003B5C"
+anu_teal  <- "#007A87"
+
 # ---------------------------------------------------------------------------
 # Helpers
 # ---------------------------------------------------------------------------
@@ -129,9 +135,9 @@ inv_eng <- function(x) {
 fig_b <- full_join(avg_defence, avg_energy, by = "year") %>%
   ggplot(aes(x = year)) +
   geom_line(aes(y = avg_def, colour = "Avg defence spending (USD mn)"),
-            linewidth = 0.8, na.rm = TRUE) +
+            linewidth = 1.2, na.rm = TRUE) +
   geom_line(aes(y = scale_eng(avg_energy), colour = "Avg energy price (EUR/kWh)"),
-            linewidth = 0.8, linetype = "dashed", na.rm = TRUE) +
+            linewidth = 1.2, linetype = "dashed", na.rm = TRUE) +
   scale_y_continuous(
     name = "Avg defence spending (USD mn)",
     labels = comma,
@@ -140,15 +146,18 @@ fig_b <- full_join(avg_defence, avg_energy, by = "year") %>%
                         labels = number_format(accuracy = 0.01))
   ) +
   scale_colour_manual(
-    values = c("Avg defence spending (USD mn)" = "#1f77b4",
-               "Avg energy price (EUR/kWh)"    = "#d62728")
+      values = c("Avg defence spending (USD mn)" = anu_blue,
+         "Avg energy price (EUR/kWh)"    = anu_gold)
   ) +
   scale_x_continuous(breaks = seq(1980, 2025, by = 5)) +
   labs(title   = "Average EU Defence Spending and Energy Prices",
        x       = NULL,
        colour  = NULL) +
-  theme_minimal(base_size = 12) +
+    theme_minimal(base_size = 14) +
   theme(legend.position = "bottom",
+      plot.background = element_rect(fill = "white", colour = NA),
+      panel.background = element_rect(fill = "white", colour = NA),
+      panel.grid.major = element_line(colour = "#D9D9D9", linewidth = 0.4),
         panel.grid.minor = element_blank())
 
 ggsave("06_figures/output/fig_b_defence_energy.png",
@@ -196,13 +205,13 @@ fig_c <- fig_c_data %>%
   ggplot(aes(x = year)) +
   geom_line(aes(y = avg_def,
                 colour = "Avg defence spending (USD mn)"),
-            linewidth = 0.8, na.rm = TRUE) +
+            linewidth = 1.2, na.rm = TRUE) +
   geom_line(aes(y = scale_dep2(gasdep_val),
                 colour = "Gas dependency (Eurostat)"),
-            linewidth = 0.8, linetype = "dashed", na.rm = TRUE) +
+            linewidth = 1.2, linetype = "dashed", na.rm = TRUE) +
   geom_line(aes(y = scale_dep2(nrgdep_val),
                 colour = "Net energy dependency (Eurostat)"),
-            linewidth = 0.8, linetype = "dotted", na.rm = TRUE) +
+            linewidth = 1.2, linetype = "dotted", na.rm = TRUE) +
   scale_y_continuous(
     name = "Avg defence spending (USD mn)",
     labels = comma,
@@ -212,17 +221,20 @@ fig_c <- fig_c_data %>%
   ) +
   scale_colour_manual(
     values = c(
-      "Avg defence spending (USD mn)"     = "#1f77b4",
-      "Gas dependency (Eurostat)"          = "#2ca02c",
-      "Net energy dependency (Eurostat)"   = "#ff7f0e"
+      "Avg defence spending (USD mn)"      = anu_blue,
+      "Gas dependency (Eurostat)"          = anu_teal,
+      "Net energy dependency (Eurostat)"   = anu_gold
     )
   ) +
   scale_x_continuous(breaks = seq(1970, 2025, by = 5)) +
   labs(title  = "Average EU Defence Spending and Energy Dependency",
        x      = NULL,
        colour = NULL) +
-  theme_minimal(base_size = 12) +
+  theme_minimal(base_size = 14) +
   theme(legend.position = "bottom",
+        plot.background = element_rect(fill = "white", colour = NA),
+        panel.background = element_rect(fill = "white", colour = NA),
+        panel.grid.major = element_line(colour = "#D9D9D9", linewidth = 0.4),
         panel.grid.minor = element_blank())
 
 ggsave("06_figures/output/fig_c_defence_gasdep.png",
@@ -274,8 +286,7 @@ rows <- bind_rows(
   extract_row(ct_base, "log_energy_lag",                 "Energy price (t−1)"),
   extract_row(ct_base, "mean_log_energy_lag",            "Mundlak mean energy price"),
   extract_row(ct_base, "log_gdp_pc",                     "GDP per capita (log)"),
-  extract_row(ct_base, "mean_log1p_gasdep",              "Mundlak mean gas dependency"),
-  extract_row(ct_base, "mean_energy_gasdep_int",         "Mundlak mean energy × gas interaction")
+  extract_row(ct_base, "mean_log_gdp_pc",                "Mundlak mean GDP per capita")
 )
 
 tbl_d <- rows %>%
