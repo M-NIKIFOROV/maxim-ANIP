@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<style>body{background-color:white;}</style>
+
+
+</head>
+<body>
+<div id="csprhdffei" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+  <style>#csprhdffei table {
+  font-family: 'Times New Roman', system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#csprhdffei thead, #csprhdffei tbody, #csprhdffei tfoot, #csprhdffei tr, #csprhdffei td, #csprhdffei th {
+  border-style: none;
+}
+
+#csprhdffei p {
+  margin: 0;
+  padding: 0;
+}
+
+#csprhdffei .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: 65%;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#csprhdffei .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#csprhdffei .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#csprhdffei .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#csprhdffei .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#csprhdffei .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#csprhdffei .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#csprhdffei .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#csprhdffei .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#csprhdffei .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#csprhdffei .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#csprhdffei .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#csprhdffei .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#csprhdffei .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#csprhdffei .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#csprhdffei .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#csprhdffei .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#csprhdffei .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#csprhdffei .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#csprhdffei .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#csprhdffei .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#csprhdffei .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#csprhdffei .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#csprhdffei .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#csprhdffei .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#csprhdffei .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#csprhdffei .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#csprhdffei .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#csprhdffei .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#csprhdffei .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#csprhdffei .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#csprhdffei .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#csprhdffei .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#csprhdffei .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#csprhdffei .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#csprhdffei .gt_left {
+  text-align: left;
+}
+
+#csprhdffei .gt_center {
+  text-align: center;
+}
+
+#csprhdffei .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#csprhdffei .gt_font_normal {
+  font-weight: normal;
+}
+
+#csprhdffei .gt_font_bold {
+  font-weight: bold;
+}
+
+#csprhdffei .gt_font_italic {
+  font-style: italic;
+}
+
+#csprhdffei .gt_super {
+  font-size: 65%;
+}
+
+#csprhdffei .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#csprhdffei .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#csprhdffei .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#csprhdffei .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#csprhdffei .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#csprhdffei .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#csprhdffei .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#csprhdffei .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#csprhdffei div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+  <table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+  <thead>
+    <tr class="gt_heading">
+      <td colspan="5" class="gt_heading gt_title gt_font_normal" style>Country-level: Energy Price → Defence Spending</td>
+    </tr>
+    <tr class="gt_heading">
+      <td colspan="5" class="gt_heading gt_subtitle gt_font_normal gt_bottom_border" style>log_def_spend ~ log_energy_lag | year FE (OLS, no clustering)</td>
+    </tr>
+    <tr class="gt_col_headings">
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="Country">Country</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="N">N</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="Coef-(SE)">Coef (SE)</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="p">p</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="a-"></th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><td headers="Country" class="gt_row gt_left" style="font-weight: bold;">Lithuania</td>
+<td headers="N" class="gt_row gt_right" style="font-weight: bold;">15</td>
+<td headers="Coef (SE)" class="gt_row gt_right" style="font-weight: bold;">-1.2747 (0.1377)</td>
+<td headers="p" class="gt_row gt_right" style="font-weight: bold;">0.000</td>
+<td headers=" " class="gt_row gt_right" style="font-weight: bold;">***</td></tr>
+    <tr><td headers="Country" class="gt_row gt_left" style="font-weight: bold;">Latvia</td>
+<td headers="N" class="gt_row gt_right" style="font-weight: bold;">17</td>
+<td headers="Coef (SE)" class="gt_row gt_right" style="font-weight: bold;">-1.3899 (0.1805)</td>
+<td headers="p" class="gt_row gt_right" style="font-weight: bold;">0.000</td>
+<td headers=" " class="gt_row gt_right" style="font-weight: bold;">***</td></tr>
+    <tr><td headers="Country" class="gt_row gt_left" style="font-weight: bold;">Germany</td>
+<td headers="N" class="gt_row gt_right" style="font-weight: bold;">16</td>
+<td headers="Coef (SE)" class="gt_row gt_right" style="font-weight: bold;">-0.6578 (0.0950)</td>
+<td headers="p" class="gt_row gt_right" style="font-weight: bold;">0.000</td>
+<td headers=" " class="gt_row gt_right" style="font-weight: bold;">***</td></tr>
+    <tr><td headers="Country" class="gt_row gt_left" style="font-weight: bold;">Finland</td>
+<td headers="N" class="gt_row gt_right" style="font-weight: bold;">18</td>
+<td headers="Coef (SE)" class="gt_row gt_right" style="font-weight: bold;">0.5936 (0.1221)</td>
+<td headers="p" class="gt_row gt_right" style="font-weight: bold;">0.000</td>
+<td headers=" " class="gt_row gt_right" style="font-weight: bold;">***</td></tr>
+    <tr><td headers="Country" class="gt_row gt_left" style="font-weight: bold;">Portugal</td>
+<td headers="N" class="gt_row gt_right" style="font-weight: bold;">17</td>
+<td headers="Coef (SE)" class="gt_row gt_right" style="font-weight: bold;">-0.6866 (0.1492)</td>
+<td headers="p" class="gt_row gt_right" style="font-weight: bold;">0.000</td>
+<td headers=" " class="gt_row gt_right" style="font-weight: bold;">***</td></tr>
+    <tr><td headers="Country" class="gt_row gt_left" style="font-weight: bold;">Spain</td>
+<td headers="N" class="gt_row gt_right" style="font-weight: bold;">14</td>
+<td headers="Coef (SE)" class="gt_row gt_right" style="font-weight: bold;">-0.6630 (0.1588)</td>
+<td headers="p" class="gt_row gt_right" style="font-weight: bold;">0.002</td>
+<td headers=" " class="gt_row gt_right" style="font-weight: bold;">***</td></tr>
+    <tr><td headers="Country" class="gt_row gt_left" style="font-weight: bold;">Denmark</td>
+<td headers="N" class="gt_row gt_right" style="font-weight: bold;">17</td>
+<td headers="Coef (SE)" class="gt_row gt_right" style="font-weight: bold;">-0.3619 (0.1177)</td>
+<td headers="p" class="gt_row gt_right" style="font-weight: bold;">0.008</td>
+<td headers=" " class="gt_row gt_right" style="font-weight: bold;">***</td></tr>
+    <tr><td headers="Country" class="gt_row gt_left" style="font-weight: bold;">Malta</td>
+<td headers="N" class="gt_row gt_right" style="font-weight: bold;">12</td>
+<td headers="Coef (SE)" class="gt_row gt_right" style="font-weight: bold;">-0.3163 (0.0973)</td>
+<td headers="p" class="gt_row gt_right" style="font-weight: bold;">0.010</td>
+<td headers=" " class="gt_row gt_right" style="font-weight: bold;">**</td></tr>
+    <tr><td headers="Country" class="gt_row gt_left" style="font-weight: bold;">Cyprus</td>
+<td headers="N" class="gt_row gt_right" style="font-weight: bold;">16</td>
+<td headers="Coef (SE)" class="gt_row gt_right" style="font-weight: bold;">-0.4070 (0.1603)</td>
+<td headers="p" class="gt_row gt_right" style="font-weight: bold;">0.025</td>
+<td headers=" " class="gt_row gt_right" style="font-weight: bold;">**</td></tr>
+    <tr><td headers="Country" class="gt_row gt_left" style="font-weight: bold;">Poland</td>
+<td headers="N" class="gt_row gt_right" style="font-weight: bold;">14</td>
+<td headers="Coef (SE)" class="gt_row gt_right" style="font-weight: bold;">-0.3055 (0.1196)</td>
+<td headers="p" class="gt_row gt_right" style="font-weight: bold;">0.027</td>
+<td headers=" " class="gt_row gt_right" style="font-weight: bold;">**</td></tr>
+    <tr><td headers="Country" class="gt_row gt_left" style="font-weight: bold;">Luxembourg</td>
+<td headers="N" class="gt_row gt_right" style="font-weight: bold;">13</td>
+<td headers="Coef (SE)" class="gt_row gt_right" style="font-weight: bold;">-1.5859 (0.6556)</td>
+<td headers="p" class="gt_row gt_right" style="font-weight: bold;">0.036</td>
+<td headers=" " class="gt_row gt_right" style="font-weight: bold;">**</td></tr>
+    <tr><td headers="Country" class="gt_row gt_left" style="font-weight: bold;">Sweden</td>
+<td headers="N" class="gt_row gt_right" style="font-weight: bold;">17</td>
+<td headers="Coef (SE)" class="gt_row gt_right" style="font-weight: bold;">-0.2390 (0.1043)</td>
+<td headers="p" class="gt_row gt_right" style="font-weight: bold;">0.038</td>
+<td headers=" " class="gt_row gt_right" style="font-weight: bold;">**</td></tr>
+    <tr><td headers="Country" class="gt_row gt_left" style="font-weight: bold;">France</td>
+<td headers="N" class="gt_row gt_right" style="font-weight: bold;">17</td>
+<td headers="Coef (SE)" class="gt_row gt_right" style="font-weight: bold;">-0.3483 (0.1549)</td>
+<td headers="p" class="gt_row gt_right" style="font-weight: bold;">0.041</td>
+<td headers=" " class="gt_row gt_right" style="font-weight: bold;">**</td></tr>
+    <tr><td headers="Country" class="gt_row gt_left" style="font-weight: bold;">Croatia</td>
+<td headers="N" class="gt_row gt_right" style="font-weight: bold;">15</td>
+<td headers="Coef (SE)" class="gt_row gt_right" style="font-weight: bold;">-0.3023 (0.1476)</td>
+<td headers="p" class="gt_row gt_right" style="font-weight: bold;">0.063</td>
+<td headers=" " class="gt_row gt_right" style="font-weight: bold;">*</td></tr>
+    <tr><td headers="Country" class="gt_row gt_left">Italy</td>
+<td headers="N" class="gt_row gt_right">12</td>
+<td headers="Coef (SE)" class="gt_row gt_right">-0.4145 (0.2660)</td>
+<td headers="p" class="gt_row gt_right">0.154</td>
+<td headers=" " class="gt_row gt_right"></td></tr>
+    <tr><td headers="Country" class="gt_row gt_left">Austria</td>
+<td headers="N" class="gt_row gt_right">14</td>
+<td headers="Coef (SE)" class="gt_row gt_right">-0.2572 (0.1796)</td>
+<td headers="p" class="gt_row gt_right">0.180</td>
+<td headers=" " class="gt_row gt_right"></td></tr>
+    <tr><td headers="Country" class="gt_row gt_left">Greece</td>
+<td headers="N" class="gt_row gt_right">18</td>
+<td headers="Coef (SE)" class="gt_row gt_right">-0.5388 (0.4236)</td>
+<td headers="p" class="gt_row gt_right">0.223</td>
+<td headers=" " class="gt_row gt_right"></td></tr>
+    <tr><td headers="Country" class="gt_row gt_left">Belgium</td>
+<td headers="N" class="gt_row gt_right">14</td>
+<td headers="Coef (SE)" class="gt_row gt_right">0.2707 (0.2207)</td>
+<td headers="p" class="gt_row gt_right">0.246</td>
+<td headers=" " class="gt_row gt_right"></td></tr>
+    <tr><td headers="Country" class="gt_row gt_left">Hungary</td>
+<td headers="N" class="gt_row gt_right">17</td>
+<td headers="Coef (SE)" class="gt_row gt_right">-0.7252 (0.6125)</td>
+<td headers="p" class="gt_row gt_right">0.256</td>
+<td headers=" " class="gt_row gt_right"></td></tr>
+    <tr><td headers="Country" class="gt_row gt_left">Romania</td>
+<td headers="N" class="gt_row gt_right">15</td>
+<td headers="Coef (SE)" class="gt_row gt_right">-0.2724 (0.5976)</td>
+<td headers="p" class="gt_row gt_right">0.657</td>
+<td headers=" " class="gt_row gt_right"></td></tr>
+    <tr><td headers="Country" class="gt_row gt_left">Slovenia</td>
+<td headers="N" class="gt_row gt_right">17</td>
+<td headers="Coef (SE)" class="gt_row gt_right">0.2136 (0.6049)</td>
+<td headers="p" class="gt_row gt_right">0.729</td>
+<td headers=" " class="gt_row gt_right"></td></tr>
+    <tr><td headers="Country" class="gt_row gt_left">Estonia</td>
+<td headers="N" class="gt_row gt_right">18</td>
+<td headers="Coef (SE)" class="gt_row gt_right">0.0486 (0.1673)</td>
+<td headers="p" class="gt_row gt_right">0.775</td>
+<td headers=" " class="gt_row gt_right"></td></tr>
+    <tr><td headers="Country" class="gt_row gt_left">Ireland</td>
+<td headers="N" class="gt_row gt_right">15</td>
+<td headers="Coef (SE)" class="gt_row gt_right">0.0317 (0.2167)</td>
+<td headers="p" class="gt_row gt_right">0.886</td>
+<td headers=" " class="gt_row gt_right"></td></tr>
+    <tr><td headers="Country" class="gt_row gt_left">Bulgaria</td>
+<td headers="N" class="gt_row gt_right">17</td>
+<td headers="Coef (SE)" class="gt_row gt_right">0.0028 (0.5856)</td>
+<td headers="p" class="gt_row gt_right">0.996</td>
+<td headers=" " class="gt_row gt_right"></td></tr>
+  </tbody>
+  <tfoot>
+    <tr class="gt_footnotes">
+      <td class="gt_footnote" colspan="5"> * p&lt;0.10  ** p&lt;0.05  *** p&lt;0.01. Year fixed effects included. Each country estimated separately.</td>
+    </tr>
+  </tfoot>
+</table>
+</div>
+</body>
+</html>
