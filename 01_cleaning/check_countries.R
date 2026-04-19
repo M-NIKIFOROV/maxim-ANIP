@@ -4,6 +4,7 @@ countries <- list(
   area = areac,
   debtgdp = debtgdpc,
   defence = defencec,
+  defencegdp = defencegdpc,
   energy = energyc,
   euapproval = euapprovalc,
   gasdep = gasdepc,
@@ -12,6 +13,7 @@ countries <- list(
   ideology = ideologyc,
   militaryconfidence = militaryconfidencec,
   nato = natoc,
+  nrgdep = nrgdepc,
   threat = threatc
 )
 
