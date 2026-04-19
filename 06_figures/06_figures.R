@@ -231,7 +231,7 @@ ggsave("06_figures/output/fig_c_defence_gasdep.png",
 message("Saved: fig_c_defence_gasdep.png")
 
 # ---------------------------------------------------------------------------
-# (d) Table: baseline CRE model with country x energy interactions
+# (d) Table: baseline CRE model selected coefficients
 # ---------------------------------------------------------------------------
 
 panel            <- build_05_panel()
@@ -250,21 +250,8 @@ fml_baseline <- log_def_spend ~
 m_base <- feols(fml_baseline, data = model_data, cluster = "country")
 ct_base <- coeftable(m_base)
 
-# Baseline + country-specific energy slopes
-fml_interactions <- log_def_spend ~
-  log_energy_lag + log1p_gasdep + energy_gasdep_int +
-  log_gdp_pc + threat + log_area + nato + ideology + seats + ideol_seats +
-  mean_log_energy_lag + mean_log1p_gasdep + mean_energy_gasdep_int +
-  mean_log_gdp_pc + mean_threat + mean_log_area + mean_nato +
-  mean_ideology + mean_seats + mean_ideol_seats +
-  country:log_energy_lag |
-  year
-
-m_int <- feols(fml_interactions, data = model_data, cluster = "country")
-
-ct_int  <- coeftable(m_int)
-n_obs  <- nobs(m_int)
-r2_w   <- fitstat(m_int, "wr2")[[1]]
+n_obs  <- nobs(m_base)
+r2_w   <- fitstat(m_base, "wr2")[[1]]
 
 extract_row <- function(ct, varname, label) {
   if (!varname %in% rownames(ct)) {
@@ -283,13 +270,12 @@ extract_row <- function(ct, varname, label) {
   )
 }
 
-# Country × energy row names in feols use format "country::log_energy_lag"
 rows <- bind_rows(
   extract_row(ct_base, "log_energy_lag",                 "Energy price (t−1)"),
   extract_row(ct_base, "mean_log_energy_lag",            "Mundlak mean energy price"),
-  extract_row(ct_int,  "log_energy_lag:countryireland",  "× Ireland"),
-  extract_row(ct_int,  "log_energy_lag:countrybulgaria", "× Bulgaria"),
-  extract_row(ct_int,  "log_energy_lag:countryslovenia", "× Slovenia")
+  extract_row(ct_base, "log_gdp_pc",                     "GDP per capita (log)"),
+  extract_row(ct_base, "mean_log1p_gasdep",              "Mundlak mean gas dependency"),
+  extract_row(ct_base, "mean_energy_gasdep_int",         "Mundlak mean energy × gas interaction")
 )
 
 tbl_d <- rows %>%
@@ -297,20 +283,15 @@ tbl_d <- rows %>%
   gt() %>%
   tab_header(
     title    = "CRE Baseline: Energy Price Effects",
-    subtitle = "Main energy effect from baseline CRE; country slopes from interaction CRE"
+    subtitle = "Selected significant coefficients from the baseline CRE model"
   ) %>%
   tab_source_note(
     source_note = md(
       glue::glue("N = {n_obs}; Within R² = {round(r2_w, 4)}.  ",
-                 "SE clustered by country. * p<0.10  ** p<0.05  *** p<0.01.  ",
-                 "Energy price (t−1) is from the plain baseline model; interaction rows are from the country × energy model.")
+                 "SE clustered by country. * p<0.10  ** p<0.05  *** p<0.01")
     )
   ) %>%
   cols_label(Term = "Term", `Coef (SE)` = "Coef. (SE)") %>%
-  tab_style(
-    style = cell_text(style = "italic"),
-    locations = cells_body(rows = grepl("^×", Term))
-  ) %>%
   opt_table_font(font = "Times New Roman") %>%
   tab_options(table.width = pct(60))
 
