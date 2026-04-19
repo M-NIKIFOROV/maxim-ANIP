@@ -238,7 +238,19 @@ panel            <- build_05_panel()
 common_countries <- get_common_countries(panel)
 model_data       <- prepare_05_data(panel, "baseline", common_countries)
 
-# Run baseline with country × log_energy_lag interactions
+# Plain baseline model (for the single overall energy coefficient)
+fml_baseline <- log_def_spend ~
+  log_energy_lag + log1p_gasdep + energy_gasdep_int +
+  log_gdp_pc + threat + log_area + nato + ideology + seats + ideol_seats +
+  mean_log_energy_lag + mean_log1p_gasdep + mean_energy_gasdep_int +
+  mean_log_gdp_pc + mean_threat + mean_log_area + mean_nato +
+  mean_ideology + mean_seats + mean_ideol_seats |
+  year
+
+m_base <- feols(fml_baseline, data = model_data, cluster = "country")
+ct_base <- coeftable(m_base)
+
+# Baseline + country-specific energy slopes
 fml_interactions <- log_def_spend ~
   log_energy_lag + log1p_gasdep + energy_gasdep_int +
   log_gdp_pc + threat + log_area + nato + ideology + seats + ideol_seats +
@@ -250,11 +262,11 @@ fml_interactions <- log_def_spend ~
 
 m_int <- feols(fml_interactions, data = model_data, cluster = "country")
 
-ct     <- coeftable(m_int)
+ct_int  <- coeftable(m_int)
 n_obs  <- nobs(m_int)
 r2_w   <- fitstat(m_int, "wr2")[[1]]
 
-extract_row <- function(varname, label) {
+extract_row <- function(ct, varname, label) {
   if (!varname %in% rownames(ct)) {
     return(tibble(Term = label, Estimate = NA_real_, SE = NA_real_,
                   Stars = "", `Coef (SE)` = "—"))
@@ -273,10 +285,11 @@ extract_row <- function(varname, label) {
 
 # Country × energy row names in feols use format "country::log_energy_lag"
 rows <- bind_rows(
-  extract_row("log_energy_lag",                    "Energy price (t−1)"),
-  extract_row("log_energy_lag:countryireland",    "× Ireland"),
-  extract_row("log_energy_lag:countrybulgaria",   "× Bulgaria"),
-  extract_row("log_energy_lag:countryslovenia",   "× Slovenia")
+  extract_row(ct_base, "log_energy_lag",                 "Energy price (t−1)"),
+  extract_row(ct_base, "mean_log_energy_lag",            "Mundlak mean energy price"),
+  extract_row(ct_int,  "log_energy_lag:countryireland",  "× Ireland"),
+  extract_row(ct_int,  "log_energy_lag:countrybulgaria", "× Bulgaria"),
+  extract_row(ct_int,  "log_energy_lag:countryslovenia", "× Slovenia")
 )
 
 tbl_d <- rows %>%
@@ -284,12 +297,13 @@ tbl_d <- rows %>%
   gt() %>%
   tab_header(
     title    = "CRE Baseline: Energy Price Effects",
-    subtitle = "Selected coefficients; country × energy interactions"
+    subtitle = "Main energy effect from baseline CRE; country slopes from interaction CRE"
   ) %>%
   tab_source_note(
     source_note = md(
       glue::glue("N = {n_obs}; Within R² = {round(r2_w, 4)}.  ",
-                 "SE clustered by country. * p<0.10  ** p<0.05  *** p<0.01")
+                 "SE clustered by country. * p<0.10  ** p<0.05  *** p<0.01.  ",
+                 "Energy price (t−1) is from the plain baseline model; interaction rows are from the country × energy model.")
     )
   ) %>%
   cols_label(Term = "Term", `Coef (SE)` = "Coef. (SE)") %>%
