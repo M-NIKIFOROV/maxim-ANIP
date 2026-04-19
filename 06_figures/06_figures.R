@@ -33,10 +33,9 @@ pivot_yv <- function(df, value_name) {
 
 sig_stars <- function(p) {
   case_when(
-    p < 0.001 ~ "***",
-    p < 0.01  ~ "**",
-    p < 0.05  ~ "*",
-    p < 0.10  ~ ".",
+    p < 0.01  ~ "***",
+    p < 0.05  ~ "**",
+    p < 0.10  ~ "*",
     TRUE      ~ ""
   )
 }
@@ -290,7 +289,7 @@ tbl_d <- rows %>%
   tab_source_note(
     source_note = md(
       glue::glue("N = {n_obs}; Within R² = {round(r2_w, 4)}.  ",
-                 "SE clustered by country. * p<0.05  ** p<0.01  *** p<0.001")
+                 "SE clustered by country. * p<0.10  ** p<0.05  *** p<0.01")
     )
   ) %>%
   cols_label(Term = "Term", `Coef (SE)` = "Coef. (SE)") %>%
