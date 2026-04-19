@@ -13,6 +13,8 @@ library(ggplot2)
 library(scales)
 library(fixest)
 library(gt)
+library(sf)
+library(rnaturalearth)
 
 source("01_cleaning/definitions.R")
 source("05_models/05_models_common.R")
@@ -241,6 +243,116 @@ ggsave("06_figures/output/fig_c_defence_gasdep.png",
        fig_c, width = 9, height = 5, dpi = 300)
 
 message("Saved: fig_c_defence_gasdep.png")
+
+# ---------------------------------------------------------------------------
+# (e) ANU-style map: Europe snapshot for 2022
+#     Fill = avg energy price, bubbles = defence spending,
+#     highlight top 3 by combined rank (energy + defence)
+# ---------------------------------------------------------------------------
+
+panel            <- build_05_panel()
+common_countries <- get_common_countries(panel)
+
+snapshot_2022 <- full_join(
+  energy_long %>%
+    filter(year == 2022) %>%
+    select(country, energy_price),
+  defence_long %>%
+    filter(year == 2022) %>%
+    select(country, def_spend),
+  by = "country"
+) %>%
+  filter(country %in% common_countries) %>%
+  filter(!is.na(energy_price) & !is.na(def_spend)) %>%
+  mutate(
+    rank_energy = dense_rank(desc(energy_price)),
+    rank_def = dense_rank(desc(def_spend)),
+    combined_rank = rank_energy + rank_def
+  ) %>%
+  arrange(combined_rank, rank_energy, rank_def, country)
+
+top3_2022 <- snapshot_2022 %>%
+  slice_head(n = 3) %>%
+  mutate(label = paste0(tools::toTitleCase(country), " (#", combined_rank, ")"))
+
+# Match Natural Earth countries to study country names using ISO-2 where possible
+iso_map <- c(iso, gr = "greece")
+
+europe_map <- ne_countries(scale = "medium", continent = "Europe", returnclass = "sf") %>%
+  mutate(
+    iso2 = tolower(iso_a2),
+    country = if_else(iso2 %in% names(iso_map), unname(iso_map[iso2]), tolower(admin)),
+    country = recode(country, "czech republic" = "czechia", .default = country)
+  )
+
+map_data_2022 <- europe_map %>%
+  left_join(snapshot_2022, by = "country")
+
+eu_map_2022 <- map_data_2022 %>%
+  filter(country %in% snapshot_2022$country)
+
+centroids_2022 <- eu_map_2022 %>%
+  st_point_on_surface() %>%
+  st_transform(4326) %>%
+  select(country, def_spend)
+
+centroids_top3 <- centroids_2022 %>%
+  inner_join(top3_2022 %>% select(country, label), by = "country")
+
+top3_xy <- bind_cols(
+  st_drop_geometry(centroids_top3),
+  as.data.frame(st_coordinates(centroids_top3))
+)
+
+fig_e <- ggplot() +
+  geom_sf(data = europe_map, fill = "white", color = "#E1E1E1", linewidth = 0.25) +
+  geom_sf(data = eu_map_2022, aes(fill = energy_price), color = "white", linewidth = 0.3) +
+  geom_sf(data = centroids_2022,
+          aes(size = def_spend),
+          shape = 21, fill = anu_gold, color = anu_black,
+          stroke = 0.4, alpha = 0.85) +
+  geom_sf(data = centroids_top3,
+          aes(size = def_spend),
+          shape = 21, fill = "white", color = anu_black,
+          stroke = 1.2) +
+  geom_text(data = top3_xy,
+            aes(X, Y, label = label),
+            size = 3.4, color = anu_black, fontface = "bold",
+            nudge_y = 1.2, check_overlap = TRUE) +
+  scale_fill_gradient(
+    low = "#DCE8F1",
+    high = anu_blue,
+    name = "Energy price\n(EUR/kWh, 2022)",
+    labels = number_format(accuracy = 0.01)
+  ) +
+  scale_size_continuous(
+    range = c(2, 11),
+    name = "Defence spending\n(USD mn, 2022)",
+    labels = comma
+  ) +
+  labs(
+    title = "Europe 2022: Energy Prices and Defence Spending",
+    subtitle = "Top 3 countries highlighted by combined rank (energy rank + defence rank)",
+    caption = "Study countries only; ANU-inspired palette for white-background posters"
+  ) +
+  coord_sf(xlim = c(-12, 35), ylim = c(34, 72), expand = FALSE) +
+  theme_minimal(base_size = 14) +
+  theme(
+    plot.background = element_rect(fill = "white", color = NA),
+    panel.background = element_rect(fill = "white", color = NA),
+    panel.grid.major = element_blank(),
+    panel.grid.minor = element_blank(),
+    legend.position = "right",
+    legend.box = "vertical",
+    axis.title = element_blank(),
+    axis.text = element_blank(),
+    axis.ticks = element_blank()
+  )
+
+ggsave("06_figures/output/fig_e_europe_map_2022.png",
+       fig_e, width = 12, height = 8, dpi = 320, bg = "white")
+
+message("Saved: fig_e_europe_map_2022.png")
 
 # ---------------------------------------------------------------------------
 # (d) Table: baseline CRE model selected coefficients
