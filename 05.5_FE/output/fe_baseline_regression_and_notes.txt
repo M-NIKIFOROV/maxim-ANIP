@@ -1,0 +1,33 @@
+MODEL: 05.5 FE BASELINE (CRE-COMPATIBLE SAMPLE)
+
+OLS estimation, Dep. Var.: log_def_spend
+Observations: 375
+Fixed-effects: country: 24,  year: 18
+Standard-errors: Clustered (country) 
+                   Estimate Std. Error   t value   Pr(>|t|)    
+log_energy_lag    -0.280023   0.127162 -2.202099 0.03795381 *  
+log1p_gasdep       0.040362   0.062909  0.641594 0.52747993    
+energy_gasdep_int  0.008657   0.031880  0.271560 0.78838298    
+log_gdp_pc         0.877718   0.201176  4.362932 0.00022785 ***
+threat            -0.000062   0.000250 -0.246302 0.80763327    
+log_area           8.878865   3.336401  2.661211 0.01395163 *  
+nato               0.055814   0.065199  0.856057 0.40079728    
+ideology          -0.006290   0.015318 -0.410640 0.68513719    
+seats              0.000910   0.000876  1.038700 0.30974131    
+ideol_seats       -0.000023   0.000084 -0.274354 0.78626134    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+RMSE: 0.133094     Adj. R2: 0.992127
+                 Within R2: 0.34093 
+
+Specification Notes:
+1) Sample construction is reused from 05 baseline (build_05_panel + get_common_countries + prepare_05_data('baseline')).
+2) Time window is 2006-2023, inherited from build_05_panel().
+3) Countries are restricted to the shared 05 common-country set (N countries = 24).
+4) Observations used in FE baseline = 375.
+5) Energy data use EUR + i_tax filter (already applied in shared panel builder).
+6) Gas dependency uses Type-2 treatment (missing gasdep imputed to 0 via build_05_panel).
+7) Controls match 05 CRE baseline substantive RHS: log_gdp_pc, threat, log_area, nato, ideology, seats, ideol_seats.
+8) Added terms matching 05 baseline: log1p_gasdep and energy_gasdep_int.
+9) Estimator difference vs 05 baseline: this model uses country and year fixed effects (| country + year) instead of CRE Mundlak mean_* terms.
+10) SEs clustered by country (same as 05 baseline). 
