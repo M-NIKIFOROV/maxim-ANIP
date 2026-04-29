@@ -1,0 +1,38 @@
+Robustness 2: Alternative energy (Brent) in baseline specification 
+
+OLS estimation, Dep. Var.: log_def_spend
+Observations: 375
+Fixed-effects: year: 18
+Standard-errors: Clustered (country) 
+                       Estimate Std. Error   t value   Pr(>|t|)    
+log1p_gasdep          -0.051681   0.040016 -1.291498 0.20936009    
+brent_gasdep_int       0.014471   0.008644  1.674099 0.10765794    
+log_gdp_pc             0.875181   0.214910  4.072313 0.00047001 ***
+threat                 0.000022   0.000328  0.068194 0.94622042    
+log_area               8.331173   3.401937  2.448950 0.02236707 *  
+nato                   0.071451   0.082788  0.863067 0.39701133    
+ideology              -0.004738   0.015644 -0.302838 0.76473540    
+seats                  0.000683   0.000907  0.752486 0.45939155    
+ideol_seats           -0.000022   0.000081 -0.269656 0.78982930    
+mean_log_brent_lag     5.819643  10.510303  0.553708 0.58512181    
+mean_log1p_gasdep      1.951804   7.242731  0.269484 0.78995981    
+mean_brent_gasdep_int -0.457529   1.685920 -0.271383 0.78851770    
+mean_log_gdp_pc       -0.006050   0.372270 -0.016252 0.98717365    
+mean_threat            0.000067   0.000305  0.220800 0.82719660    
+mean_log_area         -7.714944   3.416308 -2.258269 0.03372090 *  
+mean_nato              0.515340   0.429271  1.200500 0.24216415    
+mean_ideology         -0.050136   0.180229 -0.278182 0.78335852    
+mean_seats             0.001965   0.007059  0.278359 0.78322397    
+mean_ideol_seats       0.000870   0.001398  0.622142 0.53996744    
+... 1 variable was removed because of collinearity (log_brent_lag)
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+RMSE: 0.484836     Adj. R2: 0.899854
+                 Within R2: 0.90854 
+
+Notes:
+- Countries: 24
+- Observations: 375
+- Year range in estimation sample: 2006-2023
+- Brent is common across countries by year, so year FE can absorb the main Brent term.
+- Main Brent term reported in coefficient table: FALSE

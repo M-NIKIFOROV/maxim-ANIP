@@ -1,0 +1,37 @@
+Robustness 1: Alternative DV (log(defencegdp)) with baseline specification 
+
+OLS estimation, Dep. Var.: log_defencegdp
+Observations: 375
+Fixed-effects: year: 18
+Standard-errors: Clustered (country) 
+                         Estimate Std. Error   t value   Pr(>|t|)    
+log_energy_lag          -0.172275   0.119945 -1.436285 1.6438e-01    
+log1p_gasdep            -0.019028   0.068319 -0.278519 7.8310e-01    
+energy_gasdep_int       -0.012624   0.034872 -0.361995 7.2066e-01    
+log_gdp_pc              -0.041150   0.266275 -0.154539 8.7853e-01    
+threat                  -0.000032   0.000265 -0.120038 9.0550e-01    
+log_area                10.922627   4.126366  2.647033 1.4405e-02 *  
+nato                    -0.005659   0.096228 -0.058810 9.5361e-01    
+ideology                -0.015729   0.012890 -1.220224 2.3474e-01    
+seats                    0.001529   0.001043  1.466620 1.5602e-01    
+ideol_seats              0.000013   0.000078  0.168807 8.6742e-01    
+mean_log_energy_lag      1.506161   0.283426  5.314133 2.1472e-05 ***
+mean_log1p_gasdep       -0.633026   0.141432 -4.475826 1.7193e-04 ***
+mean_energy_gasdep_int  -0.275711   0.061476 -4.484889 1.6809e-04 ***
+mean_log_gdp_pc         -0.226216   0.247422 -0.914294 3.7005e-01    
+mean_threat             -0.000072   0.000249 -0.291333 7.7341e-01    
+mean_log_area          -10.761334   4.153586 -2.590854 1.6341e-02 *  
+mean_nato                0.285411   0.197733  1.443418 1.6239e-01    
+mean_ideology            0.150601   0.061411  2.452355 2.2201e-02 *  
+mean_seats               0.004255   0.003861  1.102124 2.8181e-01    
+mean_ideol_seats        -0.000937   0.000677 -1.384570 1.7947e-01    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+RMSE: 0.274932     Adj. R2: 0.616107
+                 Within R2: 0.625389
+
+Notes:
+- Countries: 24
+- Observations: 375
+- Year range in estimation sample: 2006-2023
+- Sample pipeline reused from 05 baseline, then DV replaced with defencegdp.

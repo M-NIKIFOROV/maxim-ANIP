@@ -1,0 +1,35 @@
+MODEL: 05.5 FE MAIN (CRE-COMPATIBLE SAMPLE)
+
+OLS estimation, Dep. Var.: log_def_spend
+Observations: 322
+Fixed-effects: country: 24,  year: 17
+Standard-errors: Clustered (country) 
+                      Estimate Std. Error   t value  Pr(>|t|)    
+log_energy_lag       -0.322040   0.165424 -1.946756 0.0638780 .  
+log1p_gasdep          0.018670   0.072464  0.257643 0.7989738    
+energy_gasdep_int    -0.003339   0.037915 -0.088077 0.9305782    
+debtgdp_lag           0.001384   0.001834  0.754582 0.4581571    
+political_stress_lag -0.112668   0.138035 -0.816231 0.4227417    
+log_gdp_pc            0.984900   0.266073  3.701612 0.0011766 ** 
+threat               -0.000176   0.000252 -0.697969 0.4921933    
+log_area              8.366334   3.253794  2.571255 0.0170717 *  
+nato                  0.070649   0.082582  0.855493 0.4011026    
+ideology             -0.012859   0.016437 -0.782357 0.4419858    
+seats                 0.000753   0.000794  0.948492 0.3527394    
+ideol_seats           0.000023   0.000082  0.275821 0.7851490    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+RMSE: 0.130447     Adj. R2: 0.992017
+                 Within R2: 0.360051
+
+Specification Notes:
+1) Sample construction is reused from 05 main (build_05_panel + get_common_countries + prepare_05_data('main')).
+2) Time window is 2006-2023, inherited from build_05_panel().
+3) Countries are restricted to the shared 05 common-country set (N countries = 24).
+4) Observations used in FE main = 322.
+5) Energy data use EUR + i_tax filter (already applied in shared panel builder).
+6) Gas dependency uses Type-2 treatment (missing gasdep imputed to 0 via build_05_panel).
+7) Main-model additions are included: debtgdp_lag and political_stress_lag.
+8) Controls match 05 CRE main substantive RHS: log_gdp_pc, threat, log_area, nato, ideology, seats, ideol_seats.
+9) Estimator difference vs 05 main: this model uses country and year fixed effects (| country + year) instead of CRE Mundlak mean_* terms.
+10) SEs clustered by country (same as 05 main). 
