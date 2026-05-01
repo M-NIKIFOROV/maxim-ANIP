@@ -1,9 +1,5 @@
-# 07_run_robustness.R
-# Robustness checks requested for ANIP:
-# 1) Alternative DV: defencegdp instead of defence spending (baseline spec)
-# 2) Alternative energy: baseline spec with Brent (eubrent) replacing energy price
-# 3) Alternative lags for models where the main explanatory variable is significant
-#    (forcing inclusion of 05 main as requested)
+# 05_robustness.R
+# Robustness checks aligned to 05 model setup, written to 05_output.
 
 suppressPackageStartupMessages({
   library(readr)
@@ -14,6 +10,8 @@ suppressPackageStartupMessages({
 
 source("05_models/05_models_common.R")
 
+dir.create("05_models/05_output", showWarnings = FALSE, recursive = TRUE)
+
 write_block <- function(path, header, model, notes = NULL) {
   cat(
     capture.output({
@@ -23,6 +21,21 @@ write_block <- function(path, header, model, notes = NULL) {
         cat("\nNotes:\n")
         cat(paste0("- ", notes), sep = "\n")
       }
+    }),
+    sep = "\n",
+    file = path
+  )
+}
+
+write_lag_block <- function(path, model_name, lag_k, model_obj, p_original) {
+  cat(
+    capture.output({
+      cat("SCRIPT: 05_robustness.R\n")
+      cat("CHECK: Alternative lag as standalone result\n")
+      cat("Model:", toupper(model_name), "\n")
+      cat("Lag  :", lag_k, "\n")
+      cat("Original p(log_energy_lag):", round(p_original, 4), "\n\n")
+      print(summary(model_obj))
     }),
     sep = "\n",
     file = path
@@ -78,10 +91,6 @@ get_p_log_energy <- function(model) {
 panel            <- build_05_panel()
 common_countries <- get_common_countries(panel)
 
-# ---------------------------------------------------------------------------
-# 1) Alternative DV robustness (baseline covariates, DV = defencegdp)
-# ---------------------------------------------------------------------------
-
 base_for_dv <- prepare_05_data(panel, "baseline", common_countries)
 
 defgdp_long <- read_csv("data/clean/defencegdp_cleaned.csv", show_col_types = FALSE) %>%
@@ -108,20 +117,15 @@ alt_dv_model <- feols(
 )
 
 write_block(
-  "07_robustness/output/01_alt_dv_defencegdp.txt",
-  "Robustness 1: Alternative DV (log(defencegdp)) with baseline specification",
+  "05_models/05_output/05_robustness_01_alt_dv_full.txt",
+  "SCRIPT: 05_robustness.R\nCHECK: Alternative DV (log(defencegdp)) with baseline specification",
   alt_dv_model,
   notes = c(
     paste0("Countries: ", length(unique(alt_dv_data$country))),
     paste0("Observations: ", nrow(alt_dv_data)),
-    paste0("Year range in estimation sample: ", min(alt_dv_data$year), "-", max(alt_dv_data$year)),
-    "Sample pipeline reused from 05 baseline, then DV replaced with defencegdp."
+    paste0("Year range in estimation sample: ", min(alt_dv_data$year), "-", max(alt_dv_data$year))
   )
 )
-
-# ---------------------------------------------------------------------------
-# 2) Alternative energy robustness (baseline spec, energy replaced with eubrent)
-# ---------------------------------------------------------------------------
 
 base_for_energy <- prepare_05_data(panel, "baseline", common_countries)
 
@@ -156,26 +160,16 @@ alt_energy_model <- feols(
   cluster = "country"
 )
 
-ct_alt_energy <- coeftable(alt_energy_model)
-brent_term_present <- "log_brent_lag" %in% rownames(ct_alt_energy)
-
 write_block(
-  "07_robustness/output/02_alt_energy_eubrent.txt",
-  "Robustness 2: Alternative energy (Brent) in baseline specification",
+  "05_models/05_output/05_robustness_02_alt_energy_full.txt",
+  "SCRIPT: 05_robustness.R\nCHECK: Alternative energy (Brent) in baseline specification",
   alt_energy_model,
   notes = c(
     paste0("Countries: ", length(unique(alt_energy_data$country))),
     paste0("Observations: ", nrow(alt_energy_data)),
-    paste0("Year range in estimation sample: ", min(alt_energy_data$year), "-", max(alt_energy_data$year)),
-    "Brent is common across countries by year, so year FE can absorb the main Brent term.",
-    paste0("Main Brent term reported in coefficient table: ", brent_term_present)
+    paste0("Year range in estimation sample: ", min(alt_energy_data$year), "-", max(alt_energy_data$year))
   )
 )
-
-# ---------------------------------------------------------------------------
-# 3) Alternative lag robustness for selected 05 models
-#    Rule: include models with significant log_energy_lag at 10%, and force include 05 main.
-# ---------------------------------------------------------------------------
 
 models_05 <- c("baseline", "aux_fiscal", "aux_political", "main")
 
@@ -195,26 +189,29 @@ panel_lags <- panel %>%
   arrange(country, year) %>%
   group_by(country) %>%
   mutate(
+    energy_lag0 = energy_price,
     energy_lag2 = lag(energy_price, 2),
     energy_lag3 = lag(energy_price, 3)
   ) %>%
   ungroup()
 
-lag_lines <- c(
-  "Robustness 3: Alternative lags for selected models",
-  "Selection rule: p(log_energy_lag)<0.10 in original 05 model, plus forced inclusion of main.",
+lag_file <- "05_models/05_output/05_robustness_03_alt_lags_full.txt"
+writeLines(c(
+  "SCRIPT: 05_robustness.R",
+  "CHECK: Alternative lags for selected models",
   paste0("Selected models: ", paste(selected_models, collapse = ", ")),
   ""
-)
+), con = lag_file)
 
 for (mn in selected_models) {
-  lag_lines <- c(lag_lines, paste0("Model: ", mn))
-  lag_lines <- c(
-    lag_lines,
-    paste0("Original p(log_energy_lag) = ", round(base_models[[mn]]$p_main, 4))
+  write(
+    paste0("\n====================================================\nMODEL: ", toupper(mn),
+           "\n====================================================\nOriginal p(log_energy_lag)=", round(base_models[[mn]]$p_main, 4), "\n"),
+    file = lag_file,
+    append = TRUE
   )
 
-  for (k in c(2L, 3L)) {
+  for (k in c(0L, 2L, 3L)) {
     lag_col <- paste0("energy_lag", k)
 
     panel_k <- panel_lags %>%
@@ -226,29 +223,38 @@ for (mn in selected_models) {
 
     data_k <- prepare_05_data(panel_k, mn, common_countries)
     model_k <- feols(get_formula_05(mn), data = data_k, cluster = "country")
-    ct_k <- coeftable(model_k)
 
-    if ("log_energy_lag" %in% rownames(ct_k)) {
-      est <- ct_k["log_energy_lag", "Estimate"]
-      se  <- ct_k["log_energy_lag", "Std. Error"]
-      p   <- ct_k["log_energy_lag", "Pr(>|t|)"]
-      lag_lines <- c(
-        lag_lines,
-        sprintf("  lag %d -> coef=%.4f, se=%.4f, p=%.4f, N=%d", k, est, se, p, nobs(model_k))
-      )
-    } else {
-      lag_lines <- c(
-        lag_lines,
-        sprintf("  lag %d -> main term dropped/omitted, N=%d", k, nobs(model_k))
-      )
-    }
+    cat(
+      capture.output({
+        cat("\n-- Lag", k, "--\n\n")
+        print(summary(model_k))
+      }),
+      sep = "\n",
+      file = lag_file,
+      append = TRUE
+    )
+
+    lag_file_single <- sprintf(
+      "05_models/05_output/05_robustness_03_%s_lag%s_full.txt",
+      mn,
+      k
+    )
+
+    write_lag_block(
+      path = lag_file_single,
+      model_name = mn,
+      lag_k = k,
+      model_obj = model_k,
+      p_original = base_models[[mn]]$p_main
+    )
   }
-
-  lag_lines <- c(lag_lines, "")
 }
 
-writeLines(lag_lines, con = "07_robustness/output/03_alt_lags_selected_models.txt")
-
-message("Saved: 07_robustness/output/01_alt_dv_defencegdp.txt")
-message("Saved: 07_robustness/output/02_alt_energy_eubrent.txt")
-message("Saved: 07_robustness/output/03_alt_lags_selected_models.txt")
+message("Saved: 05_models/05_output/05_robustness_01_alt_dv_full.txt")
+message("Saved: 05_models/05_output/05_robustness_02_alt_energy_full.txt")
+message("Saved: 05_models/05_output/05_robustness_03_alt_lags_full.txt")
+for (mn in selected_models) {
+  for (k in c(0L, 2L, 3L)) {
+    message(sprintf("Saved: 05_models/05_output/05_robustness_03_%s_lag%s_full.txt", mn, k))
+  }
+}

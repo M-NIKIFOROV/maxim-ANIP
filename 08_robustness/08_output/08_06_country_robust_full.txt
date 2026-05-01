@@ -1,0 +1,108 @@
+SCRIPT: 08_robustness.R
+Generated: 2026-05-01 10:35:30 
+Result file: C:/Users/maxim/OneDrive/Documents/University - Year 3/ANIP/maxim-ANIP/08_robustness/08_output/08_06_country_robust_full.txt 
+
+COUNTRY ROBUSTNESS TABLE: FULL SAMPLE (LEAVE-ONE-OUT)
+ split omitted_country n_countries n_obs coef_energy   p_energy
+  full          cyprus          23   359  -0.4521833 0.01266375
+  full         belgium          23   361  -0.3506183 0.01689958
+  full        slovenia          23   358  -0.3520073 0.01703351
+  full         estonia          23   357  -0.3643722 0.01728599
+  full         ireland          23   360  -0.3594936 0.02035898
+  full           italy          23   363  -0.3401750 0.02206734
+  full          sweden          23   358  -0.3461953 0.02464411
+  full         austria          23   361  -0.3291877 0.02685454
+  full         croatia          23   360  -0.3524648 0.02771744
+  full        portugal          23   358  -0.3297891 0.02790397
+  full          latvia          23   358  -0.2957377 0.02793097
+  full           spain          23   361  -0.3246179 0.02892760
+  full         denmark          23   358  -0.3662541 0.02912181
+  full          greece          23   357  -0.3457438 0.03002922
+  full         germany          23   359  -0.3183640 0.03070879
+  full          poland          23   361  -0.3188348 0.03114110
+  full          france          23   358  -0.3223701 0.03298821
+  full       lithuania          23   360  -0.2871437 0.03672483
+  full         hungary          23   358  -0.2968479 0.03944218
+  full         romania          23   360  -0.3200334 0.04682321
+  full         finland          23   357  -0.2951356 0.04925937
+  full           malta          23   363  -0.3641740 0.05182495
+  full      luxembourg          23   362  -0.3029052 0.05418932
+  full        bulgaria          23   358  -0.2004137 0.06069713
+ sign_same_energy sig10_energy coef_interaction p_interaction
+             TRUE         TRUE      0.050093729     0.3208188
+             TRUE         TRUE     -0.003299220     0.9368680
+             TRUE         TRUE      0.015051753     0.7503450
+             TRUE         TRUE      0.019382805     0.6667945
+             TRUE         TRUE      0.045747985     0.3298580
+             TRUE         TRUE      0.029259932     0.5379142
+             TRUE         TRUE      0.028157336     0.5806907
+             TRUE         TRUE      0.017872760     0.7137276
+             TRUE         TRUE      0.026401066     0.5944089
+             TRUE         TRUE      0.021664260     0.6362852
+             TRUE         TRUE      0.024635146     0.6087424
+             TRUE         TRUE      0.021641164     0.6869990
+             TRUE         TRUE      0.031862709     0.5145712
+             TRUE         TRUE      0.033361127     0.4735656
+             TRUE         TRUE      0.021503597     0.6472969
+             TRUE         TRUE      0.017742921     0.6980479
+             TRUE         TRUE      0.022321290     0.6690476
+             TRUE         TRUE      0.043552855     0.3501691
+             TRUE         TRUE      0.015465975     0.7273839
+             TRUE         TRUE      0.015880488     0.7056740
+             TRUE         TRUE      0.022335203     0.6317134
+             TRUE         TRUE      0.040587094     0.4253894
+             TRUE         TRUE      0.047973416     0.3393419
+             TRUE         TRUE     -0.008655906     0.8430768
+ sign_same_interaction sig10_interaction robust_flag robust_flag_strict
+                  TRUE             FALSE        TRUE              FALSE
+                 FALSE             FALSE        TRUE              FALSE
+                  TRUE             FALSE        TRUE              FALSE
+                  TRUE             FALSE        TRUE              FALSE
+                  TRUE             FALSE        TRUE              FALSE
+                  TRUE             FALSE        TRUE              FALSE
+                  TRUE             FALSE        TRUE              FALSE
+                  TRUE             FALSE        TRUE              FALSE
+                  TRUE             FALSE        TRUE              FALSE
+                  TRUE             FALSE        TRUE              FALSE
+                  TRUE             FALSE        TRUE              FALSE
+                  TRUE             FALSE        TRUE              FALSE
+                  TRUE             FALSE        TRUE              FALSE
+                  TRUE             FALSE        TRUE              FALSE
+                  TRUE             FALSE        TRUE              FALSE
+                  TRUE             FALSE        TRUE              FALSE
+                  TRUE             FALSE        TRUE              FALSE
+                  TRUE             FALSE        TRUE              FALSE
+                  TRUE             FALSE        TRUE              FALSE
+                  TRUE             FALSE        TRUE              FALSE
+                  TRUE             FALSE        TRUE              FALSE
+                  TRUE             FALSE        TRUE              FALSE
+                  TRUE             FALSE        TRUE              FALSE
+                 FALSE             FALSE        TRUE              FALSE
+ fit_error
+      <NA>
+      <NA>
+      <NA>
+      <NA>
+      <NA>
+      <NA>
+      <NA>
+      <NA>
+      <NA>
+      <NA>
+      <NA>
+      <NA>
+      <NA>
+      <NA>
+      <NA>
+      <NA>
+      <NA>
+      <NA>
+      <NA>
+      <NA>
+      <NA>
+      <NA>
+      <NA>
+      <NA>
+
+Robust count (main rule): 24 out of 24 
+Robust count (strict rule): 0 out of 24 

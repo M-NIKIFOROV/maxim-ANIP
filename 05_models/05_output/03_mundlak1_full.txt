@@ -1,0 +1,228 @@
+SCRIPT: 03_mundlak1.R
+Generated: 2026-05-01 09:16:23 
+Output file: C:/Users/maxim/OneDrive/Documents/University - Year 3/ANIP/maxim-ANIP/05_models/05_output/03_mundlak1_full.txt 
+
+Wald test, H0: joint nullity of mean_log_energy_lag, mean_log1p_gasdep, mean_energy_gasdep_int, mean_log_gdp_pc, mean_threat, mean_log_area and 4 others
+ stat = 41.8, p-value < 2.2e-16, on 10 and 337 DoF, VCOV: Clustered (country).
+====================================================
+MODEL 1: BASELINE 
+====================================================
+Type: type1 (compatibility label; estimation uses 05-spec sample)
+Countries: 24 
+Observations: 375 
+
+OLS estimation, Dep. Var.: log_def_spend
+Observations: 375
+Fixed-effects: year: 18
+Standard-errors: Clustered (country) 
+                        Estimate Std. Error   t value  Pr(>|t|)    
+log_energy_lag         -0.333048   0.139152 -2.393421 0.0252427 *  
+log1p_gasdep            0.082059   0.092116  0.890818 0.3822511    
+energy_gasdep_int       0.024887   0.046645  0.533536 0.5987814    
+log_gdp_pc              0.968850   0.271015  3.574894 0.0016058 ** 
+threat                 -0.000117   0.000271 -0.432783 0.6692038    
+log_area                8.733980   3.660932  2.385726 0.0256671 *  
+nato                    0.058081   0.096863  0.599619 0.5546220    
+ideology               -0.005582   0.017497 -0.319054 0.7525654    
+seats                   0.000619   0.001004  0.616648 0.5435230    
+ideol_seats            -0.000023   0.000091 -0.255121 0.8008971    
+mean_log_energy_lag     1.243681   0.383990  3.238838 0.0036256 ** 
+mean_log1p_gasdep       0.115077   0.199533  0.576732 0.5697228    
+mean_energy_gasdep_int  0.063588   0.088750  0.716476 0.4809097    
+mean_log_gdp_pc        -0.317810   0.274835 -1.156367 0.2594013    
+mean_threat             0.000166   0.000257  0.647166 0.5239315    
+mean_log_area          -8.089656   3.691266 -2.191567 0.0387992 *  
+mean_nato               0.325100   0.311824  1.042577 0.3079797    
+mean_ideology          -0.048831   0.143379 -0.340575 0.7365146    
+mean_seats              0.000150   0.005566  0.026875 0.9787916    
+mean_ideol_seats        0.001128   0.001126  1.001069 0.3272100    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+RMSE: 0.420896     Adj. R2: 0.924302
+                 Within R2: 0.931073
+
+Joint Mundlak test (all mean_* terms = 0):
+$stat
+[1] 41.76248
+
+$p
+[1] 3.469109e-53
+
+$df1
+[1] 10
+
+$df2
+[1] 337
+
+$vcov
+[1] "Clustered (country)"
+
+Wald test, H0: joint nullity of mean_log_energy_lag, mean_log1p_gasdep, mean_energy_gasdep_int, mean_log_gdp_pc, mean_threat, mean_log_area and 4 others
+ stat = 13.8, p-value < 2.2e-16, on 10 and 337 DoF, VCOV: Clustered (country).
+====================================================
+MODEL 2: AUXILIARY FISCAL STRESS 
+====================================================
+Type: type1 (compatibility label; estimation uses 05-spec sample)
+Countries: 24 
+Observations: 375 
+
+OLS estimation, Dep. Var.: debtgdp
+Observations: 375
+Fixed-effects: year: 18
+Standard-errors: Clustered (country) 
+                          Estimate Std. Error   t value   Pr(>|t|)    
+log_energy_lag            2.026586  10.354499  0.195720 0.84654790    
+log1p_gasdep             -8.926916   8.041884 -1.110053 0.27844753    
+energy_gasdep_int        -1.799626   4.110920 -0.437767 0.66563860    
+log_gdp_pc              -76.204233  19.200770 -3.968811 0.00060783 ***
+threat                   -0.022429   0.018669 -1.201403 0.24182077    
+log_area               -440.345349 348.359643 -1.264054 0.21887183    
+nato                     -2.958966  14.182902 -0.208629 0.83657437    
+ideology                  0.097687   0.909669  0.107388 0.91541255    
+seats                     0.042647   0.070298  0.606659 0.55001929    
+ideol_seats              -0.001854   0.005844 -0.317331 0.75385507    
+mean_log_energy_lag      73.031037  30.638189  2.383660 0.02578209 *  
+mean_log1p_gasdep        -3.608927   9.300649 -0.388030 0.70156233    
+mean_energy_gasdep_int   -7.197887   4.570381 -1.574899 0.12893619    
+mean_log_gdp_pc          58.137774  17.650377  3.293855 0.00317685 ** 
+mean_threat               0.046859   0.019836  2.362355 0.02699661 *  
+mean_log_area           442.296051 347.805054  1.271678 0.21619672    
+mean_nato               -11.433985  18.698121 -0.611504 0.54686298    
+mean_ideology             5.124047   8.144581  0.629136 0.53545962    
+mean_seats                0.463384   0.398957  1.161487 0.25735632    
+mean_ideol_seats         -0.077971   0.068128 -1.144467 0.26420112    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+RMSE: 25.4     Adj. R2: 0.535735
+             Within R2: 0.549226
+
+Joint Mundlak test (all mean_* terms = 0):
+$stat
+[1] 13.7684
+
+$p
+[1] 2.283239e-20
+
+$df1
+[1] 10
+
+$df2
+[1] 337
+
+$vcov
+[1] "Clustered (country)"
+
+Wald test, H0: joint nullity of mean_log_energy_lag, mean_log1p_gasdep, mean_energy_gasdep_int, mean_log_gdp_pc, mean_threat, mean_log_area and 4 others
+ stat = 5.04642, p-value = 8.224e-7, on 10 and 308 DoF, VCOV: Clustered (country).
+====================================================
+MODEL 3: AUXILIARY POLITICAL STRESS 
+====================================================
+Type: type1 (compatibility label; estimation uses 05-spec sample)
+Countries: 24 
+Observations: 346 
+
+OLS estimation, Dep. Var.: political_stress
+Observations: 346
+Fixed-effects: year: 18
+Standard-errors: Clustered (country) 
+                          Estimate Std. Error   t value  Pr(>|t|)    
+log_energy_lag          0.06213453   0.091638  0.678043 0.5045093    
+log1p_gasdep           -0.02616668   0.050711 -0.515993 0.6107846    
+energy_gasdep_int      -0.01992771   0.024656 -0.808243 0.4272320    
+log_gdp_pc             -0.26258465   0.085336 -3.077072 0.0053291 ** 
+threat                 -0.00014486   0.000170 -0.851075 0.4035017    
+log_area               -2.10362412   3.139717 -0.670004 0.5095265    
+nato                   -0.05200738   0.074983 -0.693586 0.4948873    
+ideology                0.02333862   0.006850  3.407023 0.0024170 ** 
+seats                   0.00047810   0.000613  0.779814 0.4434514    
+ideol_seats            -0.00014490   0.000054 -2.667510 0.0137545 *  
+mean_log_energy_lag     0.10992089   0.150260  0.731537 0.4718393    
+mean_log1p_gasdep      -0.01418143   0.065448 -0.216682 0.8303667    
+mean_energy_gasdep_int -0.00147337   0.031913 -0.046168 0.9635746    
+mean_log_gdp_pc         0.10269521   0.094120  1.091115 0.2865213    
+mean_threat             0.00016981   0.000169  1.002667 0.3264544    
+mean_log_area           2.13609197   3.139853  0.680316 0.5030958    
+mean_nato               0.10179624   0.095284  1.068344 0.2964506    
+mean_ideology          -0.02823255   0.019867 -1.421088 0.1687084    
+mean_seats              0.00013030   0.001356  0.096114 0.9242624    
+mean_ideol_seats       -0.00000332   0.000185 -0.017969 0.9858184    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+RMSE: 0.101937     Adj. R2: 0.520611
+                 Within R2: 0.542665
+
+Joint Mundlak test (all mean_* terms = 0):
+$stat
+[1] 5.046425
+
+$p
+[1] 8.223541e-07
+
+$df1
+[1] 10
+
+$df2
+[1] 308
+
+$vcov
+[1] "Clustered (country)"
+
+Wald test, H0: joint nullity of mean_log_energy_lag, mean_log1p_gasdep, mean_energy_gasdep_int, mean_debtgdp_lag, mean_political_stress_lag, mean_log_gdp_pc and 6 others
+ stat = 22.5, p-value < 2.2e-16, on 12 and 281 DoF, VCOV: Clustered (country).
+====================================================
+MODEL 4: MAIN MODEL 
+====================================================
+Type: type1 (compatibility label; estimation uses 05-spec sample)
+Countries: 24 
+Observations: 322 
+
+OLS estimation, Dep. Var.: log_def_spend
+Observations: 322
+Fixed-effects: year: 17
+Standard-errors: Clustered (country) 
+                             Estimate Std. Error   t value  Pr(>|t|)    
+log_energy_lag            -0.31562365   0.194627 -1.621681 0.1185013    
+log1p_gasdep               0.11275098   0.105464  1.069090 0.2961214    
+energy_gasdep_int          0.03444375   0.049198  0.700109 0.4908810    
+debtgdp_lag                0.00410430   0.003145  1.305002 0.2047984    
+political_stress_lag      -0.22715806   0.158871 -1.429825 0.1662116    
+log_gdp_pc                 1.34467869   0.428169  3.140534 0.0045846 ** 
+threat                    -0.00022346   0.000286 -0.781199 0.4426529    
+log_area                   9.17575428   3.766870  2.435909 0.0230138 *  
+nato                       0.17783828   0.145057  1.225987 0.2326087    
+ideology                  -0.00734255   0.018431 -0.398381 0.6940234    
+seats                      0.00026544   0.000948  0.279873 0.7820769    
+ideol_seats                0.00000498   0.000083  0.059737 0.9528809    
+mean_log_energy_lag        1.19521861   0.504398  2.369594 0.0265782 *  
+mean_log1p_gasdep         -0.05855810   0.209528 -0.279477 0.7823770    
+mean_energy_gasdep_int     0.00584085   0.092189  0.063357 0.9500293    
+mean_debtgdp_lag           0.00338403   0.004007  0.844454 0.4071143    
+mean_political_stress_lag -1.45640735   1.282760 -1.135370 0.2679138    
+mean_log_gdp_pc           -0.76642755   0.387086 -1.979995 0.0597913 .  
+mean_threat                0.00010887   0.000295  0.369050 0.7154661    
+mean_log_area             -8.48883316   3.758670 -2.258467 0.0337068 *  
+mean_nato                  0.47305389   0.314460  1.504335 0.1461044    
+mean_ideology             -0.06551677   0.083874 -0.781130 0.4426926    
+mean_seats                -0.00030268   0.004605 -0.065732 0.9481591    
+mean_ideol_seats           0.00113513   0.000932  1.218516 0.2353798    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+RMSE: 0.368355     Adj. R2: 0.938836
+                 Within R2: 0.945294
+
+Joint Mundlak test (all mean_* terms = 0):
+$stat
+[1] 22.52182
+
+$p
+[1] 1.136804e-34
+
+$df1
+[1] 12
+
+$df2
+[1] 281
+
+$vcov
+[1] "Clustered (country)"
+

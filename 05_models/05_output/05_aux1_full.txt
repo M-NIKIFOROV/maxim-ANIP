@@ -1,0 +1,59 @@
+SCRIPT: 05_aux1.R
+Generated: 2026-05-01 10:35:46 
+Output file: C:/Users/maxim/OneDrive/Documents/University - Year 3/ANIP/maxim-ANIP/05_models/05_output/05_aux1_full.txt 
+
+Wald test, H0: joint nullity of mean_log_energy_lag, mean_log1p_gasdep, mean_energy_gasdep_int, mean_log_gdp_pc, mean_threat, mean_log_area and 4 others
+ stat = 13.8, p-value < 2.2e-16, on 10 and 337 DoF, VCOV: Clustered (country).
+====================================================
+MODEL: AUX_FISCAL 
+====================================================
+Countries   : 24 
+Observations: 375 
+Year range  : 2006 - 2023 
+
+OLS estimation, Dep. Var.: debtgdp
+Observations: 375
+Fixed-effects: year: 18
+Standard-errors: Clustered (country) 
+                          Estimate Std. Error   t value   Pr(>|t|)    
+log_energy_lag            2.026586  10.354499  0.195720 0.84654790    
+log1p_gasdep             -8.926916   8.041884 -1.110053 0.27844753    
+energy_gasdep_int        -1.799626   4.110920 -0.437767 0.66563860    
+log_gdp_pc              -76.204233  19.200770 -3.968811 0.00060783 ***
+threat                   -0.022429   0.018669 -1.201403 0.24182077    
+log_area               -440.345349 348.359643 -1.264054 0.21887183    
+nato                     -2.958966  14.182902 -0.208629 0.83657437    
+ideology                  0.097687   0.909669  0.107388 0.91541255    
+seats                     0.042647   0.070298  0.606659 0.55001929    
+ideol_seats              -0.001854   0.005844 -0.317331 0.75385507    
+mean_log_energy_lag      73.031037  30.638189  2.383660 0.02578209 *  
+mean_log1p_gasdep        -3.608927   9.300649 -0.388030 0.70156233    
+mean_energy_gasdep_int   -7.197887   4.570381 -1.574899 0.12893619    
+mean_log_gdp_pc          58.137774  17.650377  3.293855 0.00317685 ** 
+mean_threat               0.046859   0.019836  2.362355 0.02699661 *  
+mean_log_area           442.296051 347.805054  1.271678 0.21619672    
+mean_nato               -11.433985  18.698121 -0.611504 0.54686298    
+mean_ideology             5.124047   8.144581  0.629136 0.53545962    
+mean_seats                0.463384   0.398957  1.161487 0.25735632    
+mean_ideol_seats         -0.077971   0.068128 -1.144467 0.26420112    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+RMSE: 25.4     Adj. R2: 0.535735
+             Within R2: 0.549226
+
+Joint Mundlak test (all mean_* terms = 0):
+$stat
+[1] 13.7684
+
+$p
+[1] 2.283239e-20
+
+$df1
+[1] 10
+
+$df2
+[1] 337
+
+$vcov
+[1] "Clustered (country)"
+

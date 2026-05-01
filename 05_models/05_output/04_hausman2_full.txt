@@ -1,0 +1,68 @@
+SCRIPT: 04_hausman2.R
+Generated: 2026-05-01 09:16:12 
+Output file: C:/Users/maxim/OneDrive/Documents/University - Year 3/ANIP/maxim-ANIP/05_models/05_output/04_hausman2_full.txt 
+
+
+====================================================
+MODEL 1: BASELINE 
+====================================================
+Type: type2 (compatibility label; estimation uses 05-spec sample)
+Countries: 24 
+Observations: 375 
+
+Hausman Test (FE vs RE):
+
+	Hausman Test
+
+data:  fml
+chisq = 5.3015, df = 27, p-value = 1
+alternative hypothesis: one model is inconsistent
+
+
+====================================================
+MODEL 2: AUXILIARY FISCAL STRESS 
+====================================================
+Type: type2 (compatibility label; estimation uses 05-spec sample)
+Countries: 24 
+Observations: 375 
+
+Hausman Test (FE vs RE):
+
+	Hausman Test
+
+data:  fml
+chisq = 5.7521, df = 27, p-value = 1
+alternative hypothesis: one model is inconsistent
+
+
+====================================================
+MODEL 3: AUXILIARY POLITICAL STRESS 
+====================================================
+Type: type2 (compatibility label; estimation uses 05-spec sample)
+Countries: 24 
+Observations: 346 
+
+Hausman Test (FE vs RE):
+
+	Hausman Test
+
+data:  fml
+chisq = 1533.7, df = 27, p-value < 2.2e-16
+alternative hypothesis: one model is inconsistent
+
+
+====================================================
+MODEL 4: MAIN MODEL 
+====================================================
+Type: type2 (compatibility label; estimation uses 05-spec sample)
+Countries: 24 
+Observations: 322 
+
+Hausman Test (FE vs RE):
+
+	Hausman Test
+
+data:  fml
+chisq = 4.2101, df = 28, p-value = 1
+alternative hypothesis: one model is inconsistent
+

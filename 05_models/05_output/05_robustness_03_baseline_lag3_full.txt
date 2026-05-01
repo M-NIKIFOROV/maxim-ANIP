@@ -1,0 +1,35 @@
+SCRIPT: 05_robustness.R
+CHECK: Alternative lag as standalone result
+Model: BASELINE 
+Lag  : 3 
+Original p(log_energy_lag): 0.0252 
+
+OLS estimation, Dep. Var.: log_def_spend
+Observations: 303
+Fixed-effects: year: 15
+Standard-errors: Clustered (country) 
+                        Estimate Std. Error   t value  Pr(>|t|)    
+log_energy_lag         -0.159700   0.169772 -0.940671 0.3566489    
+log1p_gasdep            0.073064   0.087978  0.830478 0.4148064    
+energy_gasdep_int       0.024717   0.037238  0.663747 0.5134515    
+log_gdp_pc              1.077929   0.365490  2.949269 0.0071964 ** 
+threat                 -0.000227   0.000318 -0.711549 0.4838990    
+log_area                7.497075   4.491592  1.669135 0.1086476    
+nato                    0.088400   0.210364  0.420222 0.6782230    
+ideology               -0.018976   0.019296 -0.983422 0.3356323    
+seats                   0.000163   0.001200  0.135943 0.8930490    
+ideol_seats             0.000078   0.000092  0.851795 0.4031104    
+mean_log_energy_lag     1.174592   0.401193  2.927746 0.0075670 ** 
+mean_log1p_gasdep      -0.016229   0.235766 -0.068837 0.9457142    
+mean_energy_gasdep_int -0.005212   0.090852 -0.057366 0.9547493    
+mean_log_gdp_pc        -0.408420   0.366396 -1.114697 0.2764932    
+mean_threat             0.000269   0.000291  0.924746 0.3646993    
+mean_log_area          -6.851046   4.495470 -1.523989 0.1411446    
+mean_nato               0.333606   0.360738  0.924789 0.3646776    
+mean_ideology           0.035113   0.117262  0.299443 0.7672915    
+mean_seats              0.005661   0.005399  1.048585 0.3052637    
+mean_ideol_seats        0.000154   0.001130  0.136058 0.8929596    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+RMSE: 0.426469     Adj. R2: 0.919786
+                 Within R2: 0.927874

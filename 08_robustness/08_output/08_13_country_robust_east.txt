@@ -1,0 +1,48 @@
+SCRIPT: 08_robustness.R
+Generated: 2026-05-01 10:35:31 
+Result file: C:/Users/maxim/OneDrive/Documents/University - Year 3/ANIP/maxim-ANIP/08_robustness/08_output/08_13_country_robust_east.txt 
+
+COUNTRY ROBUSTNESS TABLE: EAST (LEAVE-ONE-OUT)
+ split omitted_country n_countries n_obs coef_energy   p_energy
+  east         romania           8   130  -1.0167210 0.01001010
+  east       lithuania           8   130  -0.7194804 0.02815108
+  east          poland           8   131  -0.5962574 0.03837600
+  east          latvia           8   128  -0.6569485 0.04193651
+  east         estonia           8   127  -0.5196140 0.10380009
+  east         hungary           8   128  -0.4841957 0.13180456
+  east        bulgaria           8   128  -0.2093240 0.72755249
+  east         croatia           8    NA          NA         NA
+  east        slovenia           8    NA          NA         NA
+ sign_same_energy sig10_energy coef_interaction p_interaction
+             TRUE         TRUE       0.12984821     0.1230880
+             TRUE         TRUE       0.11742967     0.1760944
+             TRUE         TRUE       0.04393032     0.5247498
+             TRUE         TRUE       0.08862649     0.2923644
+             TRUE        FALSE       0.03924490     0.6177885
+             TRUE        FALSE       0.02007688     0.7968935
+             TRUE        FALSE      -0.05654881     0.6704010
+            FALSE        FALSE               NA            NA
+            FALSE        FALSE               NA            NA
+ sign_same_interaction sig10_interaction robust_flag robust_flag_strict
+                  TRUE             FALSE        TRUE              FALSE
+                  TRUE             FALSE        TRUE              FALSE
+                  TRUE             FALSE        TRUE              FALSE
+                  TRUE             FALSE        TRUE              FALSE
+                  TRUE             FALSE       FALSE              FALSE
+                  TRUE             FALSE       FALSE              FALSE
+                 FALSE             FALSE       FALSE              FALSE
+                 FALSE             FALSE       FALSE              FALSE
+                 FALSE             FALSE       FALSE              FALSE
+                                                                     fit_error
+                                                                          <NA>
+                                                                          <NA>
+                                                                          <NA>
+                                                                          <NA>
+                                                                          <NA>
+                                                                          <NA>
+                                                                          <NA>
+ system is computationally singular: reciprocal condition number = 4.04607e-19
+ system is computationally singular: reciprocal condition number = 2.48852e-19
+
+Robust count (main rule): 4 out of 9 
+Robust count (strict rule): 0 out of 9 

@@ -1,0 +1,51 @@
+SCRIPT: 08_robustness.R
+Generated: 2026-05-01 10:35:30 
+Result file: C:/Users/maxim/OneDrive/Documents/University - Year 3/ANIP/maxim-ANIP/08_robustness/08_output/08_07_baseline_low_gasdep_model.txt 
+
+BASELINE MODEL: LOW GASDEP
+OLS estimation, Dep. Var.: log_def_spend
+Observations: 189
+Fixed-effects: year: 18
+Standard-errors: Clustered (country) 
+                        Estimate Std. Error    t value   Pr(>|t|)    
+log_energy_lag         -0.148608   0.112589  -1.319922 2.1367e-01    
+log1p_gasdep           -0.075033   0.076254  -0.983990 3.4627e-01    
+energy_gasdep_int      -0.046507   0.044394  -1.047591 3.1730e-01    
+log_gdp_pc              1.241041   0.335650   3.697429 3.5173e-03 ** 
+threat                  0.000588   0.000462   1.271257 2.2986e-01    
+log_area               10.176200   1.410664   7.213767 1.7220e-05 ***
+nato                   -0.069701   0.073944  -0.942624 3.6612e-01    
+ideology                0.026581   0.014295   1.859457 8.9896e-02 .  
+seats                   0.005540   0.002807   1.973337 7.4108e-02 .  
+ideol_seats            -0.000999   0.000241  -4.145859 1.6278e-03 ** 
+mean_log_energy_lag     0.213526   0.114436   1.865892 8.8927e-02 .  
+mean_log1p_gasdep       2.177347   0.076320  28.529052 1.1516e-11 ***
+mean_energy_gasdep_int  0.887223   0.043790  20.260940 4.6503e-10 ***
+mean_log_gdp_pc        -1.274987   0.346744  -3.677027 3.6447e-03 ** 
+mean_threat             0.000445   0.000455   0.977922 3.4913e-01    
+mean_log_area          -9.386181   1.409167  -6.660803 3.5589e-05 ***
+mean_nato              -0.372577   0.084486  -4.409908 1.0459e-03 ** 
+mean_ideology           0.475838   0.017448  27.271760 1.8786e-11 ***
+mean_seats              0.026015   0.002781   9.355840 1.4321e-06 ***
+mean_ideol_seats       -0.003971   0.000239 -16.592104 3.9240e-09 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+RMSE: 0.132722     Adj. R2: 0.984672
+                 Within R2: 0.98669 
+
+Joint Mundlak test (all mean_* terms = 0):
+$stat
+[1] 2018.308
+
+$p
+[1] 2.612312e-155
+
+$df1
+[1] 10
+
+$df2
+[1] 151
+
+$vcov
+[1] "Clustered (country)"
+

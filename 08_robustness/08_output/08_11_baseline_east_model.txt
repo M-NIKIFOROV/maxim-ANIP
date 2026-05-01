@@ -1,0 +1,51 @@
+SCRIPT: 08_robustness.R
+Generated: 2026-05-01 10:35:31 
+Result file: C:/Users/maxim/OneDrive/Documents/University - Year 3/ANIP/maxim-ANIP/08_robustness/08_output/08_11_baseline_east_model.txt 
+
+BASELINE MODEL: EAST
+OLS estimation, Dep. Var.: log_def_spend
+Observations: 145
+Fixed-effects: year: 18
+Standard-errors: Clustered (country) 
+                         Estimate Std. Error   t value   Pr(>|t|)    
+log_energy_lag          -0.734636   0.260183 -2.823537 2.2372e-02 *  
+log1p_gasdep             0.152137   0.258205  0.589209 5.7198e-01    
+energy_gasdep_int        0.079378   0.071128  1.115986 2.9682e-01    
+log_gdp_pc               1.629236   0.422422  3.856894 4.8301e-03 ** 
+threat                   0.000310   0.000278  1.115882 2.9687e-01    
+log_area                13.865776   3.903939  3.551740 7.4904e-03 ** 
+nato                     0.292539   0.158719  1.843125 1.0255e-01    
+ideology                -0.027353   0.018896 -1.447511 1.8578e-01    
+seats                    0.001594   0.001723  0.925499 3.8178e-01    
+ideol_seats             -0.000097   0.000206 -0.472579 6.4914e-01    
+mean_log_energy_lag    -29.436409   4.108072 -7.165504 9.5626e-05 ***
+mean_log1p_gasdep       21.125003   3.549375  5.951753 3.4131e-04 ***
+mean_energy_gasdep_int   9.504967   1.570043  6.053951 3.0458e-04 ***
+mean_log_gdp_pc         10.993157   1.874517  5.864529 3.7653e-04 ***
+mean_threat             -0.002864   0.000866 -3.306478 1.0755e-02 *  
+mean_log_area          -10.000519   4.094439 -2.442464 4.0409e-02 *  
+mean_nato               -5.163619   0.866547 -5.958848 3.3861e-04 ***
+mean_ideology           -0.650787   0.091907 -7.080893 1.0394e-04 ***
+... 2 variables were removed because of collinearity (mean_seats and
+mean_ideol_seats)
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+RMSE: 0.138347     Adj. R2: 0.971312
+                 Within R2: 0.977416
+
+Joint Mundlak test (all mean_* terms = 0):
+$stat
+[1] 1839.757
+
+$p
+[1] 1.533453e-112
+
+$df1
+[1] 8
+
+$df2
+[1] 109
+
+$vcov
+[1] "Clustered (country)"
+

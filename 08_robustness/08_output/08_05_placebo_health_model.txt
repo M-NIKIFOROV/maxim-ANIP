@@ -1,0 +1,55 @@
+SCRIPT: 08_robustness.R
+Generated: 2026-05-01 10:35:29 
+Result file: C:/Users/maxim/OneDrive/Documents/University - Year 3/ANIP/maxim-ANIP/08_robustness/08_output/08_05_placebo_health_model.txt 
+
+PLACEBO TEST: HEALTH SPENDING AS DEPENDENT VARIABLE
+Countries   : 24 
+Observations: 375 
+Year range  : 2006 - 2023 
+
+OLS estimation, Dep. Var.: log_health_spend
+Observations: 375
+Fixed-effects: year: 18
+Standard-errors: Clustered (country) 
+                        Estimate Std. Error   t value  Pr(>|t|)    
+log_energy_lag         -0.097962   0.088639 -1.105175 0.2805112    
+log1p_gasdep           -0.038481   0.038036 -1.011703 0.3222057    
+energy_gasdep_int      -0.027023   0.019538 -1.383113 0.1799108    
+log_gdp_pc              0.011430   0.165548  0.069045 0.9455504    
+threat                 -0.000142   0.000202 -0.700335 0.4907426    
+log_area                1.470227   2.940778  0.499945 0.6218635    
+nato                   -0.016452   0.053318 -0.308553 0.7604388    
+ideology                0.011625   0.005239  2.219096 0.0366247 *  
+seats                   0.001578   0.000533  2.962115 0.0069836 ** 
+ideol_seats            -0.000077   0.000041 -1.893043 0.0710024 .  
+mean_log_energy_lag    -0.378102   0.406526 -0.930082 0.3619884    
+mean_log1p_gasdep       0.269209   0.161772  1.664128 0.1096537    
+mean_energy_gasdep_int  0.133614   0.072884  1.833244 0.0797420 .  
+mean_log_gdp_pc         0.261920   0.200547  1.306031 0.2044540    
+mean_threat             0.000217   0.000205  1.061281 0.2995798    
+mean_log_area          -1.428267   2.945607 -0.484880 0.6323474    
+mean_nato               0.112140   0.163388  0.686340 0.4993601    
+mean_ideology          -0.117195   0.068982 -1.698921 0.1028225    
+mean_seats             -0.006519   0.003232 -2.016942 0.0555213 .  
+mean_ideol_seats        0.000912   0.000560  1.626673 0.1174309    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+RMSE: 0.1808     Adj. R2: 0.501036
+               Within R2: 0.522227
+
+Joint Mundlak test (all mean_* terms = 0):
+$stat
+[1] 0.8825583
+
+$p
+[1] 0.549758
+
+$df1
+[1] 10
+
+$df2
+[1] 337
+
+$vcov
+[1] "Clustered (country)"
+

@@ -1,0 +1,55 @@
+SCRIPT: 08_robustness.R
+Generated: 2026-05-01 10:35:29 
+Result file: C:/Users/maxim/OneDrive/Documents/University - Year 3/ANIP/maxim-ANIP/08_robustness/08_output/08_01_baseline_full_model.txt 
+
+BASELINE MODEL: FULL SAMPLE
+Countries   : 24 
+Observations: 375 
+Year range  : 2006 - 2023 
+
+OLS estimation, Dep. Var.: log_def_spend
+Observations: 375
+Fixed-effects: year: 18
+Standard-errors: Clustered (country) 
+                        Estimate Std. Error   t value  Pr(>|t|)    
+log_energy_lag         -0.333048   0.139152 -2.393421 0.0252427 *  
+log1p_gasdep            0.082059   0.092116  0.890818 0.3822511    
+energy_gasdep_int       0.024887   0.046645  0.533536 0.5987814    
+log_gdp_pc              0.968850   0.271015  3.574894 0.0016058 ** 
+threat                 -0.000117   0.000271 -0.432783 0.6692038    
+log_area                8.733980   3.660932  2.385726 0.0256671 *  
+nato                    0.058081   0.096863  0.599619 0.5546220    
+ideology               -0.005582   0.017497 -0.319054 0.7525654    
+seats                   0.000619   0.001004  0.616648 0.5435230    
+ideol_seats            -0.000023   0.000091 -0.255121 0.8008971    
+mean_log_energy_lag     1.243681   0.383990  3.238838 0.0036256 ** 
+mean_log1p_gasdep       0.115077   0.199533  0.576732 0.5697228    
+mean_energy_gasdep_int  0.063588   0.088750  0.716476 0.4809097    
+mean_log_gdp_pc        -0.317810   0.274835 -1.156367 0.2594013    
+mean_threat             0.000166   0.000257  0.647166 0.5239315    
+mean_log_area          -8.089656   3.691266 -2.191567 0.0387992 *  
+mean_nato               0.325100   0.311824  1.042577 0.3079797    
+mean_ideology          -0.048831   0.143379 -0.340575 0.7365146    
+mean_seats              0.000150   0.005566  0.026875 0.9787916    
+mean_ideol_seats        0.001128   0.001126  1.001069 0.3272100    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+RMSE: 0.420896     Adj. R2: 0.924302
+                 Within R2: 0.931073
+
+Joint Mundlak test (all mean_* terms = 0):
+$stat
+[1] 41.76248
+
+$p
+[1] 3.469109e-53
+
+$df1
+[1] 10
+
+$df2
+[1] 337
+
+$vcov
+[1] "Clustered (country)"
+

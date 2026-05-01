@@ -1,4 +1,13 @@
-MODEL: 05.5 FE MAIN (CRE-COMPATIBLE SAMPLE)
+SCRIPT: 05_FE_main.R
+Generated: 2026-05-01 09:16:35 
+Output file: C:/Users/maxim/OneDrive/Documents/University - Year 3/ANIP/maxim-ANIP/05_models/05_output/05_FE_main_full.txt 
+
+====================================================
+MODEL: 05 FE MAIN
+====================================================
+Countries   : 24 
+Observations: 322 
+Year range  : 2007 - 2023 
 
 OLS estimation, Dep. Var.: log_def_spend
 Observations: 322
@@ -21,15 +30,3 @@ ideol_seats           0.000023   0.000082  0.275821 0.7851490
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 RMSE: 0.130447     Adj. R2: 0.992017
                  Within R2: 0.360051
-
-Specification Notes:
-1) Sample construction is reused from 05 main (build_05_panel + get_common_countries + prepare_05_data('main')).
-2) Time window is 2006-2023, inherited from build_05_panel().
-3) Countries are restricted to the shared 05 common-country set (N countries = 24).
-4) Observations used in FE main = 322.
-5) Energy data use EUR + i_tax filter (already applied in shared panel builder).
-6) Gas dependency uses Type-2 treatment (missing gasdep imputed to 0 via build_05_panel).
-7) Main-model additions are included: debtgdp_lag and political_stress_lag.
-8) Controls match 05 CRE main substantive RHS: log_gdp_pc, threat, log_area, nato, ideology, seats, ideol_seats.
-9) Estimator difference vs 05 main: this model uses country and year fixed effects (| country + year) instead of CRE Mundlak mean_* terms.
-10) SEs clustered by country (same as 05 main). 

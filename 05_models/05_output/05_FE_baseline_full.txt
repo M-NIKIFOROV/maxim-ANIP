@@ -1,4 +1,13 @@
-MODEL: 05.5 FE BASELINE (CRE-COMPATIBLE SAMPLE)
+SCRIPT: 05_FE_baseline.R
+Generated: 2026-05-01 09:16:30 
+Output file: C:/Users/maxim/OneDrive/Documents/University - Year 3/ANIP/maxim-ANIP/05_models/05_output/05_FE_baseline_full.txt 
+
+====================================================
+MODEL: 05 FE BASELINE
+====================================================
+Countries   : 24 
+Observations: 375 
+Year range  : 2006 - 2023 
 
 OLS estimation, Dep. Var.: log_def_spend
 Observations: 375
@@ -19,15 +28,3 @@ ideol_seats       -0.000023   0.000084 -0.274354 0.78626134
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 RMSE: 0.133094     Adj. R2: 0.992127
                  Within R2: 0.34093 
-
-Specification Notes:
-1) Sample construction is reused from 05 baseline (build_05_panel + get_common_countries + prepare_05_data('baseline')).
-2) Time window is 2006-2023, inherited from build_05_panel().
-3) Countries are restricted to the shared 05 common-country set (N countries = 24).
-4) Observations used in FE baseline = 375.
-5) Energy data use EUR + i_tax filter (already applied in shared panel builder).
-6) Gas dependency uses Type-2 treatment (missing gasdep imputed to 0 via build_05_panel).
-7) Controls match 05 CRE baseline substantive RHS: log_gdp_pc, threat, log_area, nato, ideology, seats, ideol_seats.
-8) Added terms matching 05 baseline: log1p_gasdep and energy_gasdep_int.
-9) Estimator difference vs 05 baseline: this model uses country and year fixed effects (| country + year) instead of CRE Mundlak mean_* terms.
-10) SEs clustered by country (same as 05 baseline). 

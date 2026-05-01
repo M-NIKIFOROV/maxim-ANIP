@@ -1,0 +1,14 @@
+SCRIPT: 07_diagnostics.R
+Generated: 2026-05-01 10:35:17 
+Result file: C:/Users/maxim/OneDrive/Documents/University - Year 3/ANIP/maxim-ANIP/07_diagnostics/07_output/07_02_serial_correlation_pbgtest.txt 
+
+TEST 1: WOOLDRIDGE SERIAL CORRELATION (pbgtest)
+H0: No serial correlation in idiosyncratic errors
+
+
+	Breusch-Godfrey/Wooldridge test for serial correlation in panel models
+
+data:  fe_formula
+chisq = 114.72, df = 8, p-value < 2.2e-16
+alternative hypothesis: serial correlation in idiosyncratic errors
+

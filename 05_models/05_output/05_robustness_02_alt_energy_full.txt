@@ -1,4 +1,5 @@
-Robustness 2: Alternative energy (Brent) in baseline specification 
+SCRIPT: 05_robustness.R
+CHECK: Alternative energy (Brent) in baseline specification 
 
 OLS estimation, Dep. Var.: log_def_spend
 Observations: 375
@@ -34,5 +35,3 @@ Notes:
 - Countries: 24
 - Observations: 375
 - Year range in estimation sample: 2006-2023
-- Brent is common across countries by year, so year FE can absorb the main Brent term.
-- Main Brent term reported in coefficient table: FALSE

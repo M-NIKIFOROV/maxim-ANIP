@@ -1,4 +1,5 @@
-Robustness 1: Alternative DV (log(defencegdp)) with baseline specification 
+SCRIPT: 05_robustness.R
+CHECK: Alternative DV (log(defencegdp)) with baseline specification 
 
 OLS estimation, Dep. Var.: log_defencegdp
 Observations: 375
@@ -34,4 +35,3 @@ Notes:
 - Countries: 24
 - Observations: 375
 - Year range in estimation sample: 2006-2023
-- Sample pipeline reused from 05 baseline, then DV replaced with defencegdp.

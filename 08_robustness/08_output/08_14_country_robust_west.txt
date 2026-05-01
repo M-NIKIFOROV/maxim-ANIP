@@ -1,0 +1,72 @@
+SCRIPT: 08_robustness.R
+Generated: 2026-05-01 10:35:31 
+Result file: C:/Users/maxim/OneDrive/Documents/University - Year 3/ANIP/maxim-ANIP/08_robustness/08_output/08_14_country_robust_west.txt 
+
+COUNTRY ROBUSTNESS TABLE: WEST (LEAVE-ONE-OUT)
+ split omitted_country n_countries n_obs coef_energy   p_energy
+  west           italy          14   218  -0.1727825 0.02334710
+  west         belgium          14   216  -0.1632890 0.03124961
+  west         ireland          14   215  -0.1604923 0.03149990
+  west          sweden          14   213  -0.1774526 0.04555681
+  west         germany          14   214  -0.1493004 0.04938981
+  west         austria          14   216  -0.1542781 0.05261773
+  west          greece          14   212  -0.1546555 0.07177945
+  west           spain          14   216  -0.1374700 0.09637813
+  west         denmark          14   213  -0.1474629 0.09916679
+  west         finland          14   212  -0.1206185 0.10786572
+  west           malta          14   218  -0.1985422 0.11182432
+  west        portugal          14   213  -0.1241441 0.12226306
+  west          france          14   213  -0.1116119 0.13425087
+  west          cyprus          14   214  -0.1175465 0.19307595
+  west      luxembourg          14   217  -0.0690238 0.21354149
+ sign_same_energy sig10_energy coef_interaction p_interaction
+             TRUE         TRUE      0.013123438     0.5973397
+             TRUE         TRUE     -0.005310565     0.8304283
+             TRUE         TRUE      0.029282161     0.2142778
+             TRUE         TRUE      0.005308115     0.8510058
+             TRUE         TRUE     -0.006346106     0.8063828
+             TRUE         TRUE      0.002503736     0.9265302
+             TRUE         TRUE     -0.008127284     0.7502872
+             TRUE         TRUE      0.018511298     0.5239871
+             TRUE         TRUE      0.018129827     0.5463544
+             TRUE        FALSE      0.007869189     0.7793500
+             TRUE        FALSE      0.025150977     0.3745777
+             TRUE        FALSE      0.014775096     0.6276106
+             TRUE        FALSE      0.009758975     0.7118533
+             TRUE        FALSE      0.009297207     0.7481813
+             TRUE        FALSE      0.032926828     0.1812318
+ sign_same_interaction sig10_interaction robust_flag robust_flag_strict
+                  TRUE             FALSE        TRUE              FALSE
+                 FALSE             FALSE        TRUE              FALSE
+                  TRUE             FALSE        TRUE              FALSE
+                  TRUE             FALSE        TRUE              FALSE
+                 FALSE             FALSE        TRUE              FALSE
+                  TRUE             FALSE        TRUE              FALSE
+                 FALSE             FALSE        TRUE              FALSE
+                  TRUE             FALSE        TRUE              FALSE
+                  TRUE             FALSE        TRUE              FALSE
+                  TRUE             FALSE       FALSE              FALSE
+                  TRUE             FALSE       FALSE              FALSE
+                  TRUE             FALSE       FALSE              FALSE
+                  TRUE             FALSE       FALSE              FALSE
+                  TRUE             FALSE       FALSE              FALSE
+                  TRUE             FALSE       FALSE              FALSE
+ fit_error
+      <NA>
+      <NA>
+      <NA>
+      <NA>
+      <NA>
+      <NA>
+      <NA>
+      <NA>
+      <NA>
+      <NA>
+      <NA>
+      <NA>
+      <NA>
+      <NA>
+      <NA>
+
+Robust count (main rule): 9 out of 15 
+Robust count (strict rule): 0 out of 15 

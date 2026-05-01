@@ -1,0 +1,39 @@
+SCRIPT: 05_robustness.R
+CHECK: Alternative lag as standalone result
+Model: MAIN 
+Lag  : 0 
+Original p(log_energy_lag): 0.1185 
+
+OLS estimation, Dep. Var.: log_def_spend
+Observations: 322
+Fixed-effects: year: 17
+Standard-errors: Clustered (country) 
+                           Estimate Std. Error   t value  Pr(>|t|)    
+log_energy_lag            -0.243176   0.200269 -1.214248 0.2369736    
+log1p_gasdep               0.159734   0.116342  1.372968 0.1830014    
+energy_gasdep_int          0.067449   0.061603  1.094901 0.2848937    
+debtgdp_lag                0.003860   0.002986  1.292582 0.2089908    
+political_stress_lag      -0.217153   0.164123 -1.323114 0.1988015    
+log_gdp_pc                 1.389946   0.421632  3.296582 0.0031561 ** 
+threat                    -0.000227   0.000292 -0.778795 0.4440401    
+log_area                   8.562376   4.560379  1.877558 0.0731814 .  
+nato                       0.231719   0.133767  1.732260 0.0966190 .  
+ideology                  -0.002959   0.018438 -0.160486 0.8738996    
+seats                      0.000247   0.001087  0.227342 0.8221667    
+ideol_seats               -0.000012   0.000084 -0.147638 0.8839151    
+mean_log_energy_lag        0.970910   0.519516  1.868875 0.0744286 .  
+mean_log1p_gasdep         -0.090019   0.211480 -0.425662 0.6743110    
+mean_energy_gasdep_int    -0.017323   0.092193 -0.187903 0.8526005    
+mean_debtgdp_lag           0.003870   0.003927  0.985394 0.3346837    
+mean_political_stress_lag -1.399619   1.300111 -1.076538 0.2928496    
+mean_log_gdp_pc           -0.771496   0.379092 -2.035116 0.0535221 .  
+mean_threat                0.000114   0.000306  0.373662 0.7120778    
+mean_log_area             -7.892268   4.550211 -1.734484 0.0962167 .  
+mean_nato                  0.405517   0.324871  1.248239 0.2245015    
+mean_ideology             -0.068545   0.084955 -0.806839 0.4280243    
+mean_seats                -0.000348   0.004618 -0.075288 0.9406367    
+mean_ideol_seats           0.001197   0.000953  1.256080 0.2216965    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+RMSE: 0.376295     Adj. R2: 0.936171
+                 Within R2: 0.94291 

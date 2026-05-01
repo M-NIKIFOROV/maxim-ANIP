@@ -1,0 +1,60 @@
+SCRIPT: 08_robustness.R
+Generated: 2026-05-01 10:35:30 
+Result file: C:/Users/maxim/OneDrive/Documents/University - Year 3/ANIP/maxim-ANIP/08_robustness/08_output/08_10_country_robust_high_gasdep.txt 
+
+COUNTRY ROBUSTNESS TABLE: HIGH GASDEP (LEAVE-ONE-OUT)
+       split omitted_country n_countries n_obs coef_energy    p_energy
+ high_gasdep         finland          11   168  -0.7515876 0.008280394
+ high_gasdep         austria          11   172  -0.7309590 0.027958234
+ high_gasdep           italy          11   174  -0.7580026 0.030059659
+ high_gasdep         belgium          11   172  -0.6901264 0.030513456
+ high_gasdep         germany          11   170  -0.6985134 0.031563962
+ high_gasdep          poland          11   172  -0.9389927 0.032110272
+ high_gasdep           spain          11   172  -0.8128006 0.038029072
+ high_gasdep          france          11   169  -0.8306514 0.052476996
+ high_gasdep         hungary          11   169  -0.6358232 0.092999754
+ high_gasdep        portugal          11   169  -0.7266918 0.159838735
+ high_gasdep          greece          11   168  -0.4791280 0.219869900
+ high_gasdep         ireland          11   171  -0.1554344 0.482999289
+ sign_same_energy sig10_energy coef_interaction p_interaction
+             TRUE         TRUE       0.10078950    0.01818449
+             TRUE         TRUE       0.07835560    0.17342088
+             TRUE         TRUE       0.09380953    0.10766229
+             TRUE         TRUE       0.07600844    0.16202512
+             TRUE         TRUE       0.08295391    0.14658623
+             TRUE         TRUE       0.13039073    0.05417225
+             TRUE         TRUE       0.10739139    0.10404872
+             TRUE         TRUE       0.10410773    0.13701412
+             TRUE         TRUE       0.09031736    0.17262220
+             TRUE        FALSE       0.08590092    0.27928371
+             TRUE        FALSE       0.04956536    0.42789181
+             TRUE        FALSE       0.02047897    0.63255986
+ sign_same_interaction sig10_interaction robust_flag robust_flag_strict
+                  TRUE              TRUE        TRUE               TRUE
+                  TRUE             FALSE        TRUE              FALSE
+                  TRUE             FALSE        TRUE              FALSE
+                  TRUE             FALSE        TRUE              FALSE
+                  TRUE             FALSE        TRUE              FALSE
+                  TRUE              TRUE        TRUE               TRUE
+                  TRUE             FALSE        TRUE              FALSE
+                  TRUE             FALSE        TRUE              FALSE
+                  TRUE             FALSE        TRUE              FALSE
+                  TRUE             FALSE       FALSE              FALSE
+                  TRUE             FALSE       FALSE              FALSE
+                  TRUE             FALSE       FALSE              FALSE
+ fit_error
+      <NA>
+      <NA>
+      <NA>
+      <NA>
+      <NA>
+      <NA>
+      <NA>
+      <NA>
+      <NA>
+      <NA>
+      <NA>
+      <NA>
+
+Robust count (main rule): 9 out of 12 
+Robust count (strict rule): 2 out of 12 

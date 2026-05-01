@@ -1,5 +1,5 @@
 # 03_mundlak_common.R
-# Shared helpers for Mundlak Type 1 and Type 2 runs across all ANIP models.
+# Mundlak (CRE) specification tests aligned to the full 05 model setup.
 
 library(readr)
 library(dplyr)
@@ -141,24 +141,48 @@ build_panel <- function() {
     ungroup()
 }
 
-prepare_data <- function(panel, model_name, type_name) {
-  data <- panel
+build_03_04_panel <- function() {
+  build_panel() %>%
+    filter(year >= 2006, year <= 2023) %>%
+    mutate(gasdep = if_else(is.na(gasdep), 0, gasdep))
+}
 
-  if (type_name == "type1") {
-    countries_with_gasdep <- data %>%
-      group_by(country) %>%
-      summarise(has_gasdep = any(!is.na(gasdep)), .groups = "drop") %>%
-      filter(has_gasdep) %>%
-      pull(country)
+get_03_04_common_countries <- function(panel) {
+  panel %>%
+    mutate(
+      log_energy_lag = if_else(!is.na(energy_lag) & energy_lag > 0, log(energy_lag), NA_real_),
+      log_gdp_pc = if_else(!is.na(gdp_pc) & gdp_pc > 0, log(gdp_pc), NA_real_),
+      log_area = if_else(!is.na(area) & area > 0, log(area), NA_real_),
+      log_def_spend = if_else(!is.na(def_spend) & def_spend > 0, log(def_spend), NA_real_),
+      log1p_gasdep = log1p(gasdep),
+      energy_gasdep_int = log_energy_lag * log1p_gasdep
+    ) %>%
+    filter(
+      !is.na(log_energy_lag),
+      !is.na(log1p_gasdep),
+      !is.na(energy_gasdep_int),
+      !is.na(log_gdp_pc),
+      !is.na(threat),
+      !is.na(log_area),
+      !is.na(nato),
+      !is.na(ideology),
+      !is.na(seats),
+      !is.na(ideol_seats),
+      !is.na(log_def_spend),
+      !is.na(debtgdp_lag),
+      !is.na(political_stress_lag)
+    ) %>%
+    pull(country) %>%
+    unique()
+}
 
-    data <- data %>% filter(country %in% countries_with_gasdep)
+prepare_data <- function(panel, model_name, type_name = NULL, common_countries = NULL) {
+  if (is.null(common_countries)) {
+    common_countries <- get_03_04_common_countries(panel)
   }
 
-  if (type_name == "type2") {
-    data <- data %>% mutate(gasdep = if_else(is.na(gasdep), 0, gasdep))
-  }
-
-  data <- data %>%
+  data <- panel %>%
+    filter(country %in% common_countries) %>%
     mutate(
       log_energy_lag = if_else(!is.na(energy_lag) & energy_lag > 0, log(energy_lag), NA_real_),
       log_gdp_pc = if_else(!is.na(gdp_pc) & gdp_pc > 0, log(gdp_pc), NA_real_),
@@ -184,7 +208,7 @@ prepare_data <- function(panel, model_name, type_name) {
 
   if (model_name == "baseline") {
     model_data <- common_filter %>%
-      filter(!is.na(log_def_spend), !is.na(debtgdp_lag), !is.na(political_stress_lag))
+      filter(!is.na(log_def_spend))
   } else if (model_name == "aux_fiscal") {
     model_data <- common_filter %>%
       filter(!is.na(debtgdp))
@@ -217,11 +241,9 @@ prepare_data <- function(panel, model_name, type_name) {
     ungroup()
 }
 
-run_one_model <- function(panel, type_name, model_name, header_text) {
-  model_data <- prepare_data(panel, model_name, type_name)
-
+get_03_04_formula <- function(model_name) {
   if (model_name == "baseline") {
-    fml <- log_def_spend ~
+    log_def_spend ~
       log_energy_lag + log1p_gasdep + energy_gasdep_int +
       log_gdp_pc + threat + log_area + nato + ideology + seats + ideol_seats +
       mean_log_energy_lag + mean_log1p_gasdep + mean_energy_gasdep_int +
@@ -229,7 +251,7 @@ run_one_model <- function(panel, type_name, model_name, header_text) {
       mean_ideology + mean_seats + mean_ideol_seats |
       year
   } else if (model_name == "aux_fiscal") {
-    fml <- debtgdp ~
+    debtgdp ~
       log_energy_lag + log1p_gasdep + energy_gasdep_int +
       log_gdp_pc + threat + log_area + nato + ideology + seats + ideol_seats +
       mean_log_energy_lag + mean_log1p_gasdep + mean_energy_gasdep_int +
@@ -237,7 +259,7 @@ run_one_model <- function(panel, type_name, model_name, header_text) {
       mean_ideology + mean_seats + mean_ideol_seats |
       year
   } else if (model_name == "aux_political") {
-    fml <- political_stress ~
+    political_stress ~
       log_energy_lag + log1p_gasdep + energy_gasdep_int +
       log_gdp_pc + threat + log_area + nato + ideology + seats + ideol_seats +
       mean_log_energy_lag + mean_log1p_gasdep + mean_energy_gasdep_int +
@@ -245,7 +267,7 @@ run_one_model <- function(panel, type_name, model_name, header_text) {
       mean_ideology + mean_seats + mean_ideol_seats |
       year
   } else if (model_name == "main") {
-    fml <- log_def_spend ~
+    log_def_spend ~
       log_energy_lag + log1p_gasdep + energy_gasdep_int +
       debtgdp_lag + political_stress_lag +
       log_gdp_pc + threat + log_area + nato + ideology + seats + ideol_seats +
@@ -257,6 +279,11 @@ run_one_model <- function(panel, type_name, model_name, header_text) {
   } else {
     stop("Unknown model name")
   }
+}
+
+run_one_model <- function(panel, type_name, model_name, header_text, common_countries) {
+  model_data <- prepare_data(panel, model_name, type_name, common_countries)
+  fml <- get_03_04_formula(model_name)
 
   model <- feols(fml, data = model_data, cluster = "country")
   mundlak_test <- wald(model, keep = "^mean_")
@@ -264,7 +291,7 @@ run_one_model <- function(panel, type_name, model_name, header_text) {
   cat("\n====================================================\n")
   cat(header_text, "\n")
   cat("====================================================\n")
-  cat("Type:", type_name, "\n")
+  cat("Type:", type_name, "(compatibility label; estimation uses 05-spec sample)\n")
   cat("Countries:", length(unique(model_data$country)), "\n")
   cat("Observations:", nrow(model_data), "\n\n")
   print(summary(model))
@@ -276,13 +303,14 @@ run_one_model <- function(panel, type_name, model_name, header_text) {
 
 run_all_mundlak_models <- function(type_name = c("type1", "type2")) {
   type_name <- match.arg(type_name)
-  panel <- build_panel()
+  panel <- build_03_04_panel()
+  common_countries <- get_03_04_common_countries(panel)
 
   results <- list(
-    baseline = run_one_model(panel, type_name, "baseline", "MODEL 1: BASELINE"),
-    aux_fiscal = run_one_model(panel, type_name, "aux_fiscal", "MODEL 2: AUXILIARY FISCAL STRESS"),
-    aux_political = run_one_model(panel, type_name, "aux_political", "MODEL 3: AUXILIARY POLITICAL STRESS"),
-    main = run_one_model(panel, type_name, "main", "MODEL 4: MAIN MODEL")
+    baseline = run_one_model(panel, type_name, "baseline", "MODEL 1: BASELINE", common_countries),
+    aux_fiscal = run_one_model(panel, type_name, "aux_fiscal", "MODEL 2: AUXILIARY FISCAL STRESS", common_countries),
+    aux_political = run_one_model(panel, type_name, "aux_political", "MODEL 3: AUXILIARY POLITICAL STRESS", common_countries),
+    main = run_one_model(panel, type_name, "main", "MODEL 4: MAIN MODEL", common_countries)
   )
 
   invisible(results)
