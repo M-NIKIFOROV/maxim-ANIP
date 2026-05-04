@@ -1,5 +1,5 @@
 SCRIPT: 08_robustness.R
-Generated: 2026-05-01 10:35:18 
+Generated: 2026-05-01 16:32:15 
 Output file: C:/Users/maxim/OneDrive/Documents/University - Year 3/ANIP/maxim-ANIP/08_robustness/08_output/08_robustness_full.txt 
 
 ====================================================
@@ -434,6 +434,17 @@ Strict rule adds interaction sign and p<0.10 for energy_gasdep_int
 
 Robust count (main rule): 24 out of 24 
 Robust count (strict rule): 0 out of 24 
+
+LOO SIGNIFICANCE SUMMARY (FULL SAMPLE, log_energy_lag)
+Total exclusions: 24 
+Successful re-estimations: 24 
+Significant at 10%: 24 
+Significant at 5%: 21 
+Significant at 1%: 0 
+Negative coefficient count: 24 
+Same sign as full-sample model: 24 
+Coefficient range: -0.452183 to -0.200414 
+p-value range: 0.01266 to 0.0607 
 
 ====================================================
 SPLIT 1: GASDEP MEDIAN SPLIT
@@ -934,7 +945,7 @@ Robust count (main rule): 9 out of 15
 Robust count (strict rule): 0 out of 15 
 
 SCRIPT: 08_robustness.R
-Generated: 2026-05-01 10:35:29 
+Generated: 2026-05-01 16:32:22 
 Result file: C:/Users/maxim/OneDrive/Documents/University - Year 3/ANIP/maxim-ANIP/08_robustness/08_output/08_01_baseline_full_model.txt 
 
 BASELINE MODEL: FULL SAMPLE
@@ -989,7 +1000,7 @@ $vcov
 [1] "Clustered (country)"
 
 SCRIPT: 08_robustness.R
-Generated: 2026-05-01 10:35:29 
+Generated: 2026-05-01 16:32:22 
 Result file: C:/Users/maxim/OneDrive/Documents/University - Year 3/ANIP/maxim-ANIP/08_robustness/08_output/08_02_model_re.txt 
 
 ALTERNATIVE MODEL FAMILY
@@ -1041,7 +1052,7 @@ R-Squared:      0.7425
 Adj. R-Squared: 0.73543
 Chisq: 3.41639 on 10 DF, p-value: 0.96986
 SCRIPT: 08_robustness.R
-Generated: 2026-05-01 10:35:29 
+Generated: 2026-05-01 16:32:22 
 Result file: C:/Users/maxim/OneDrive/Documents/University - Year 3/ANIP/maxim-ANIP/08_robustness/08_output/08_03_model_fe_driscoll_kraay.txt 
 
 ALTERNATIVE MODEL FAMILY
@@ -1099,7 +1110,7 @@ ideol_seats       -2.3115e-05  6.1981e-05 -0.3729    0.7094
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 SCRIPT: 08_robustness.R
-Generated: 2026-05-01 10:35:29 
+Generated: 2026-05-01 16:32:23 
 Result file: C:/Users/maxim/OneDrive/Documents/University - Year 3/ANIP/maxim-ANIP/08_robustness/08_output/08_04_model_pcse.txt 
 
 ALTERNATIVE MODEL FAMILY
@@ -1193,7 +1204,7 @@ factor(year)2023  -8.3445e-01  3.6153e-01 -2.3081 0.0215819 *
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 SCRIPT: 08_robustness.R
-Generated: 2026-05-01 10:35:29 
+Generated: 2026-05-01 16:32:23 
 Result file: C:/Users/maxim/OneDrive/Documents/University - Year 3/ANIP/maxim-ANIP/08_robustness/08_output/08_05_placebo_health_model.txt 
 
 PLACEBO TEST: HEALTH SPENDING AS DEPENDENT VARIABLE
@@ -1248,7 +1259,7 @@ $vcov
 [1] "Clustered (country)"
 
 SCRIPT: 08_robustness.R
-Generated: 2026-05-01 10:35:30 
+Generated: 2026-05-01 16:32:23 
 Result file: C:/Users/maxim/OneDrive/Documents/University - Year 3/ANIP/maxim-ANIP/08_robustness/08_output/08_06_country_robust_full.txt 
 
 COUNTRY ROBUSTNESS TABLE: FULL SAMPLE (LEAVE-ONE-OUT)
@@ -1356,7 +1367,7 @@ COUNTRY ROBUSTNESS TABLE: FULL SAMPLE (LEAVE-ONE-OUT)
 Robust count (main rule): 24 out of 24 
 Robust count (strict rule): 0 out of 24 
 SCRIPT: 08_robustness.R
-Generated: 2026-05-01 10:35:30 
+Generated: 2026-05-01 16:32:23 
 Result file: C:/Users/maxim/OneDrive/Documents/University - Year 3/ANIP/maxim-ANIP/08_robustness/08_output/08_07_baseline_low_gasdep_model.txt 
 
 BASELINE MODEL: LOW GASDEP
@@ -1407,7 +1418,7 @@ $vcov
 [1] "Clustered (country)"
 
 SCRIPT: 08_robustness.R
-Generated: 2026-05-01 10:35:30 
+Generated: 2026-05-01 16:32:23 
 Result file: C:/Users/maxim/OneDrive/Documents/University - Year 3/ANIP/maxim-ANIP/08_robustness/08_output/08_08_baseline_high_gasdep_model.txt 
 
 BASELINE MODEL: HIGH GASDEP
@@ -1458,7 +1469,7 @@ $vcov
 [1] "Clustered (country)"
 
 SCRIPT: 08_robustness.R
-Generated: 2026-05-01 10:35:30 
+Generated: 2026-05-01 16:32:23 
 Result file: C:/Users/maxim/OneDrive/Documents/University - Year 3/ANIP/maxim-ANIP/08_robustness/08_output/08_09_country_robust_low_gasdep.txt 
 
 COUNTRY ROBUSTNESS TABLE: LOW GASDEP (LEAVE-ONE-OUT)
@@ -1518,7 +1529,7 @@ COUNTRY ROBUSTNESS TABLE: LOW GASDEP (LEAVE-ONE-OUT)
 Robust count (main rule): 2 out of 12 
 Robust count (strict rule): 0 out of 12 
 SCRIPT: 08_robustness.R
-Generated: 2026-05-01 10:35:30 
+Generated: 2026-05-01 16:32:23 
 Result file: C:/Users/maxim/OneDrive/Documents/University - Year 3/ANIP/maxim-ANIP/08_robustness/08_output/08_10_country_robust_high_gasdep.txt 
 
 COUNTRY ROBUSTNESS TABLE: HIGH GASDEP (LEAVE-ONE-OUT)
@@ -1578,7 +1589,7 @@ COUNTRY ROBUSTNESS TABLE: HIGH GASDEP (LEAVE-ONE-OUT)
 Robust count (main rule): 9 out of 12 
 Robust count (strict rule): 2 out of 12 
 SCRIPT: 08_robustness.R
-Generated: 2026-05-01 10:35:31 
+Generated: 2026-05-01 16:32:23 
 Result file: C:/Users/maxim/OneDrive/Documents/University - Year 3/ANIP/maxim-ANIP/08_robustness/08_output/08_11_baseline_east_model.txt 
 
 BASELINE MODEL: EAST
@@ -1629,7 +1640,7 @@ $vcov
 [1] "Clustered (country)"
 
 SCRIPT: 08_robustness.R
-Generated: 2026-05-01 10:35:31 
+Generated: 2026-05-01 16:32:23 
 Result file: C:/Users/maxim/OneDrive/Documents/University - Year 3/ANIP/maxim-ANIP/08_robustness/08_output/08_12_baseline_west_model.txt 
 
 BASELINE MODEL: WEST
@@ -1680,7 +1691,7 @@ $vcov
 [1] "Clustered (country)"
 
 SCRIPT: 08_robustness.R
-Generated: 2026-05-01 10:35:31 
+Generated: 2026-05-01 16:32:23 
 Result file: C:/Users/maxim/OneDrive/Documents/University - Year 3/ANIP/maxim-ANIP/08_robustness/08_output/08_13_country_robust_east.txt 
 
 COUNTRY ROBUSTNESS TABLE: EAST (LEAVE-ONE-OUT)
@@ -1728,7 +1739,7 @@ COUNTRY ROBUSTNESS TABLE: EAST (LEAVE-ONE-OUT)
 Robust count (main rule): 4 out of 9 
 Robust count (strict rule): 0 out of 9 
 SCRIPT: 08_robustness.R
-Generated: 2026-05-01 10:35:31 
+Generated: 2026-05-01 16:32:23 
 Result file: C:/Users/maxim/OneDrive/Documents/University - Year 3/ANIP/maxim-ANIP/08_robustness/08_output/08_14_country_robust_west.txt 
 
 COUNTRY ROBUSTNESS TABLE: WEST (LEAVE-ONE-OUT)
@@ -1799,3 +1810,23 @@ COUNTRY ROBUSTNESS TABLE: WEST (LEAVE-ONE-OUT)
 
 Robust count (main rule): 9 out of 15 
 Robust count (strict rule): 0 out of 15 
+SCRIPT: 08_robustness.R
+Generated: 2026-05-01 16:32:24 
+Result file: C:/Users/maxim/OneDrive/Documents/University - Year 3/ANIP/maxim-ANIP/08_robustness/08_output/08_15_loo_significance_summary.txt 
+
+LEAVE-ONE-OUT COUNTRY EXCLUSION TEST
+Target coefficient: log_energy_lag
+
+Full-sample benchmark (baseline CRE):
+  beta = -0.333048  | p = 0.02524 
+
+LOO summary over omitted-country re-estimations:
+  Total exclusions: 24 
+  Successful fits: 24 
+  Significant at 10%: 24 
+  Significant at 5%: 21 
+  Significant at 1%: 0 
+  Negative coefficient count: 24 
+  Same sign as benchmark: 24 
+  Coefficient range: -0.452183 to -0.200414 
+  p-value range: 0.01266 to 0.0607 

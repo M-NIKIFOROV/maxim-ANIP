@@ -1,5 +1,5 @@
 SCRIPT: 08_robustness.R
-Generated: 2026-05-01 10:35:30 
+Generated: 2026-05-01 16:32:23 
 Result file: C:/Users/maxim/OneDrive/Documents/University - Year 3/ANIP/maxim-ANIP/08_robustness/08_output/08_07_baseline_low_gasdep_model.txt 
 
 BASELINE MODEL: LOW GASDEP

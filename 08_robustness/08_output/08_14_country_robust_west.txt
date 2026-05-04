@@ -1,5 +1,5 @@
 SCRIPT: 08_robustness.R
-Generated: 2026-05-01 10:35:31 
+Generated: 2026-05-01 16:32:23 
 Result file: C:/Users/maxim/OneDrive/Documents/University - Year 3/ANIP/maxim-ANIP/08_robustness/08_output/08_14_country_robust_west.txt 
 
 COUNTRY ROBUSTNESS TABLE: WEST (LEAVE-ONE-OUT)

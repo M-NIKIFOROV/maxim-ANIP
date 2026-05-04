@@ -284,6 +284,48 @@ build_country_robust_table <- function(panel, countries, reference_model,
   bind_rows(rows) %>% arrange(p_energy)
 }
 
+summarise_loo_significance <- function(tab, ref_model) {
+  ref_energy <- extract_term_stats(ref_model, "log_energy_lag")
+
+  valid <- tab[!is.na(tab$p_energy) & !is.na(tab$coef_energy), , drop = FALSE]
+  n_total <- nrow(tab)
+  n_valid <- nrow(valid)
+
+  if (n_valid == 0) {
+    return(list(
+      n_total = n_total,
+      n_valid = 0L,
+      n_sig_10 = 0L,
+      n_sig_05 = 0L,
+      n_sig_01 = 0L,
+      n_negative = 0L,
+      n_same_sign = 0L,
+      min_p = NA_real_,
+      max_p = NA_real_,
+      min_beta = NA_real_,
+      max_beta = NA_real_,
+      ref_beta = as.numeric(ref_energy["estimate"]),
+      ref_p = as.numeric(ref_energy["p_value"])
+    ))
+  }
+
+  list(
+    n_total = n_total,
+    n_valid = n_valid,
+    n_sig_10 = sum(valid$p_energy < 0.10),
+    n_sig_05 = sum(valid$p_energy < 0.05),
+    n_sig_01 = sum(valid$p_energy < 0.01),
+    n_negative = sum(valid$coef_energy < 0),
+    n_same_sign = sum(sign(valid$coef_energy) == sign(ref_energy["estimate"])),
+    min_p = min(valid$p_energy),
+    max_p = max(valid$p_energy),
+    min_beta = min(valid$coef_energy),
+    max_beta = max(valid$coef_energy),
+    ref_beta = as.numeric(ref_energy["estimate"]),
+    ref_p = as.numeric(ref_energy["p_value"])
+  )
+}
+
 cat("====================================================\n")
 cat("BASE SAMPLE (05 PIPELINE)\n")
 cat("====================================================\n")
@@ -311,6 +353,21 @@ cat("\nRobust count (main rule):", sum(tab_full$robust_flag, na.rm = TRUE),
   "out of", nrow(tab_full), "\n")
 cat("Robust count (strict rule):", sum(tab_full$robust_flag_strict, na.rm = TRUE),
   "out of", nrow(tab_full), "\n\n")
+
+loo_full_sig <- summarise_loo_significance(tab_full, res_full$model)
+
+cat("LOO SIGNIFICANCE SUMMARY (FULL SAMPLE, log_energy_lag)\n")
+cat("Total exclusions:", loo_full_sig$n_total, "\n")
+cat("Successful re-estimations:", loo_full_sig$n_valid, "\n")
+cat("Significant at 10%:", loo_full_sig$n_sig_10, "\n")
+cat("Significant at 5%:", loo_full_sig$n_sig_05, "\n")
+cat("Significant at 1%:", loo_full_sig$n_sig_01, "\n")
+cat("Negative coefficient count:", loo_full_sig$n_negative, "\n")
+cat("Same sign as full-sample model:", loo_full_sig$n_same_sign, "\n")
+cat("Coefficient range:", round(loo_full_sig$min_beta, 6), "to",
+    round(loo_full_sig$max_beta, 6), "\n")
+cat("p-value range:", signif(loo_full_sig$min_p, 4), "to",
+    signif(loo_full_sig$max_p, 4), "\n\n")
 
 # ---------------------------------------------------------------------------
 # Split 1: Gas dependency median split (country-level mean gasdep)
@@ -551,6 +608,28 @@ write_result_file_08("08_14_country_robust_west.txt", {
       "out of", nrow(tab_west), "\n")
 })
 
+write_result_file_08("08_15_loo_significance_summary.txt", {
+  cat("LEAVE-ONE-OUT COUNTRY EXCLUSION TEST\n")
+  cat("Target coefficient: log_energy_lag\n\n")
+
+  cat("Full-sample benchmark (baseline CRE):\n")
+  cat("  beta =", round(loo_full_sig$ref_beta, 6),
+    " | p =", signif(loo_full_sig$ref_p, 4), "\n\n")
+
+  cat("LOO summary over omitted-country re-estimations:\n")
+  cat("  Total exclusions:", loo_full_sig$n_total, "\n")
+  cat("  Successful fits:", loo_full_sig$n_valid, "\n")
+  cat("  Significant at 10%:", loo_full_sig$n_sig_10, "\n")
+  cat("  Significant at 5%:", loo_full_sig$n_sig_05, "\n")
+  cat("  Significant at 1%:", loo_full_sig$n_sig_01, "\n")
+  cat("  Negative coefficient count:", loo_full_sig$n_negative, "\n")
+  cat("  Same sign as benchmark:", loo_full_sig$n_same_sign, "\n")
+  cat("  Coefficient range:", round(loo_full_sig$min_beta, 6), "to",
+    round(loo_full_sig$max_beta, 6), "\n")
+  cat("  p-value range:", signif(loo_full_sig$min_p, 4), "to",
+    signif(loo_full_sig$max_p, 4), "\n")
+})
+
 message("Saved: 08_robustness/08_output/08_01_baseline_full_model.txt")
 message("Saved: 08_robustness/08_output/08_02_model_re.txt")
 message("Saved: 08_robustness/08_output/08_03_model_fe_driscoll_kraay.txt")
@@ -565,6 +644,7 @@ message("Saved: 08_robustness/08_output/08_11_baseline_east_model.txt")
 message("Saved: 08_robustness/08_output/08_12_baseline_west_model.txt")
 message("Saved: 08_robustness/08_output/08_13_country_robust_east.txt")
 message("Saved: 08_robustness/08_output/08_14_country_robust_west.txt")
+message("Saved: 08_robustness/08_output/08_15_loo_significance_summary.txt")
 
 invisible(list(
   full = list(result = res_full, table = tab_full),
