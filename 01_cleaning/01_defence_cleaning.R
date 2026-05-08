@@ -37,7 +37,7 @@ defence_raw <- defence_raw[-1, ]
 # f) Make all cols starting with 2 an integer
 if (ncol(defence_raw) > 1) {
   data_cols <- names(defence_raw)[2:ncol(defence_raw)]
-  defence_raw <- defence_raw %>% mutate(across(all_of(data_cols), ~as.integer(.)))
+  defence_raw <- defence_raw %>% mutate(across(all_of(data_cols), ~as.numeric(.)))
 }
 
 # g) Remove columns called 1949 to 1979

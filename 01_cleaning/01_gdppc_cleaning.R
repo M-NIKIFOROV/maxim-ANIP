@@ -17,7 +17,7 @@ library(readr)
 library(dplyr)
 
 # Define file path
-gdppc_file <- "data/raw/csv/gdppc(worldbank).csv"
+gdppc_file <- "data/raw/csv/gdppc(correct).csv"
 
 # a) Load in without colnames
 gdppc_raw <- read_csv(gdppc_file, col_names = FALSE, col_types = cols(.default = "c"))
@@ -41,7 +41,7 @@ gdppc_raw <- gdppc_raw[-1, ]
 # f) Make all cols starting from col 5 an integer
 if (ncol(gdppc_raw) >= 5) {
   data_cols <- names(gdppc_raw)[5:ncol(gdppc_raw)]
-  gdppc_raw <- gdppc_raw %>% mutate(across(all_of(data_cols), ~as.integer(.)))
+  gdppc_raw <- gdppc_raw %>% mutate(across(all_of(data_cols), ~as.numeric(.)))
 }
 
 # g) Remove columns called 1960 to 1979, and 2025
