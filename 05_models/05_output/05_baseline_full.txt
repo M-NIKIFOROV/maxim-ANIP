@@ -1,9 +1,9 @@
 SCRIPT: 05_baseline.R
-Generated: 2026-05-01 09:15:40 
+Generated: 2026-05-08 14:57:18 
 Output file: C:/Users/maxim/OneDrive/Documents/University - Year 3/ANIP/maxim-ANIP/05_models/05_output/05_baseline_full.txt 
 
 Wald test, H0: joint nullity of mean_log_energy_lag, mean_log1p_gasdep, mean_energy_gasdep_int, mean_log_gdp_pc, mean_threat, mean_log_area and 4 others
- stat = 41.8, p-value < 2.2e-16, on 10 and 337 DoF, VCOV: Clustered (country).
+ stat = 48.9, p-value < 2.2e-16, on 10 and 337 DoF, VCOV: Clustered (country).
 ====================================================
 MODEL: BASELINE 
 ====================================================
@@ -16,37 +16,37 @@ Observations: 375
 Fixed-effects: year: 18
 Standard-errors: Clustered (country) 
                         Estimate Std. Error   t value  Pr(>|t|)    
-log_energy_lag         -0.333048   0.139152 -2.393421 0.0252427 *  
-log1p_gasdep            0.082059   0.092116  0.890818 0.3822511    
-energy_gasdep_int       0.024887   0.046645  0.533536 0.5987814    
-log_gdp_pc              0.968850   0.271015  3.574894 0.0016058 ** 
-threat                 -0.000117   0.000271 -0.432783 0.6692038    
-log_area                8.733980   3.660932  2.385726 0.0256671 *  
-nato                    0.058081   0.096863  0.599619 0.5546220    
-ideology               -0.005582   0.017497 -0.319054 0.7525654    
-seats                   0.000619   0.001004  0.616648 0.5435230    
-ideol_seats            -0.000023   0.000091 -0.255121 0.8008971    
-mean_log_energy_lag     1.243681   0.383990  3.238838 0.0036256 ** 
-mean_log1p_gasdep       0.115077   0.199533  0.576732 0.5697228    
-mean_energy_gasdep_int  0.063588   0.088750  0.716476 0.4809097    
-mean_log_gdp_pc        -0.317810   0.274835 -1.156367 0.2594013    
-mean_threat             0.000166   0.000257  0.647166 0.5239315    
-mean_log_area          -8.089656   3.691266 -2.191567 0.0387992 *  
-mean_nato               0.325100   0.311824  1.042577 0.3079797    
-mean_ideology          -0.048831   0.143379 -0.340575 0.7365146    
-mean_seats              0.000150   0.005566  0.026875 0.9787916    
-mean_ideol_seats        0.001128   0.001126  1.001069 0.3272100    
+log_energy_lag         -0.196551   0.129074 -1.522777 0.1414463    
+log1p_gasdep            0.021664   0.080787  0.268164 0.7909639    
+energy_gasdep_int       0.002124   0.041908  0.050673 0.9600240    
+log_gdp_pc              1.302272   0.427276  3.047848 0.0057099 ** 
+threat                 -0.000109   0.000275 -0.398225 0.6941371    
+log_area               10.068315   4.115159  2.446641 0.0224803 **  
+nato                    0.029313   0.097136  0.301771 0.7655386    
+ideology               -0.005557   0.015886 -0.349791 0.7296786    
+seats                   0.001084   0.000949  1.142001 0.2652038    
+ideol_seats            -0.000046   0.000090 -0.515336 0.6112361    
+mean_log_energy_lag     1.155482   0.383281  3.014709 0.0061733 ** 
+mean_log1p_gasdep       0.163046   0.198717  0.820497 0.4203559    
+mean_energy_gasdep_int  0.080154   0.085072  0.942196 0.3558842    
+mean_log_gdp_pc        -0.668079   0.385601 -1.732564 0.0965638 *
+mean_threat             0.000164   0.000252  0.652744 0.5203929    
+mean_log_area          -9.417717   4.153033 -2.267672 0.0330559 **  
+mean_nato               0.359623   0.305330  1.177816 0.2509137    
+mean_ideology          -0.045899   0.143094 -0.320765 0.7512849    
+mean_seats             -0.000334   0.005589 -0.059831 0.9528072    
+mean_ideol_seats        0.001143   0.001128  1.013308 0.3214551    
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-RMSE: 0.420896     Adj. R2: 0.924302
-                 Within R2: 0.931073
+Signif. codes:  0 '**' 0.05 '*' 0.1 ' ' 1
+RMSE: 0.421854     Adj. R2: 0.923879
+                 Within R2: 0.930688 
 
 Joint Mundlak test (all mean_* terms = 0):
 $stat
-[1] 41.76248
+[1] 48.8703
 
 $p
-[1] 3.469109e-53
+[1] 1.170943e-59
 
 $df1
 [1] 10

@@ -1,5 +1,5 @@
 SCRIPT: 05_FE_main.R
-Generated: 2026-05-01 09:16:35 
+Generated: 2026-05-08 14:57:35 
 Output file: C:/Users/maxim/OneDrive/Documents/University - Year 3/ANIP/maxim-ANIP/05_models/05_output/05_FE_main_full.txt 
 
 ====================================================
@@ -13,20 +13,20 @@ OLS estimation, Dep. Var.: log_def_spend
 Observations: 322
 Fixed-effects: country: 24,  year: 17
 Standard-errors: Clustered (country) 
-                      Estimate Std. Error   t value  Pr(>|t|)    
-log_energy_lag       -0.322040   0.165424 -1.946756 0.0638780 .  
-log1p_gasdep          0.018670   0.072464  0.257643 0.7989738    
-energy_gasdep_int    -0.003339   0.037915 -0.088077 0.9305782    
-debtgdp_lag           0.001384   0.001834  0.754582 0.4581571    
-political_stress_lag -0.112668   0.138035 -0.816231 0.4227417    
-log_gdp_pc            0.984900   0.266073  3.701612 0.0011766 ** 
-threat               -0.000176   0.000252 -0.697969 0.4921933    
-log_area              8.366334   3.253794  2.571255 0.0170717 *  
-nato                  0.070649   0.082582  0.855493 0.4011026    
-ideology             -0.012859   0.016437 -0.782357 0.4419858    
-seats                 0.000753   0.000794  0.948492 0.3527394    
-ideol_seats           0.000023   0.000082  0.275821 0.7851490    
+                        Estimate Std. Error   t value Pr(>|t|)    
+log_energy_lag       -0.12681939   0.137394 -0.923032 0.365573    
+log1p_gasdep         -0.05753316   0.065376 -0.880031 0.387945    
+energy_gasdep_int    -0.03395882   0.035475 -0.957249 0.348396    
+debtgdp_lag           0.00026951   0.001676  0.160766 0.873681    
+political_stress_lag -0.05961289   0.128798 -0.462841 0.647827    
+log_gdp_pc            1.18912266   0.451141  2.635810 0.014774 **  
+threat               -0.00017685   0.000270 -0.655627 0.518569    
+log_area              8.38592701   3.509569  2.389447 0.025461 **  
+nato                  0.03681480   0.094996  0.387542 0.701918    
+ideology             -0.01430870   0.015376 -0.930587 0.361733    
+seats                 0.00108078   0.000770  1.403079 0.173950    
+ideol_seats           0.00000872   0.000081  0.108298 0.914698    
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-RMSE: 0.130447     Adj. R2: 0.992017
-                 Within R2: 0.360051
+Signif. codes:  0 '**' 0.05 '*' 0.1 ' ' 1
+RMSE: 0.133189     Adj. R2: 0.991671
+                 Within R2: 0.332097 

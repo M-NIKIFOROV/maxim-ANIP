@@ -1,20 +1,20 @@
 SCRIPT: 08_robustness.R
-Generated: 2026-05-01 16:32:24 
+Generated: 2026-05-08 15:45:15 
 Result file: C:/Users/maxim/OneDrive/Documents/University - Year 3/ANIP/maxim-ANIP/08_robustness/08_output/08_15_loo_significance_summary.txt 
 
 LEAVE-ONE-OUT COUNTRY EXCLUSION TEST
 Target coefficient: log_energy_lag
 
 Full-sample benchmark (baseline CRE):
-  beta = -0.333048  | p = 0.02524 
+  beta = -0.196551  | p = 0.1414 
 
 LOO summary over omitted-country re-estimations:
   Total exclusions: 24 
   Successful fits: 24 
-  Significant at 10%: 24 
-  Significant at 5%: 21 
+  Significant at 10%: 4 
+  Significant at 5%: 2 
   Significant at 1%: 0 
   Negative coefficient count: 24 
   Same sign as benchmark: 24 
-  Coefficient range: -0.452183 to -0.200414 
-  p-value range: 0.01266 to 0.0607 
+  Coefficient range: -0.294236 to -0.095748 
+  p-value range: 0.03033 to 0.4717 

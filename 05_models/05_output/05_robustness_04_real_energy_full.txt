@@ -1,0 +1,69 @@
+SCRIPT: 05_robustness.R
+CHECK: Real energy prices (HICP-deflated, 2015=100) vs nominal — baseline CRE
+
+Nominal baseline log_energy_lag coef : -0.19655 
+Real    baseline log_real_energy_lag  : -0.14235 
+
+--- NOMINAL MODEL (baseline) ---
+
+OLS estimation, Dep. Var.: log_def_spend
+Observations: 375
+Fixed-effects: year: 18
+Standard-errors: Clustered (country) 
+                        Estimate Std. Error   t value  Pr(>|t|)    
+log_energy_lag         -0.196551   0.129074 -1.522777 0.1414463    
+log1p_gasdep            0.021664   0.080787  0.268164 0.7909639    
+energy_gasdep_int       0.002124   0.041908  0.050673 0.9600240    
+log_gdp_pc              1.302272   0.427276  3.047848 0.0057099 ** 
+threat                 -0.000109   0.000275 -0.398225 0.6941371    
+log_area               10.068315   4.115159  2.446641 0.0224803 **  
+nato                    0.029313   0.097136  0.301771 0.7655386    
+ideology               -0.005557   0.015886 -0.349791 0.7296786    
+seats                   0.001084   0.000949  1.142001 0.2652038    
+ideol_seats            -0.000046   0.000090 -0.515336 0.6112361    
+mean_log_energy_lag     1.155482   0.383281  3.014709 0.0061733 ** 
+mean_log1p_gasdep       0.163046   0.198717  0.820497 0.4203559    
+mean_energy_gasdep_int  0.080154   0.085072  0.942196 0.3558842    
+mean_log_gdp_pc        -0.668079   0.385601 -1.732564 0.0965638 *
+mean_threat             0.000164   0.000252  0.652744 0.5203929    
+mean_log_area          -9.417717   4.153033 -2.267672 0.0330559 **  
+mean_nato               0.359623   0.305330  1.177816 0.2509137    
+mean_ideology          -0.045899   0.143094 -0.320765 0.7512849    
+mean_seats             -0.000334   0.005589 -0.059831 0.9528072    
+mean_ideol_seats        0.001143   0.001128  1.013308 0.3214551    
+---
+Signif. codes:  0 '**' 0.05 '*' 0.1 ' ' 1
+RMSE: 0.421854     Adj. R2: 0.923879
+                 Within R2: 0.930688 
+
+--- REAL ENERGY MODEL ---
+
+OLS estimation, Dep. Var.: log_def_spend
+Observations: 374
+Fixed-effects: year: 18
+Standard-errors: Clustered (country) 
+                             Estimate Std. Error   t value  Pr(>|t|)    
+log_real_energy_lag         -0.142346   0.096643 -1.472914 0.1543283    
+log1p_gasdep                -0.013224   0.056951 -0.232200 0.8184365    
+real_energy_gasdep_int      -0.018486   0.031904 -0.579422 0.5679367    
+log_gdp_pc                   1.232492   0.396406  3.109163 0.0049391 ** 
+threat                      -0.000089   0.000274 -0.324191 0.7487234    
+log_area                     8.121849   4.020457  2.020131 0.0551659 *
+nato                         0.014554   0.065311  0.222841 0.8256260    
+ideology                    -0.008476   0.016769 -0.505457 0.6180473    
+seats                        0.001002   0.000921  1.087897 0.2879098    
+ideol_seats                 -0.000035   0.000094 -0.367747 0.7164243    
+mean_log_real_energy_lag     1.184134   0.375825  3.150763 0.0044744 ** 
+mean_log1p_gasdep            0.137859   0.192326  0.716797 0.4807156    
+mean_real_energy_gasdep_int  0.077520   0.089379  0.867317 0.3947273    
+mean_log_gdp_pc             -0.558815   0.355317 -1.572720 0.1294401    
+mean_threat                  0.000164   0.000246  0.667210 0.5112771    
+mean_log_area               -7.466472   4.061141 -1.838516 0.0789356 *
+mean_nato                    0.401092   0.293215  1.367910 0.1845578    
+mean_ideology               -0.048388   0.149889 -0.322828 0.7497418    
+mean_seats                  -0.000557   0.005948 -0.093712 0.9261497    
+mean_ideol_seats             0.001214   0.001195  1.016149 0.3201293    
+---
+Signif. codes:  0 '**' 0.05 '*' 0.1 ' ' 1
+RMSE: 0.425779     Adj. R2: 0.922634
+                 Within R2: 0.929573 

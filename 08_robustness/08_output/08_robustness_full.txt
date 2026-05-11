@@ -1,5 +1,5 @@
 SCRIPT: 08_robustness.R
-Generated: 2026-05-01 16:32:15 
+Generated: 2026-05-08 15:45:09 
 Output file: C:/Users/maxim/OneDrive/Documents/University - Year 3/ANIP/maxim-ANIP/08_robustness/08_output/08_robustness_full.txt 
 
 ====================================================
@@ -13,7 +13,7 @@ austria, belgium, bulgaria, croatia, cyprus, denmark, estonia, finland, france, 
 BASELINE MODEL: FULL SAMPLE
 ------------------------------
 Wald test, H0: joint nullity of mean_log_energy_lag, mean_log1p_gasdep, mean_energy_gasdep_int, mean_log_gdp_pc, mean_threat, mean_log_area and 4 others
- stat = 41.8, p-value < 2.2e-16, on 10 and 337 DoF, VCOV: Clustered (country).
+ stat = 48.9, p-value < 2.2e-16, on 10 and 337 DoF, VCOV: Clustered (country).
 ====================================================
 MODEL: BASELINE 
 ====================================================
@@ -26,37 +26,37 @@ Observations: 375
 Fixed-effects: year: 18
 Standard-errors: Clustered (country) 
                         Estimate Std. Error   t value  Pr(>|t|)    
-log_energy_lag         -0.333048   0.139152 -2.393421 0.0252427 *  
-log1p_gasdep            0.082059   0.092116  0.890818 0.3822511    
-energy_gasdep_int       0.024887   0.046645  0.533536 0.5987814    
-log_gdp_pc              0.968850   0.271015  3.574894 0.0016058 ** 
-threat                 -0.000117   0.000271 -0.432783 0.6692038    
-log_area                8.733980   3.660932  2.385726 0.0256671 *  
-nato                    0.058081   0.096863  0.599619 0.5546220    
-ideology               -0.005582   0.017497 -0.319054 0.7525654    
-seats                   0.000619   0.001004  0.616648 0.5435230    
-ideol_seats            -0.000023   0.000091 -0.255121 0.8008971    
-mean_log_energy_lag     1.243681   0.383990  3.238838 0.0036256 ** 
-mean_log1p_gasdep       0.115077   0.199533  0.576732 0.5697228    
-mean_energy_gasdep_int  0.063588   0.088750  0.716476 0.4809097    
-mean_log_gdp_pc        -0.317810   0.274835 -1.156367 0.2594013    
-mean_threat             0.000166   0.000257  0.647166 0.5239315    
-mean_log_area          -8.089656   3.691266 -2.191567 0.0387992 *  
-mean_nato               0.325100   0.311824  1.042577 0.3079797    
-mean_ideology          -0.048831   0.143379 -0.340575 0.7365146    
-mean_seats              0.000150   0.005566  0.026875 0.9787916    
-mean_ideol_seats        0.001128   0.001126  1.001069 0.3272100    
+log_energy_lag         -0.196551   0.129074 -1.522777 0.1414463    
+log1p_gasdep            0.021664   0.080787  0.268164 0.7909639    
+energy_gasdep_int       0.002124   0.041908  0.050673 0.9600240    
+log_gdp_pc              1.302272   0.427276  3.047848 0.0057099 ** 
+threat                 -0.000109   0.000275 -0.398225 0.6941371    
+log_area               10.068315   4.115159  2.446641 0.0224803 **  
+nato                    0.029313   0.097136  0.301771 0.7655386    
+ideology               -0.005557   0.015886 -0.349791 0.7296786    
+seats                   0.001084   0.000949  1.142001 0.2652038    
+ideol_seats            -0.000046   0.000090 -0.515336 0.6112361    
+mean_log_energy_lag     1.155482   0.383281  3.014709 0.0061733 ** 
+mean_log1p_gasdep       0.163046   0.198717  0.820497 0.4203559    
+mean_energy_gasdep_int  0.080154   0.085072  0.942196 0.3558842    
+mean_log_gdp_pc        -0.668079   0.385601 -1.732564 0.0965638 *
+mean_threat             0.000164   0.000252  0.652744 0.5203929    
+mean_log_area          -9.417717   4.153033 -2.267672 0.0330559 **  
+mean_nato               0.359623   0.305330  1.177816 0.2509137    
+mean_ideology          -0.045899   0.143094 -0.320765 0.7512849    
+mean_seats             -0.000334   0.005589 -0.059831 0.9528072    
+mean_ideol_seats        0.001143   0.001128  1.013308 0.3214551    
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-RMSE: 0.420896     Adj. R2: 0.924302
-                 Within R2: 0.931073
+Signif. codes:  0 '**' 0.05 '*' 0.1 ' ' 1
+RMSE: 0.421854     Adj. R2: 0.923879
+                 Within R2: 0.930688 
 
 Joint Mundlak test (all mean_* terms = 0):
 $stat
-[1] 41.76248
+[1] 48.8703
 
 $p
-[1] 3.469109e-53
+[1] 1.170943e-59
 
 $df1
 [1] 10
@@ -88,40 +88,38 @@ Unbalanced Panel: n = 24, T = 12-18, N = 375
 
 Effects:
                     var   std.dev share
-idiosyncratic   0.02050   0.14319 0.000
-individual    146.07750  12.08625 0.999
-time            0.05903   0.24297 0.000
+idiosyncratic   0.02104   0.14505 0.000
+individual    202.14173  14.21766 0.999
+time            0.08436   0.29044 0.000
 theta:
            Min.   1st Qu.    Median      Mean   3rd Qu.      Max.
-id    0.9965801 0.9969411 0.9971267 0.9970081 0.9971267 0.9972076
-time  0.7173574 0.8805677 0.8805677 0.8739133 0.8805677 0.8805677
-total 0.7173572 0.8805663 0.8805667 0.8739124 0.8805669 0.8805670
+id    0.9970550 0.9973659 0.9975257 0.9974236 0.9975257 0.9975954
+time  0.7577401 0.8985867 0.8985867 0.8928856 0.8985867 0.8985867
+total 0.7577399 0.8985855 0.8985859 0.8928848 0.8985860 0.8985861
 
 Residuals:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
- -3.968  -1.255  -0.479  -0.152   0.317   8.521 
+ -5.323  -2.073  -0.547  -0.196   0.700  12.169 
 
 Coefficients:
-                     Estimate  Std. Error z-value Pr(>|z|)  
-(Intercept)       -2.6540e+01  1.0430e+02 -0.2545  0.79913  
-log_energy_lag    -2.7773e-01  5.7187e-01 -0.4857  0.62721  
-log1p_gasdep       4.9638e-02  2.9689e-01  0.1672  0.86722  
-energy_gasdep_int  1.4720e-02  1.2994e-01  0.1133  0.90980  
-log_gdp_pc         9.0975e-01  5.5197e-01  1.6482  0.09931 .
-threat            -6.2946e-05  1.0378e-03 -0.0607  0.95164  
-log_area           2.1884e+00  9.2103e+00  0.2376  0.81219  
-nato               6.6663e-02  5.9507e-01  0.1120  0.91080  
-ideology          -5.1134e-03  4.9806e-02 -0.1027  0.91823  
-seats              5.3700e-04  4.0989e-03  0.1310  0.89577  
-ideol_seats       -1.3568e-05  3.7606e-04 -0.0361  0.97122  
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+                     Estimate  Std. Error z-value Pr(>|z|)
+(Intercept)       -3.6671e+01  1.1773e+02 -0.3115   0.7554
+log_energy_lag    -1.4560e-01  5.5326e-01 -0.2632   0.7924
+log1p_gasdep      -9.6757e-03  2.8603e-01 -0.0338   0.9730
+energy_gasdep_int -7.6565e-03  1.2644e-01 -0.0606   0.9517
+log_gdp_pc         1.2003e+00  7.6562e-01  1.5677   0.1169
+threat            -5.1067e-05  1.0391e-03 -0.0491   0.9608
+log_area           2.8687e+00  1.0379e+01  0.2764   0.7823
+nato               3.6519e-02  5.9410e-01  0.0615   0.9510
+ideology          -5.3185e-03  4.9933e-02 -0.1065   0.9152
+seats              9.3607e-04  4.1242e-03  0.2270   0.8204
+ideol_seats       -3.1747e-05  3.7895e-04 -0.0838   0.9332
 
-Total Sum of Squares:    973.96
-Residual Sum of Squares: 2024.2
-R-Squared:      0.7425
-Adj. R-Squared: 0.73543
-Chisq: 3.41639 on 10 DF, p-value: 0.96986
+Total Sum of Squares:    972.96
+Residual Sum of Squares: 4178.7
+R-Squared:      0.74288
+Adj. R-Squared: 0.73581
+Chisq: 3.18373 on 10 DF, p-value: 0.97676
 
 ------------------------------
 MODEL B: FE WITH DRISCOLL-KRAAY SE
@@ -136,44 +134,44 @@ Unbalanced Panel: n = 24, T = 12-18, N = 375
 
 Residuals:
       Min.    1st Qu.     Median    3rd Qu.       Max. 
--0.4168698 -0.0782475 -0.0046646  0.0756320  0.5863606 
+-0.5037030 -0.0778590 -0.0022942  0.0698711  0.6334884 
 
 Coefficients:
                      Estimate  Std. Error t-value  Pr(>|t|)    
-log_energy_lag    -2.8002e-01  8.2419e-02 -3.3976 0.0007647 ***
-log1p_gasdep       4.0362e-02  4.2807e-02  0.9429 0.3464471    
-energy_gasdep_int  8.6574e-03  1.8806e-02  0.4603 0.6455784    
-log_gdp_pc         8.7772e-01  8.0598e-02 10.8900 < 2.2e-16 ***
-threat            -6.1601e-05  1.4915e-04 -0.4130 0.6798719    
-log_area           8.8789e+00  3.1698e+00  2.8011 0.0053994 ** 
-nato               5.5814e-02  8.5759e-02  0.6508 0.5156206    
-ideology          -6.2901e-03  7.1618e-03 -0.8783 0.3804425    
-seats              9.0966e-04  6.0498e-04  1.5036 0.1336495    
-ideol_seats       -2.3115e-05  5.4092e-05 -0.4273 0.6694241    
+log_energy_lag    -1.5380e-01  8.0755e-02 -1.9045  0.057733 .  
+log1p_gasdep      -1.5716e-02  4.1648e-02 -0.3774  0.706148    
+energy_gasdep_int -1.2481e-02  1.8463e-02 -0.6760  0.499510    
+log_gdp_pc         1.1619e+00  1.1241e-01 10.3358 < 2.2e-16 ***
+threat            -5.8143e-05  1.5112e-04 -0.3848  0.700675    
+log_area           1.0132e+01  3.2008e+00  3.1654  0.001696 ** 
+nato               2.8375e-02  8.6557e-02  0.3278  0.743263    
+ideology          -6.5106e-03  7.2634e-03 -0.8964  0.370731    
+seats              1.3136e-03  6.1463e-04  2.1372  0.033332 *  
+ideol_seats       -4.2051e-05  5.5204e-05 -0.7617  0.446774    
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
-Total Sum of Squares:    10.079
-Residual Sum of Squares: 6.6427
-R-Squared:      0.34093
-Adj. R-Squared: 0.23922
-F-statistic: 16.7602 on 10 and 324 DF, p-value: < 2.22e-16
+Total Sum of Squares:    10.066
+Residual Sum of Squares: 6.8164
+R-Squared:      0.32286
+Adj. R-Squared: 0.21836
+F-statistic: 15.4481 on 10 and 324 DF, p-value: < 2.22e-16
 
 Driscoll-Kraay robust coefficient table:
 
 t test of coefficients:
 
                      Estimate  Std. Error t value  Pr(>|t|)    
-log_energy_lag    -2.8002e-01  3.0127e-02 -9.2948 < 2.2e-16 ***
-log1p_gasdep       4.0362e-02  2.9200e-02  1.3822    0.1678    
-energy_gasdep_int  8.6574e-03  1.5461e-02  0.5599    0.5759    
-log_gdp_pc         8.7772e-01  1.0119e-01  8.6739 < 2.2e-16 ***
-threat            -6.1601e-05  1.8289e-04 -0.3368    0.7365    
-log_area           8.8789e+00  1.9289e+00  4.6032 5.983e-06 ***
-nato               5.5814e-02  3.2368e-02  1.7244    0.0856 .  
-ideology          -6.2901e-03  1.0767e-02 -0.5842    0.5595    
-seats              9.0966e-04  5.3125e-04  1.7123    0.0878 .  
-ideol_seats       -2.3115e-05  6.1981e-05 -0.3729    0.7094    
+log_energy_lag    -1.5380e-01  2.8384e-02 -5.4184 1.175e-07 ***
+log1p_gasdep      -1.5716e-02  3.1846e-02 -0.4935    0.6220    
+energy_gasdep_int -1.2481e-02  1.4871e-02 -0.8393    0.4019    
+log_gdp_pc         1.1619e+00  1.0086e-01 11.5198 < 2.2e-16 ***
+threat            -5.8143e-05  1.9004e-04 -0.3060    0.7598    
+log_area           1.0132e+01  2.2230e+00  4.5578 7.334e-06 ***
+nato               2.8375e-02  3.0475e-02  0.9311    0.3525    
+ideology          -6.5106e-03  1.1340e-02 -0.5741    0.5663    
+seats              1.3136e-03  5.1166e-04  2.5673    0.0107 *  
+ideol_seats       -4.2051e-05  6.1593e-05 -0.6827    0.4953    
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
@@ -191,86 +189,86 @@ Unbalanced Panel: n = 24, T = 12-18, N = 375
 
 Residuals:
      Min.   1st Qu.    Median   3rd Qu.      Max. 
--1.342588 -0.199625  0.038791  0.273396  1.354201 
+-1.321162 -0.194980  0.034531  0.266216  1.368057 
 
 Coefficients:
                      Estimate  Std. Error t-value  Pr(>|t|)    
-(Intercept)       -5.6168e+00  7.7185e-01 -7.2771 2.295e-12 ***
-log_energy_lag     6.1200e-01  1.6081e-01  3.8057 0.0001671 ***
-log1p_gasdep       1.4579e-01  7.5723e-02  1.9253 0.0550123 .  
-energy_gasdep_int  5.8136e-02  3.4502e-02  1.6850 0.0928849 .  
-log_gdp_pc         6.6952e-01  5.5264e-02 12.1149 < 2.2e-16 ***
-threat             7.3003e-05  4.4779e-05  1.6303 0.1039478    
-log_area           6.3916e-01  2.6412e-02 24.1998 < 2.2e-16 ***
-nato               4.2973e-01  7.3706e-02  5.8303 1.266e-08 ***
-ideology           1.3916e-02  2.0404e-02  0.6820 0.4956773    
-seats              6.2835e-03  1.0337e-03  6.0786 3.194e-09 ***
-ideol_seats        3.5257e-05  1.6356e-04  0.2156 0.8294624    
-factor(year)2007  -1.2174e-01  1.4068e-01 -0.8653 0.3874482    
-factor(year)2008  -2.7085e-01  1.4151e-01 -1.9140 0.0564364 .  
-factor(year)2009  -3.6334e-01  1.4280e-01 -2.5444 0.0113793 *  
-factor(year)2010  -4.3796e-01  1.4390e-01 -3.0435 0.0025169 ** 
-factor(year)2011  -5.8753e-01  1.4530e-01 -4.0434 6.494e-05 ***
-factor(year)2012  -5.9788e-01  1.4626e-01 -4.0878 5.417e-05 ***
-factor(year)2013  -6.8983e-01  1.4712e-01 -4.6888 3.956e-06 ***
-factor(year)2014  -7.0176e-01  1.4815e-01 -4.7367 3.173e-06 ***
-factor(year)2015  -5.2816e-01  1.4723e-01 -3.5875 0.0003819 ***
-factor(year)2016  -4.4089e-01  1.4624e-01 -3.0148 0.0027611 ** 
-factor(year)2017  -4.1376e-01  1.4517e-01 -2.8503 0.0046295 ** 
-factor(year)2018  -3.7832e-01  1.4871e-01 -2.5440 0.0113909 *  
-factor(year)2019  -2.8188e-01  1.5131e-01 -1.8629 0.0633162 .  
-factor(year)2020  -3.6290e-01  1.6021e-01 -2.2652 0.0241194 *  
-factor(year)2021  -3.1466e-01  1.7292e-01 -1.8197 0.0696638 .  
-factor(year)2022  -3.8884e-01  1.9130e-01 -2.0327 0.0428470 *  
-factor(year)2023  -8.3445e-01  2.8436e-01 -2.9345 0.0035630 ** 
+(Intercept)       -5.4287e+00  7.6905e-01 -7.0590 9.186e-12 ***
+log_energy_lag     6.8500e-01  1.6042e-01  4.2700 2.526e-05 ***
+log1p_gasdep       1.1856e-01  7.6301e-02  1.5538 0.1211425    
+energy_gasdep_int  4.5698e-02  3.4636e-02  1.3194 0.1879124    
+log_gdp_pc         6.5683e-01  5.5096e-02 11.9216 < 2.2e-16 ***
+threat             7.8505e-05  4.4990e-05  1.7449 0.0818829 .  
+log_area           6.4473e-01  2.6627e-02 24.2131 < 2.2e-16 ***
+nato               4.4001e-01  7.4700e-02  5.8903 9.113e-09 ***
+ideology           1.3226e-02  2.0505e-02  0.6450 0.5193397    
+seats              6.2496e-03  1.0385e-03  6.0177 4.496e-09 ***
+ideol_seats        3.9732e-05  1.6437e-04  0.2417 0.8091384    
+factor(year)2007  -2.7801e-02  1.4108e-01 -0.1971 0.8438914    
+factor(year)2008  -1.0211e-01  1.4146e-01 -0.7219 0.4708695    
+factor(year)2009  -2.4458e-01  1.4347e-01 -1.7047 0.0891491 .  
+factor(year)2010  -3.3639e-01  1.4467e-01 -2.3252 0.0206385 *  
+factor(year)2011  -4.3938e-01  1.4609e-01 -3.0077 0.0028245 ** 
+factor(year)2012  -4.9355e-01  1.4720e-01 -3.3529 0.0008879 ***
+factor(year)2013  -5.5711e-01  1.4815e-01 -3.7605 0.0001989 ***
+factor(year)2014  -5.6451e-01  1.4909e-01 -3.7865 0.0001800 ***
+factor(year)2015  -4.9914e-01  1.4798e-01 -3.3730 0.0008276 ***
+factor(year)2016  -4.0711e-01  1.4697e-01 -2.7701 0.0059057 ** 
+factor(year)2017  -3.5212e-01  1.4577e-01 -2.4156 0.0162251 *  
+factor(year)2018  -2.7525e-01  1.4901e-01 -1.8472 0.0655671 .  
+factor(year)2019  -2.0204e-01  1.5194e-01 -1.3297 0.1844771    
+factor(year)2020  -2.5978e-01  1.6081e-01 -1.6155 0.1071218    
+factor(year)2021  -1.6533e-01  1.7321e-01 -0.9545 0.3404823    
+factor(year)2022  -2.8403e-01  1.9196e-01 -1.4796 0.1398936    
+factor(year)2023  -6.3610e-01  2.8566e-01 -2.2268 0.0266034 *  
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
-Total Sum of Squares:    973.96
-Residual Sum of Squares: 81.919
-R-Squared:      0.91589
-Adj. R-Squared: 0.90935
-F-statistic: 139.947 on 27 and 347 DF, p-value: < 2.22e-16
+Total Sum of Squares:    972.96
+Residual Sum of Squares: 82.667
+R-Squared:      0.91504
+Adj. R-Squared: 0.90842
+F-statistic: 138.409 on 27 and 347 DF, p-value: < 2.22e-16
 
 PCSE robust coefficient table:
 
 t test of coefficients:
 
                      Estimate  Std. Error t value  Pr(>|t|)    
-(Intercept)       -5.6168e+00  2.4878e+00 -2.2577 0.0245833 *  
-log_energy_lag     6.1200e-01  4.6687e-01  1.3109 0.1907691    
-log1p_gasdep       1.4579e-01  2.1375e-01  0.6821 0.4956553    
-energy_gasdep_int  5.8136e-02  9.7693e-02  0.5951 0.5521737    
-log_gdp_pc         6.6952e-01  1.8081e-01  3.7030 0.0002478 ***
-threat             7.3003e-05  1.5127e-04  0.4826 0.6296740    
-log_area           6.3916e-01  8.7083e-02  7.3396 1.533e-12 ***
-nato               4.2973e-01  2.3887e-01  1.7990 0.0728874 .  
-ideology           1.3916e-02  3.4581e-02  0.4024 0.6876158    
-seats              6.2835e-03  2.0326e-03  3.0913 0.0021540 ** 
-ideol_seats        3.5257e-05  2.2852e-04  0.1543 0.8774778    
-factor(year)2007  -1.2174e-01  4.2980e-02 -2.8324 0.0048897 ** 
-factor(year)2008  -2.7085e-01  7.3527e-02 -3.6837 0.0002665 ***
-factor(year)2009  -3.6334e-01  1.0101e-01 -3.5970 0.0003686 ***
-factor(year)2010  -4.3796e-01  1.2195e-01 -3.5914 0.0003763 ***
-factor(year)2011  -5.8753e-01  1.3753e-01 -4.2721 2.504e-05 ***
-factor(year)2012  -5.9788e-01  1.5118e-01 -3.9548 9.289e-05 ***
-factor(year)2013  -6.8983e-01  1.6013e-01 -4.3079 2.149e-05 ***
-factor(year)2014  -7.0176e-01  1.6879e-01 -4.1576 4.057e-05 ***
-factor(year)2015  -5.2816e-01  1.5909e-01 -3.3198 0.0009964 ***
-factor(year)2016  -4.4089e-01  1.4599e-01 -3.0201 0.0027145 ** 
-factor(year)2017  -4.1376e-01  1.4183e-01 -2.9172 0.0037616 ** 
-factor(year)2018  -3.7832e-01  1.3852e-01 -2.7311 0.0066348 ** 
-factor(year)2019  -2.8188e-01  1.4673e-01 -1.9210 0.0555463 .  
-factor(year)2020  -3.6290e-01  1.6973e-01 -2.1381 0.0332073 *  
-factor(year)2021  -3.1466e-01  1.7158e-01 -1.8339 0.0675255 .  
-factor(year)2022  -3.8884e-01  2.1457e-01 -1.8122 0.0708144 .  
-factor(year)2023  -8.3445e-01  3.6153e-01 -2.3081 0.0215819 *  
+(Intercept)       -5.4287e+00  2.4866e+00 -2.1832 0.0296896 *  
+log_energy_lag     6.8500e-01  4.6548e-01  1.4716 0.1420302    
+log1p_gasdep       1.1856e-01  2.1568e-01  0.5497 0.5828775    
+energy_gasdep_int  4.5698e-02  9.8019e-02  0.4662 0.6413501    
+log_gdp_pc         6.5683e-01  1.8155e-01  3.6179 0.0003411 ***
+threat             7.8505e-05  1.5157e-04  0.5180 0.6048206    
+log_area           6.4473e-01  8.7849e-02  7.3391 1.539e-12 ***
+nato               4.4001e-01  2.4293e-01  1.8112 0.0709691 .  
+ideology           1.3226e-02  3.4441e-02  0.3840 0.7011919    
+seats              6.2496e-03  2.0308e-03  3.0774 0.0022540 ** 
+ideol_seats        3.9732e-05  2.2869e-04  0.1737 0.8621759    
+factor(year)2007  -2.7801e-02  3.2997e-02 -0.8425 0.4000661    
+factor(year)2008  -1.0211e-01  5.4959e-02 -1.8580 0.0640223 .  
+factor(year)2009  -2.4458e-01  9.8963e-02 -2.4714 0.0139371 *  
+factor(year)2010  -3.3639e-01  1.1963e-01 -2.8118 0.0052067 ** 
+factor(year)2011  -4.3938e-01  1.3338e-01 -3.2943 0.0010883 ** 
+factor(year)2012  -4.9355e-01  1.4973e-01 -3.2962 0.0010812 ** 
+factor(year)2013  -5.5711e-01  1.5959e-01 -3.4909 0.0005434 ***
+factor(year)2014  -5.6451e-01  1.6721e-01 -3.3761 0.0008185 ***
+factor(year)2015  -4.9914e-01  1.5939e-01 -3.1315 0.0018871 ** 
+factor(year)2016  -4.0711e-01  1.4616e-01 -2.7853 0.0056420 ** 
+factor(year)2017  -3.5212e-01  1.4102e-01 -2.4971 0.0129854 *  
+factor(year)2018  -2.7525e-01  1.3504e-01 -2.0383 0.0422730 *  
+factor(year)2019  -2.0204e-01  1.4706e-01 -1.3738 0.1703854    
+factor(year)2020  -2.5978e-01  1.6873e-01 -1.5396 0.1245583    
+factor(year)2021  -1.6533e-01  1.6102e-01 -1.0268 0.3052268    
+factor(year)2022  -2.8403e-01  2.0896e-01 -1.3593 0.1749462    
+factor(year)2023  -6.3610e-01  3.5492e-01 -1.7922 0.0739674 .  
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 
 Wald test, H0: joint nullity of mean_log_energy_lag, mean_log1p_gasdep, mean_energy_gasdep_int, mean_log_gdp_pc, mean_threat, mean_log_area and 4 others
- stat = 0.882558, p-value = 0.549758, on 10 and 337 DoF, VCOV: Clustered (country).====================================================
+ stat = 0.950118, p-value = 0.487203, on 10 and 337 DoF, VCOV: Clustered (country).====================================================
 PLACEBO TEST: HEALTH SPENDING AS DEPENDENT VARIABLE
 Baseline CRE specification with defence spending replaced by health spending
 ====================================================
@@ -282,38 +280,38 @@ OLS estimation, Dep. Var.: log_health_spend
 Observations: 375
 Fixed-effects: year: 18
 Standard-errors: Clustered (country) 
-                        Estimate Std. Error   t value  Pr(>|t|)    
-log_energy_lag         -0.097962   0.088639 -1.105175 0.2805112    
-log1p_gasdep           -0.038481   0.038036 -1.011703 0.3222057    
-energy_gasdep_int      -0.027023   0.019538 -1.383113 0.1799108    
-log_gdp_pc              0.011430   0.165548  0.069045 0.9455504    
-threat                 -0.000142   0.000202 -0.700335 0.4907426    
-log_area                1.470227   2.940778  0.499945 0.6218635    
-nato                   -0.016452   0.053318 -0.308553 0.7604388    
-ideology                0.011625   0.005239  2.219096 0.0366247 *  
-seats                   0.001578   0.000533  2.962115 0.0069836 ** 
-ideol_seats            -0.000077   0.000041 -1.893043 0.0710024 .  
-mean_log_energy_lag    -0.378102   0.406526 -0.930082 0.3619884    
-mean_log1p_gasdep       0.269209   0.161772  1.664128 0.1096537    
-mean_energy_gasdep_int  0.133614   0.072884  1.833244 0.0797420 .  
-mean_log_gdp_pc         0.261920   0.200547  1.306031 0.2044540    
-mean_threat             0.000217   0.000205  1.061281 0.2995798    
-mean_log_area          -1.428267   2.945607 -0.484880 0.6323474    
-mean_nato               0.112140   0.163388  0.686340 0.4993601    
-mean_ideology          -0.117195   0.068982 -1.698921 0.1028225    
-mean_seats             -0.006519   0.003232 -2.016942 0.0555213 .  
-mean_ideol_seats        0.000912   0.000560  1.626673 0.1174309    
+                        Estimate Std. Error   t value Pr(>|t|)    
+log_energy_lag         -0.085402   0.086056 -0.992399 0.331329    
+log1p_gasdep           -0.049219   0.036728 -1.340098 0.193303    
+energy_gasdep_int      -0.031397   0.019347 -1.622827 0.118255    
+log_gdp_pc             -0.071151   0.255222 -0.278782 0.782903    
+threat                 -0.000148   0.000226 -0.655989 0.518340    
+log_area                1.682154   2.860001  0.588166 0.562153    
+nato                   -0.026104   0.051602 -0.505882 0.617754    
+ideology                0.010360   0.005578  1.857333 0.076115 .  
+seats                   0.001547   0.000509  3.038652 0.005835 ** 
+ideol_seats            -0.000068   0.000045 -1.528910 0.139924    
+mean_log_energy_lag    -0.375245   0.401766 -0.933991 0.360011    
+mean_log1p_gasdep       0.277264   0.158766  1.746364 0.094092 .  
+mean_energy_gasdep_int  0.136503   0.071282  1.914955 0.068016 .  
+mean_log_gdp_pc         0.337518   0.270983  1.245533 0.225476    
+mean_threat             0.000226   0.000227  0.993207 0.330944    
+mean_log_area          -1.638375   2.865879 -0.571683 0.573082    
+mean_nato               0.123123   0.163559  0.752773 0.459222    
+mean_ideology          -0.113908   0.068801 -1.655619 0.111381    
+mean_seats             -0.006452   0.003245 -1.988347 0.058801 .  
+mean_ideol_seats        0.000894   0.000563  1.587173 0.126127    
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-RMSE: 0.1808     Adj. R2: 0.501036
-               Within R2: 0.522227
+RMSE: 0.180958     Adj. R2: 0.500166
+                 Within R2: 0.521394
 
 Joint Mundlak test (all mean_* terms = 0):
 $stat
-[1] 0.8825583
+[1] 0.9501175
 
 $p
-[1] 0.549758
+[1] 0.4872034
 
 $df1
 [1] 10
@@ -332,80 +330,80 @@ Rule: robust_flag = same sign as full sample AND p<0.10 for log_energy_lag
 Strict rule adds interaction sign and p<0.10 for energy_gasdep_int
 ====================================================
  split omitted_country n_countries n_obs coef_energy   p_energy
-  full          cyprus          23   359  -0.4521833 0.01266375
-  full         belgium          23   361  -0.3506183 0.01689958
-  full        slovenia          23   358  -0.3520073 0.01703351
-  full         estonia          23   357  -0.3643722 0.01728599
-  full         ireland          23   360  -0.3594936 0.02035898
-  full           italy          23   363  -0.3401750 0.02206734
-  full          sweden          23   358  -0.3461953 0.02464411
-  full         austria          23   361  -0.3291877 0.02685454
-  full         croatia          23   360  -0.3524648 0.02771744
-  full        portugal          23   358  -0.3297891 0.02790397
-  full          latvia          23   358  -0.2957377 0.02793097
-  full           spain          23   361  -0.3246179 0.02892760
-  full         denmark          23   358  -0.3662541 0.02912181
-  full          greece          23   357  -0.3457438 0.03002922
-  full         germany          23   359  -0.3183640 0.03070879
-  full          poland          23   361  -0.3188348 0.03114110
-  full          france          23   358  -0.3223701 0.03298821
-  full       lithuania          23   360  -0.2871437 0.03672483
-  full         hungary          23   358  -0.2968479 0.03944218
-  full         romania          23   360  -0.3200334 0.04682321
-  full         finland          23   357  -0.2951356 0.04925937
-  full           malta          23   363  -0.3641740 0.05182495
-  full      luxembourg          23   362  -0.3029052 0.05418932
-  full        bulgaria          23   358  -0.2004137 0.06069713
+  full         estonia          23   357  -0.2811119 0.03032635
+  full          cyprus          23   359  -0.2942361 0.04133975
+  full         belgium          23   361  -0.2353336 0.06744914
+  full        slovenia          23   358  -0.2196838 0.09867959
+  full         ireland          23   360  -0.2164113 0.11888762
+  full         croatia          23   360  -0.2183042 0.12127196
+  full           italy          23   363  -0.1999327 0.13234903
+  full          greece          23   357  -0.2052203 0.13362441
+  full         denmark          23   358  -0.2085003 0.13782003
+  full          sweden          23   358  -0.2026744 0.13814612
+  full          poland          23   361  -0.1997009 0.14251878
+  full        portugal          23   358  -0.1951745 0.14657593
+  full           spain          23   361  -0.1891991 0.15255979
+  full         austria          23   361  -0.1942321 0.15372002
+  full          france          23   358  -0.1917448 0.15529720
+  full         germany          23   359  -0.1810028 0.16929141
+  full         hungary          23   358  -0.1797669 0.18991878
+  full          latvia          23   358  -0.1704210 0.21167413
+  full       lithuania          23   360  -0.1531901 0.22877747
+  full         finland          23   357  -0.1602976 0.23152130
+  full         romania          23   360  -0.1725177 0.24311633
+  full           malta          23   363  -0.1648888 0.31344674
+  full      luxembourg          23   362  -0.1327471 0.32752878
+  full        bulgaria          23   358  -0.0957485 0.47173021
  sign_same_energy sig10_energy coef_interaction p_interaction
-             TRUE         TRUE      0.050093729     0.3208188
-             TRUE         TRUE     -0.003299220     0.9368680
-             TRUE         TRUE      0.015051753     0.7503450
-             TRUE         TRUE      0.019382805     0.6667945
-             TRUE         TRUE      0.045747985     0.3298580
-             TRUE         TRUE      0.029259932     0.5379142
-             TRUE         TRUE      0.028157336     0.5806907
-             TRUE         TRUE      0.017872760     0.7137276
-             TRUE         TRUE      0.026401066     0.5944089
-             TRUE         TRUE      0.021664260     0.6362852
-             TRUE         TRUE      0.024635146     0.6087424
-             TRUE         TRUE      0.021641164     0.6869990
-             TRUE         TRUE      0.031862709     0.5145712
-             TRUE         TRUE      0.033361127     0.4735656
-             TRUE         TRUE      0.021503597     0.6472969
-             TRUE         TRUE      0.017742921     0.6980479
-             TRUE         TRUE      0.022321290     0.6690476
-             TRUE         TRUE      0.043552855     0.3501691
-             TRUE         TRUE      0.015465975     0.7273839
-             TRUE         TRUE      0.015880488     0.7056740
-             TRUE         TRUE      0.022335203     0.6317134
-             TRUE         TRUE      0.040587094     0.4253894
-             TRUE         TRUE      0.047973416     0.3393419
-             TRUE         TRUE     -0.008655906     0.8430768
+             TRUE         TRUE    -0.0001674189     0.9966284
+             TRUE         TRUE     0.0221318713     0.6018340
+             TRUE         TRUE    -0.0220832576     0.5679795
+             TRUE         TRUE    -0.0069165014     0.8707999
+             TRUE        FALSE     0.0217135976     0.6089035
+             TRUE        FALSE     0.0043411972     0.9233701
+             TRUE        FALSE     0.0062085710     0.8834291
+             TRUE        FALSE     0.0149738533     0.7116267
+             TRUE        FALSE     0.0036614730     0.9318889
+             TRUE        FALSE     0.0030171116     0.9461583
+             TRUE        FALSE    -0.0017826876     0.9662002
+             TRUE        FALSE    -0.0012979532     0.9749133
+             TRUE        FALSE     0.0002975053     0.9951113
+             TRUE        FALSE    -0.0032701969     0.9414349
+             TRUE        FALSE     0.0015724408     0.9736757
+             TRUE        FALSE    -0.0019378697     0.9633178
+             TRUE        FALSE    -0.0063191370     0.8748504
+             TRUE        FALSE     0.0021422601     0.9611160
+             TRUE        FALSE     0.0199614506     0.6370723
+             TRUE        FALSE     0.0004500194     0.9916365
+             TRUE        FALSE    -0.0082886312     0.8235141
+             TRUE        FALSE     0.0040933247     0.9253471
+             TRUE        FALSE     0.0292282060     0.5175588
+             TRUE        FALSE    -0.0249788933     0.5567344
  sign_same_interaction sig10_interaction robust_flag robust_flag_strict
-                  TRUE             FALSE        TRUE              FALSE
                  FALSE             FALSE        TRUE              FALSE
                   TRUE             FALSE        TRUE              FALSE
-                  TRUE             FALSE        TRUE              FALSE
-                  TRUE             FALSE        TRUE              FALSE
-                  TRUE             FALSE        TRUE              FALSE
-                  TRUE             FALSE        TRUE              FALSE
-                  TRUE             FALSE        TRUE              FALSE
-                  TRUE             FALSE        TRUE              FALSE
-                  TRUE             FALSE        TRUE              FALSE
-                  TRUE             FALSE        TRUE              FALSE
-                  TRUE             FALSE        TRUE              FALSE
-                  TRUE             FALSE        TRUE              FALSE
-                  TRUE             FALSE        TRUE              FALSE
-                  TRUE             FALSE        TRUE              FALSE
-                  TRUE             FALSE        TRUE              FALSE
-                  TRUE             FALSE        TRUE              FALSE
-                  TRUE             FALSE        TRUE              FALSE
-                  TRUE             FALSE        TRUE              FALSE
-                  TRUE             FALSE        TRUE              FALSE
-                  TRUE             FALSE        TRUE              FALSE
-                  TRUE             FALSE        TRUE              FALSE
-                  TRUE             FALSE        TRUE              FALSE
                  FALSE             FALSE        TRUE              FALSE
+                 FALSE             FALSE        TRUE              FALSE
+                  TRUE             FALSE       FALSE              FALSE
+                  TRUE             FALSE       FALSE              FALSE
+                  TRUE             FALSE       FALSE              FALSE
+                  TRUE             FALSE       FALSE              FALSE
+                  TRUE             FALSE       FALSE              FALSE
+                  TRUE             FALSE       FALSE              FALSE
+                 FALSE             FALSE       FALSE              FALSE
+                 FALSE             FALSE       FALSE              FALSE
+                  TRUE             FALSE       FALSE              FALSE
+                 FALSE             FALSE       FALSE              FALSE
+                  TRUE             FALSE       FALSE              FALSE
+                 FALSE             FALSE       FALSE              FALSE
+                 FALSE             FALSE       FALSE              FALSE
+                  TRUE             FALSE       FALSE              FALSE
+                  TRUE             FALSE       FALSE              FALSE
+                  TRUE             FALSE       FALSE              FALSE
+                 FALSE             FALSE       FALSE              FALSE
+                  TRUE             FALSE       FALSE              FALSE
+                  TRUE             FALSE       FALSE              FALSE
+                 FALSE             FALSE       FALSE              FALSE
  fit_error
       <NA>
       <NA>
@@ -432,19 +430,19 @@ Strict rule adds interaction sign and p<0.10 for energy_gasdep_int
       <NA>
       <NA>
 
-Robust count (main rule): 24 out of 24 
+Robust count (main rule): 4 out of 24 
 Robust count (strict rule): 0 out of 24 
 
 LOO SIGNIFICANCE SUMMARY (FULL SAMPLE, log_energy_lag)
 Total exclusions: 24 
 Successful re-estimations: 24 
-Significant at 10%: 24 
-Significant at 5%: 21 
+Significant at 10%: 4 
+Significant at 5%: 2 
 Significant at 1%: 0 
 Negative coefficient count: 24 
 Same sign as full-sample model: 24 
-Coefficient range: -0.452183 to -0.200414 
-p-value range: 0.01266 to 0.0607 
+Coefficient range: -0.294236 to -0.095748 
+p-value range: 0.03033 to 0.4717 
 
 ====================================================
 SPLIT 1: GASDEP MEDIAN SPLIT
@@ -463,7 +461,7 @@ austria, belgium, finland, france, germany, greece, hungary, ireland, italy, pol
 BASELINE MODEL: LOW GASDEP
 ------------------------------
 Wald test, H0: joint nullity of mean_log_energy_lag, mean_log1p_gasdep, mean_energy_gasdep_int, mean_log_gdp_pc, mean_threat, mean_log_area and 4 others
- stat = 2,018.3, p-value < 2.2e-16, on 10 and 151 DoF, VCOV: Clustered (country).
+ stat = 1,003.9, p-value < 2.2e-16, on 10 and 151 DoF, VCOV: Clustered (country).
 ====================================================
 MODEL: BASELINE 
 ====================================================
@@ -475,38 +473,38 @@ OLS estimation, Dep. Var.: log_def_spend
 Observations: 189
 Fixed-effects: year: 18
 Standard-errors: Clustered (country) 
-                        Estimate Std. Error    t value   Pr(>|t|)    
-log_energy_lag         -0.148608   0.112589  -1.319922 2.1367e-01    
-log1p_gasdep           -0.075033   0.076254  -0.983990 3.4627e-01    
-energy_gasdep_int      -0.046507   0.044394  -1.047591 3.1730e-01    
-log_gdp_pc              1.241041   0.335650   3.697429 3.5173e-03 ** 
-threat                  0.000588   0.000462   1.271257 2.2986e-01    
-log_area               10.176200   1.410664   7.213767 1.7220e-05 ***
-nato                   -0.069701   0.073944  -0.942624 3.6612e-01    
-ideology                0.026581   0.014295   1.859457 8.9896e-02 .  
-seats                   0.005540   0.002807   1.973337 7.4108e-02 .  
-ideol_seats            -0.000999   0.000241  -4.145859 1.6278e-03 ** 
-mean_log_energy_lag     0.213526   0.114436   1.865892 8.8927e-02 .  
-mean_log1p_gasdep       2.177347   0.076320  28.529052 1.1516e-11 ***
-mean_energy_gasdep_int  0.887223   0.043790  20.260940 4.6503e-10 ***
-mean_log_gdp_pc        -1.274987   0.346744  -3.677027 3.6447e-03 ** 
-mean_threat             0.000445   0.000455   0.977922 3.4913e-01    
-mean_log_area          -9.386181   1.409167  -6.660803 3.5589e-05 ***
-mean_nato              -0.372577   0.084486  -4.409908 1.0459e-03 ** 
-mean_ideology           0.475838   0.017448  27.271760 1.8786e-11 ***
-mean_seats              0.026015   0.002781   9.355840 1.4321e-06 ***
-mean_ideol_seats       -0.003971   0.000239 -16.592104 3.9240e-09 ***
+                         Estimate Std. Error    t value   Pr(>|t|)    
+log_energy_lag          -0.123401   0.148880  -0.828859 4.2480e-01    
+log1p_gasdep            -0.065946   0.098378  -0.670330 5.1647e-01    
+energy_gasdep_int       -0.032664   0.053079  -0.615391 5.5082e-01    
+log_gdp_pc               1.711353   0.489781   3.494121 5.0220e-03 ** 
+threat                   0.000425   0.000401   1.058514 3.1251e-01    
+log_area                12.762052   1.986749   6.423584 4.9178e-05 **
+nato                    -0.056853   0.086344  -0.658453 5.2379e-01    
+ideology                 0.025874   0.013285   1.947662 7.7425e-02 *
+seats                    0.005332   0.002429   2.194731 5.0549e-02 *
+ideol_seats             -0.000935   0.000208  -4.494782 9.0899e-04 **
+mean_log_energy_lag      0.176909   0.159491   1.109212 2.9100e-01    
+mean_log1p_gasdep        2.170758   0.091041  23.843723 8.0477e-11 **
+mean_energy_gasdep_int   0.876199   0.049021  17.874064 1.7780e-09 **
+mean_log_gdp_pc         -1.740964   0.500984  -3.475088 5.1932e-03 ** 
+mean_threat              0.000606   0.000391   1.548223 1.4984e-01    
+mean_log_area          -11.971172   1.984385  -6.032685 8.5174e-05 **
+mean_nato               -0.382703   0.099849  -3.832797 2.7809e-03 ** 
+mean_ideology            0.470392   0.017458  26.943886 2.1420e-11 **
+mean_seats               0.026118   0.002562  10.193155 6.1045e-07 **
+mean_ideol_seats        -0.004054   0.000232 -17.502324 2.2243e-09 **
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-RMSE: 0.132722     Adj. R2: 0.984672
-                 Within R2: 0.98669 
+Signif. codes:  0 '**' 0.05 '*' 0.1 ' ' 1
+RMSE: 0.136954     Adj. R2: 0.983643
+                 Within R2: 0.985796 
 
 Joint Mundlak test (all mean_* terms = 0):
 $stat
-[1] 2018.308
+[1] 1003.94
 
 $p
-[1] 2.612312e-155
+[1] 1.139499e-132
 
 $df1
 [1] 10
@@ -522,7 +520,7 @@ $vcov
 BASELINE MODEL: HIGH GASDEP
 ------------------------------
 Wald test, H0: joint nullity of mean_log_energy_lag, mean_log1p_gasdep, mean_energy_gasdep_int, mean_log_gdp_pc, mean_threat, mean_log_area and 4 others
- stat = 32.3, p-value < 2.2e-16, on 10 and 148 DoF, VCOV: Clustered (country).
+ stat = 61.4, p-value < 2.2e-16, on 10 and 148 DoF, VCOV: Clustered (country).
 ====================================================
 MODEL: BASELINE 
 ====================================================
@@ -534,38 +532,38 @@ OLS estimation, Dep. Var.: log_def_spend
 Observations: 186
 Fixed-effects: year: 18
 Standard-errors: Clustered (country) 
-                        Estimate Std. Error   t value   Pr(>|t|)    
-log_energy_lag         -0.803973   0.349333 -2.301451 0.04192474 *  
-log1p_gasdep            0.543867   0.226485  2.401334 0.03514949 *  
-energy_gasdep_int       0.156628   0.057423  2.727614 0.01966202 *  
-log_gdp_pc              1.126588   0.568686  1.981037 0.07313951 .  
-threat                 -0.000770   0.000578 -1.333166 0.20942934    
-log_area                6.405493   6.075872  1.054251 0.31437444    
-nato                    0.599878   0.130427  4.599328 0.00076577 ***
-ideology               -0.001884   0.029444 -0.063982 0.95013236    
-seats                  -0.001142   0.000959 -1.190444 0.25892901    
-ideol_seats             0.000036   0.000125  0.287119 0.77935727    
-mean_log_energy_lag     2.900957   2.337824  1.240879 0.24046298    
-mean_log1p_gasdep      -0.991016   0.772519 -1.282838 0.22591986    
-mean_energy_gasdep_int -0.414753   0.359617 -1.153320 0.27322413    
-mean_log_gdp_pc         0.387164   0.559021  0.692576 0.50293482    
-mean_threat             0.000378   0.000573  0.658815 0.52356590    
-mean_log_area          -5.770760   6.114915 -0.943719 0.36558001    
-mean_nato               1.571194   0.388272  4.046628 0.00192659 ** 
-mean_ideology          -0.623760   0.192205 -3.245287 0.00780031 ** 
-mean_seats             -0.016868   0.010368 -1.626978 0.13202070    
-mean_ideol_seats        0.003272   0.001855  1.764517 0.10535666    
+                        Estimate Std. Error   t value  Pr(>|t|)    
+log_energy_lag         -0.750502   0.352934 -2.126463 0.0569280 *
+log1p_gasdep            0.472763   0.255149  1.852889 0.0908951 *
+energy_gasdep_int       0.142006   0.066032  2.150570 0.0545928 *
+log_gdp_pc              1.172295   0.572606  2.047297 0.0652789 *
+threat                 -0.000335   0.000380 -0.880510 0.3974128    
+log_area                6.867408   7.353715  0.933869 0.3704179    
+nato                    0.611765   0.142395  4.296243 0.0012639 ** 
+ideology               -0.006838   0.024958 -0.273989 0.7891697    
+seats                  -0.000967   0.000931 -1.038489 0.3213317    
+ideol_seats             0.000042   0.000109  0.384358 0.7080394    
+mean_log_energy_lag     3.227632   2.379489  1.356439 0.2021463    
+mean_log1p_gasdep      -1.039965   0.801154 -1.298084 0.2208160    
+mean_energy_gasdep_int -0.456482   0.370368 -1.232509 0.2434524    
+mean_log_gdp_pc         0.325411   0.563305  0.577681 0.5751138    
+mean_threat            -0.000063   0.000370 -0.169528 0.8684588    
+mean_log_area          -6.210267   7.403660 -0.838810 0.4194309    
+mean_nato               1.613382   0.389183  4.145556 0.0016287 ** 
+mean_ideology          -0.618682   0.187147 -3.305861 0.0070048 ** 
+mean_seats             -0.016766   0.010173 -1.648041 0.1275827    
+mean_ideol_seats        0.003175   0.001814  1.749971 0.1079278    
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-RMSE: 0.221305     Adj. R2: 0.957805
-                 Within R2: 0.966103
+Signif. codes:  0 '**' 0.05 '*' 0.1 ' ' 1
+RMSE: 0.2166     Adj. R2: 0.959574
+               Within R2: 0.967524 
 
 Joint Mundlak test (all mean_* terms = 0):
 $stat
-[1] 32.30688
+[1] 61.43742
 
 $p
-[1] 1.999344e-32
+[1] 1.270061e-47
 
 $df1
 [1] 10
@@ -580,35 +578,36 @@ $vcov
 ====================================================
 COUNTRY ROBUSTNESS TABLE: LOW GASDEP (LEAVE-ONE-OUT)
 ====================================================
-      split omitted_country n_countries n_obs coef_energy   p_energy
- low_gasdep          cyprus          11   173 -0.26432324 0.04713658
- low_gasdep        slovenia          11   172 -0.20863567 0.08624476
- low_gasdep          latvia          11   172 -0.14614137 0.16187606
- low_gasdep       lithuania          11   174 -0.13869878 0.22067182
- low_gasdep         croatia          11   174 -0.13672616 0.26016758
- low_gasdep          sweden          11   172 -0.12570619 0.30596237
- low_gasdep         romania          11   174 -0.13710003 0.37684057
- low_gasdep      luxembourg          11   176 -0.12166892 0.37853980
- low_gasdep           malta          11   177 -0.14882907 0.40078343
- low_gasdep        bulgaria          11   172 -0.10639933 0.50487188
- low_gasdep         denmark          11   172 -0.06097771 0.60910284
- low_gasdep         estonia          11   171 -0.06067940 0.64914350
+      split omitted_country n_countries n_obs coef_energy  p_energy
+ low_gasdep          cyprus          11   173 -0.27083857 0.0480030
+ low_gasdep        slovenia          11   172 -0.18795934 0.2183914
+ low_gasdep       lithuania          11   174 -0.12249512 0.3674677
+ low_gasdep          latvia          11   172 -0.10934511 0.4238441
+ low_gasdep         croatia          11   174 -0.11339112 0.4740709
+ low_gasdep         romania          11   174 -0.13656102 0.4985931
+ low_gasdep        bulgaria          11   172 -0.12609829 0.5620524
+ low_gasdep          sweden          11   172 -0.08402241 0.6103173
+ low_gasdep         estonia          11   171 -0.07145748 0.7057324
+ low_gasdep      luxembourg          11   176 -0.05054648 0.7367800
+ low_gasdep           malta          11   177 -0.05971087 0.7714113
+ low_gasdep         denmark          11   172 -0.01595278 0.9209343
  sign_same_energy sig10_energy coef_interaction p_interaction
-             TRUE         TRUE      -0.02931895    0.48928295
-             TRUE         TRUE      -0.05467396    0.21965513
-             TRUE        FALSE      -0.02156848    0.70513986
-             TRUE        FALSE      -0.01551190    0.78934212
-             TRUE        FALSE      -0.04633245    0.32360875
-             TRUE        FALSE      -0.05959420    0.18117407
-             TRUE        FALSE      -0.05638645    0.26708787
-             TRUE        FALSE      -0.04214389    0.40356049
-             TRUE        FALSE      -0.04820473    0.45028910
-             TRUE        FALSE      -0.07763088    0.09166044
-             TRUE        FALSE      -0.07060483    0.14151540
-             TRUE        FALSE      -0.07964458    0.05032175
+             TRUE         TRUE     -0.007562532     0.8622620
+             TRUE        FALSE     -0.042971444     0.4116311
+             TRUE        FALSE      0.003169858     0.9595400
+             TRUE        FALSE     -0.009787103     0.8849096
+             TRUE        FALSE     -0.032377902     0.5635793
+             TRUE        FALSE     -0.039224268     0.5106295
+             TRUE        FALSE     -0.049738984     0.4257222
+             TRUE        FALSE     -0.047328681     0.3837435
+             TRUE        FALSE     -0.074285634     0.1177724
+             TRUE        FALSE     -0.020012027     0.7405313
+             TRUE        FALSE     -0.052376856     0.4758902
+             TRUE        FALSE     -0.073390411     0.1933015
  sign_same_interaction sig10_interaction robust_flag robust_flag_strict
                   TRUE             FALSE        TRUE              FALSE
-                  TRUE             FALSE        TRUE              FALSE
+                  TRUE             FALSE       FALSE              FALSE
+                 FALSE             FALSE       FALSE              FALSE
                   TRUE             FALSE       FALSE              FALSE
                   TRUE             FALSE       FALSE              FALSE
                   TRUE             FALSE       FALSE              FALSE
@@ -616,9 +615,8 @@ COUNTRY ROBUSTNESS TABLE: LOW GASDEP (LEAVE-ONE-OUT)
                   TRUE             FALSE       FALSE              FALSE
                   TRUE             FALSE       FALSE              FALSE
                   TRUE             FALSE       FALSE              FALSE
-                  TRUE              TRUE       FALSE              FALSE
                   TRUE             FALSE       FALSE              FALSE
-                  TRUE              TRUE       FALSE              FALSE
+                  TRUE             FALSE       FALSE              FALSE
  fit_error
       <NA>
       <NA>
@@ -633,51 +631,51 @@ COUNTRY ROBUSTNESS TABLE: LOW GASDEP (LEAVE-ONE-OUT)
       <NA>
       <NA>
 
-Robust count (main rule): 2 out of 12 
+Robust count (main rule): 1 out of 12 
 Robust count (strict rule): 0 out of 12 
 
 ====================================================
 COUNTRY ROBUSTNESS TABLE: HIGH GASDEP (LEAVE-ONE-OUT)
 ====================================================
-       split omitted_country n_countries n_obs coef_energy    p_energy
- high_gasdep         finland          11   168  -0.7515876 0.008280394
- high_gasdep         austria          11   172  -0.7309590 0.027958234
- high_gasdep           italy          11   174  -0.7580026 0.030059659
- high_gasdep         belgium          11   172  -0.6901264 0.030513456
- high_gasdep         germany          11   170  -0.6985134 0.031563962
- high_gasdep          poland          11   172  -0.9389927 0.032110272
- high_gasdep           spain          11   172  -0.8128006 0.038029072
- high_gasdep          france          11   169  -0.8306514 0.052476996
- high_gasdep         hungary          11   169  -0.6358232 0.092999754
- high_gasdep        portugal          11   169  -0.7266918 0.159838735
- high_gasdep          greece          11   168  -0.4791280 0.219869900
- high_gasdep         ireland          11   171  -0.1554344 0.482999289
+       split omitted_country n_countries n_obs coef_energy   p_energy
+ high_gasdep         finland          11   168 -0.72901382 0.02167788
+ high_gasdep           spain          11   172 -0.84374249 0.02919695
+ high_gasdep         austria          11   172 -0.69917825 0.05550213
+ high_gasdep         belgium          11   172 -0.65843252 0.05801544
+ high_gasdep           italy          11   174 -0.71382115 0.05944904
+ high_gasdep          france          11   169 -0.83562342 0.06097740
+ high_gasdep          poland          11   172 -0.88729569 0.07028362
+ high_gasdep        portugal          11   169 -0.76171658 0.11199764
+ high_gasdep         germany          11   170 -0.53515651 0.11570597
+ high_gasdep         hungary          11   169 -0.59894063 0.11855861
+ high_gasdep          greece          11   168 -0.46475462 0.28111307
+ high_gasdep         ireland          11   171 -0.06079255 0.83475729
  sign_same_energy sig10_energy coef_interaction p_interaction
-             TRUE         TRUE       0.10078950    0.01818449
-             TRUE         TRUE       0.07835560    0.17342088
-             TRUE         TRUE       0.09380953    0.10766229
-             TRUE         TRUE       0.07600844    0.16202512
-             TRUE         TRUE       0.08295391    0.14658623
-             TRUE         TRUE       0.13039073    0.05417225
-             TRUE         TRUE       0.10739139    0.10404872
-             TRUE         TRUE       0.10410773    0.13701412
-             TRUE         TRUE       0.09031736    0.17262220
-             TRUE        FALSE       0.08590092    0.27928371
-             TRUE        FALSE       0.04956536    0.42789181
-             TRUE        FALSE       0.02047897    0.63255986
+             TRUE         TRUE       0.09589855    0.04589681
+             TRUE         TRUE       0.11337197    0.09712040
+             TRUE         TRUE       0.07378226    0.27787966
+             TRUE         TRUE       0.06812373    0.28657402
+             TRUE         TRUE       0.08302127    0.22429767
+             TRUE         TRUE       0.10211164    0.18317007
+             TRUE         TRUE       0.11654014    0.15715979
+             TRUE        FALSE       0.08516128    0.28055420
+             TRUE        FALSE       0.04908744    0.42870136
+             TRUE        FALSE       0.08072474    0.25075163
+             TRUE        FALSE       0.04311192    0.54415966
+             TRUE        FALSE      -0.01698597    0.73107171
  sign_same_interaction sig10_interaction robust_flag robust_flag_strict
                   TRUE              TRUE        TRUE               TRUE
-                  TRUE             FALSE        TRUE              FALSE
-                  TRUE             FALSE        TRUE              FALSE
-                  TRUE             FALSE        TRUE              FALSE
-                  TRUE             FALSE        TRUE              FALSE
                   TRUE              TRUE        TRUE               TRUE
                   TRUE             FALSE        TRUE              FALSE
                   TRUE             FALSE        TRUE              FALSE
                   TRUE             FALSE        TRUE              FALSE
+                  TRUE             FALSE        TRUE              FALSE
+                  TRUE             FALSE        TRUE              FALSE
                   TRUE             FALSE       FALSE              FALSE
                   TRUE             FALSE       FALSE              FALSE
                   TRUE             FALSE       FALSE              FALSE
+                  TRUE             FALSE       FALSE              FALSE
+                 FALSE             FALSE       FALSE              FALSE
  fit_error
       <NA>
       <NA>
@@ -692,7 +690,7 @@ COUNTRY ROBUSTNESS TABLE: HIGH GASDEP (LEAVE-ONE-OUT)
       <NA>
       <NA>
 
-Robust count (main rule): 9 out of 12 
+Robust count (main rule): 7 out of 12 
 Robust count (strict rule): 2 out of 12 
 
 
@@ -712,7 +710,7 @@ austria, belgium, cyprus, denmark, finland, france, germany, greece, ireland, it
 BASELINE MODEL: EAST
 ------------------------------
 Wald test, H0: joint nullity of mean_log_energy_lag, mean_log1p_gasdep, mean_energy_gasdep_int, mean_log_gdp_pc, mean_threat, mean_log_area and 2 others
- stat = 1,839.8, p-value < 2.2e-16, on 8 and 109 DoF, VCOV: Clustered (country).
+ stat = 416.7, p-value < 2.2e-16, on 8 and 109 DoF, VCOV: Clustered (country).
 ====================================================
 MODEL: BASELINE 
 ====================================================
@@ -725,37 +723,37 @@ Observations: 145
 Fixed-effects: year: 18
 Standard-errors: Clustered (country) 
                          Estimate Std. Error   t value   Pr(>|t|)    
-log_energy_lag          -0.734636   0.260183 -2.823537 2.2372e-02 *  
-log1p_gasdep             0.152137   0.258205  0.589209 5.7198e-01    
-energy_gasdep_int        0.079378   0.071128  1.115986 2.9682e-01    
-log_gdp_pc               1.629236   0.422422  3.856894 4.8301e-03 ** 
-threat                   0.000310   0.000278  1.115882 2.9687e-01    
-log_area                13.865776   3.903939  3.551740 7.4904e-03 ** 
-nato                     0.292539   0.158719  1.843125 1.0255e-01    
-ideology                -0.027353   0.018896 -1.447511 1.8578e-01    
-seats                    0.001594   0.001723  0.925499 3.8178e-01    
-ideol_seats             -0.000097   0.000206 -0.472579 6.4914e-01    
-mean_log_energy_lag    -29.436409   4.108072 -7.165504 9.5626e-05 ***
-mean_log1p_gasdep       21.125003   3.549375  5.951753 3.4131e-04 ***
-mean_energy_gasdep_int   9.504967   1.570043  6.053951 3.0458e-04 ***
-mean_log_gdp_pc         10.993157   1.874517  5.864529 3.7653e-04 ***
-mean_threat             -0.002864   0.000866 -3.306478 1.0755e-02 *  
-mean_log_area          -10.000519   4.094439 -2.442464 4.0409e-02 *  
-mean_nato               -5.163619   0.866547 -5.958848 3.3861e-04 ***
-mean_ideology           -0.650787   0.091907 -7.080893 1.0394e-04 ***
+log_energy_lag          -0.283309   0.184535 -1.535257 1.6327e-01    
+log1p_gasdep            -0.351750   0.213455 -1.647888 1.3799e-01    
+energy_gasdep_int        0.002403   0.057272  0.041965 9.6756e-01    
+log_gdp_pc               2.542580   0.488413  5.205796 8.1661e-04 **
+threat                   0.000103   0.000227  0.454711 6.6140e-01    
+log_area                14.430797   3.538086  4.078702 3.5405e-03 ** 
+nato                     0.278723   0.124755  2.234167 5.5932e-02 *
+ideology                -0.015442   0.020882 -0.739489 4.8074e-01    
+seats                    0.002591   0.001505  1.722366 1.2330e-01    
+ideol_seats             -0.000256   0.000193 -1.330270 2.2010e-01    
+mean_log_energy_lag    -30.654084   3.598353 -8.518921 2.7701e-05 **
+mean_log1p_gasdep       24.012959   3.230290  7.433684 7.3783e-05 **
+mean_energy_gasdep_int  10.667519   1.433329  7.442478 7.3167e-05 **
+mean_log_gdp_pc         10.388135   1.782287  5.828543 3.9221e-04 **
+mean_threat             -0.002970   0.000771 -3.854801 4.8445e-03 ** 
+mean_log_area          -10.596391   3.691593 -2.870411 2.0816e-02 **  
+mean_nato               -4.354902   0.703812 -6.187592 2.6296e-04 **
+mean_ideology           -0.546034   0.075732 -7.210127 9.1541e-05 **
 ... 2 variables were removed because of collinearity (mean_seats and
 mean_ideol_seats)
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-RMSE: 0.138347     Adj. R2: 0.971312
-                 Within R2: 0.977416
+Signif. codes:  0 '**' 0.05 '*' 0.1 ' ' 1
+RMSE: 0.129642     Adj. R2: 0.974792
+                 Within R2: 0.980155 
 
 Joint Mundlak test (all mean_* terms = 0):
 $stat
-[1] 1839.757
+[1] 416.6666
 
 $p
-[1] 1.533453e-112
+[1] 5.223577e-78
 
 $df1
 [1] 8
@@ -771,7 +769,7 @@ $vcov
 BASELINE MODEL: WEST
 ------------------------------
 Wald test, H0: joint nullity of mean_log_energy_lag, mean_log1p_gasdep, mean_energy_gasdep_int, mean_log_gdp_pc, mean_threat, mean_log_area and 4 others
- stat = 17.6, p-value < 2.2e-16, on 10 and 192 DoF, VCOV: Clustered (country).
+ stat = 16.9, p-value < 2.2e-16, on 10 and 192 DoF, VCOV: Clustered (country).
 ====================================================
 MODEL: BASELINE 
 ====================================================
@@ -783,38 +781,38 @@ OLS estimation, Dep. Var.: log_def_spend
 Observations: 230
 Fixed-effects: year: 18
 Standard-errors: Clustered (country) 
-                         Estimate Std. Error   t value  Pr(>|t|)    
-log_energy_lag          -0.135432   0.073664 -1.838509 0.0872942 .  
-log1p_gasdep             0.044177   0.048353  0.913639 0.3763730    
-energy_gasdep_int        0.014281   0.026285  0.543322 0.5954539    
-log_gdp_pc               0.539090   0.333842  1.614807 0.1286572    
-threat                  -0.000235   0.000134 -1.755392 0.1010385    
-log_area               -18.582292  13.623903 -1.363948 0.1941121    
-nato                     0.725161   0.334676  2.166758 0.0479937 *  
-ideology                 0.013620   0.011458  1.188764 0.2543061    
-seats                    0.000734   0.000894  0.820978 0.4254185    
-ideol_seats             -0.000018   0.000073 -0.245645 0.8095218    
-mean_log_energy_lag      3.308858   0.978491  3.381594 0.0044737 ** 
-mean_log1p_gasdep       -0.658974   0.313670 -2.100851 0.0542476 .  
-mean_energy_gasdep_int  -0.490350   0.195931 -2.502663 0.0253359 *  
-mean_log_gdp_pc         -0.828846   0.284414 -2.914224 0.0113193 *  
-mean_threat             -0.000318   0.000140 -2.271643 0.0394102 *  
-mean_log_area           18.957047  13.605082  1.393380 0.1852332    
-mean_nato               -0.189491   0.258646 -0.732626 0.4758747    
-mean_ideology           -0.281266   0.140585 -2.000680 0.0652071 .  
-mean_seats              -0.001643   0.005291 -0.310549 0.7607188    
-mean_ideol_seats         0.000677   0.001096  0.617649 0.5467231    
+                           Estimate Std. Error   t value  Pr(>|t|)    
+log_energy_lag          -0.11499676   0.077712 -1.479772 0.1610829    
+log1p_gasdep             0.01627459   0.046725  0.348309 0.7327901    
+energy_gasdep_int        0.00036040   0.025048  0.014388 0.9887231    
+log_gdp_pc               0.55849685   0.461366  1.210528 0.2461177    
+threat                  -0.00010959   0.000214 -0.511935 0.6166763    
+log_area               -15.27309643  13.853515 -1.102471 0.2888489    
+nato                     0.74674811   0.329457  2.266603 0.0397874 **  
+ideology                 0.00787230   0.009691  0.812332 0.4301982    
+seats                    0.00072348   0.000957  0.756119 0.4621119    
+ideol_seats              0.00000476   0.000072  0.065921 0.9483729    
+mean_log_energy_lag      3.26418373   0.984659  3.315041 0.0051071 ** 
+mean_log1p_gasdep       -0.62249957   0.312864 -1.989679 0.0665269 *
+mean_energy_gasdep_int  -0.47217246   0.195351 -2.417052 0.0298763 **  
+mean_log_gdp_pc         -0.83813656   0.375133 -2.234241 0.0422910 **  
+mean_threat             -0.00044126   0.000186 -2.369955 0.0326947 **  
+mean_log_area           15.64469304  13.835196  1.130789 0.2771438    
+mean_nato               -0.21593928   0.256621 -0.841473 0.4142259    
+mean_ideology           -0.27926434   0.140599 -1.986240 0.0669445 *
+mean_seats              -0.00174878   0.005272 -0.331727 0.7450094    
+mean_ideol_seats         0.00067977   0.001096  0.620390 0.5449685    
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-RMSE: 0.198373     Adj. R2: 0.985086
-                 Within R2: 0.987292
+Signif. codes:  0 '**' 0.05 '*' 0.1 ' ' 1
+RMSE: 0.199859     Adj. R2: 0.984842
+                 Within R2: 0.987084 
 
 Joint Mundlak test (all mean_* terms = 0):
 $stat
-[1] 17.6477
+[1] 16.85107
 
 $p
-[1] 1.431352e-22
+[1] 1.060878e-21
 
 $df1
 [1] 10
@@ -830,99 +828,99 @@ $vcov
 COUNTRY ROBUSTNESS TABLE: EAST (LEAVE-ONE-OUT)
 ====================================================
  split omitted_country n_countries n_obs coef_energy   p_energy
-  east         romania           8   130  -1.0167210 0.01001010
-  east       lithuania           8   130  -0.7194804 0.02815108
-  east          poland           8   131  -0.5962574 0.03837600
-  east          latvia           8   128  -0.6569485 0.04193651
-  east         estonia           8   127  -0.5196140 0.10380009
-  east         hungary           8   128  -0.4841957 0.13180456
-  east        bulgaria           8   128  -0.2093240 0.72755249
-  east         croatia           8    NA          NA         NA
-  east        slovenia           8    NA          NA         NA
+  east        slovenia           8   128  -0.4303567 0.06690412
+  east         croatia           8   130  -0.3602332 0.07934619
+  east       lithuania           8   130  -0.3171165 0.10580082
+  east         romania           8   130  -0.3211716 0.27874879
+  east          poland           8   131  -0.2288207 0.29386266
+  east          latvia           8   128  -0.2660904 0.31195356
+  east        bulgaria           8   128   0.4648457 0.39331416
+  east         estonia           8   127  -0.1165575 0.57963769
+  east         hungary           8   128  -0.1151770 0.66626993
  sign_same_energy sig10_energy coef_interaction p_interaction
-             TRUE         TRUE       0.12984821     0.1230880
-             TRUE         TRUE       0.11742967     0.1760944
-             TRUE         TRUE       0.04393032     0.5247498
-             TRUE         TRUE       0.08862649     0.2923644
-             TRUE        FALSE       0.03924490     0.6177885
-             TRUE        FALSE       0.02007688     0.7968935
-             TRUE        FALSE      -0.05654881     0.6704010
-            FALSE        FALSE               NA            NA
-            FALSE        FALSE               NA            NA
+             TRUE         TRUE     -0.000853253     0.9877804
+             TRUE         TRUE      0.031952917     0.5614566
+             TRUE        FALSE      0.044450787     0.4700331
+             TRUE        FALSE      0.010379596     0.8865565
+             TRUE        FALSE     -0.008411049     0.8986917
+             TRUE        FALSE      0.007698209     0.9265257
+            FALSE        FALSE     -0.181118474     0.2031351
+             TRUE        FALSE     -0.042759441     0.4844204
+             TRUE        FALSE     -0.042763479     0.5321791
  sign_same_interaction sig10_interaction robust_flag robust_flag_strict
-                  TRUE             FALSE        TRUE              FALSE
-                  TRUE             FALSE        TRUE              FALSE
-                  TRUE             FALSE        TRUE              FALSE
+                 FALSE             FALSE        TRUE              FALSE
                   TRUE             FALSE        TRUE              FALSE
                   TRUE             FALSE       FALSE              FALSE
                   TRUE             FALSE       FALSE              FALSE
                  FALSE             FALSE       FALSE              FALSE
+                  TRUE             FALSE       FALSE              FALSE
                  FALSE             FALSE       FALSE              FALSE
                  FALSE             FALSE       FALSE              FALSE
-                                                                     fit_error
-                                                                          <NA>
-                                                                          <NA>
-                                                                          <NA>
-                                                                          <NA>
-                                                                          <NA>
-                                                                          <NA>
-                                                                          <NA>
- system is computationally singular: reciprocal condition number = 4.04607e-19
- system is computationally singular: reciprocal condition number = 2.48852e-19
+                 FALSE             FALSE       FALSE              FALSE
+ fit_error
+      <NA>
+      <NA>
+      <NA>
+      <NA>
+      <NA>
+      <NA>
+      <NA>
+      <NA>
+      <NA>
 
-Robust count (main rule): 4 out of 9 
+Robust count (main rule): 2 out of 9 
 Robust count (strict rule): 0 out of 9 
 
 ====================================================
 COUNTRY ROBUSTNESS TABLE: WEST (LEAVE-ONE-OUT)
 ====================================================
  split omitted_country n_countries n_obs coef_energy   p_energy
-  west           italy          14   218  -0.1727825 0.02334710
-  west         belgium          14   216  -0.1632890 0.03124961
-  west         ireland          14   215  -0.1604923 0.03149990
-  west          sweden          14   213  -0.1774526 0.04555681
-  west         germany          14   214  -0.1493004 0.04938981
-  west         austria          14   216  -0.1542781 0.05261773
-  west          greece          14   212  -0.1546555 0.07177945
-  west           spain          14   216  -0.1374700 0.09637813
-  west         denmark          14   213  -0.1474629 0.09916679
-  west         finland          14   212  -0.1206185 0.10786572
-  west           malta          14   218  -0.1985422 0.11182432
-  west        portugal          14   213  -0.1241441 0.12226306
-  west          france          14   213  -0.1116119 0.13425087
-  west          cyprus          14   214  -0.1175465 0.19307595
-  west      luxembourg          14   217  -0.0690238 0.21354149
+  west           italy          14   218 -0.15312479 0.04734331
+  west         belgium          14   216 -0.14603062 0.06745133
+  west          sweden          14   213 -0.16340287 0.07357085
+  west         germany          14   214 -0.13235408 0.08683421
+  west         austria          14   216 -0.13339850 0.10825073
+  west          greece          14   212 -0.14349679 0.10855560
+  west         ireland          14   215 -0.15563209 0.11009548
+  west           spain          14   216 -0.11934248 0.15935337
+  west         denmark          14   213 -0.11186284 0.18642204
+  west         finland          14   212 -0.10095062 0.19997175
+  west           malta          14   218 -0.18200252 0.20173942
+  west        portugal          14   213 -0.10749734 0.20615576
+  west          france          14   213 -0.09386185 0.25142782
+  west          cyprus          14   214 -0.10367330 0.30231599
+  west      luxembourg          14   217 -0.03217403 0.47753878
  sign_same_energy sig10_energy coef_interaction p_interaction
-             TRUE         TRUE      0.013123438     0.5973397
-             TRUE         TRUE     -0.005310565     0.8304283
-             TRUE         TRUE      0.029282161     0.2142778
-             TRUE         TRUE      0.005308115     0.8510058
-             TRUE         TRUE     -0.006346106     0.8063828
-             TRUE         TRUE      0.002503736     0.9265302
-             TRUE         TRUE     -0.008127284     0.7502872
-             TRUE         TRUE      0.018511298     0.5239871
-             TRUE         TRUE      0.018129827     0.5463544
-             TRUE        FALSE      0.007869189     0.7793500
-             TRUE        FALSE      0.025150977     0.3745777
-             TRUE        FALSE      0.014775096     0.6276106
-             TRUE        FALSE      0.009758975     0.7118533
-             TRUE        FALSE      0.009297207     0.7481813
-             TRUE        FALSE      0.032926828     0.1812318
+             TRUE         TRUE    -4.765503e-04     0.9837940
+             TRUE         TRUE    -1.763384e-02     0.4628329
+             TRUE         TRUE    -9.638043e-03     0.7291665
+             TRUE         TRUE    -1.924224e-02     0.4332507
+             TRUE        FALSE    -1.019935e-02     0.7087055
+             TRUE        FALSE    -1.235473e-02     0.6458505
+             TRUE        FALSE     6.757538e-03     0.7962322
+             TRUE        FALSE     7.306345e-03     0.7952461
+             TRUE        FALSE     2.555852e-03     0.9252796
+             TRUE        FALSE    -5.468092e-03     0.8392121
+             TRUE        FALSE     1.615728e-02     0.6132278
+             TRUE        FALSE     3.747023e-05     0.9989595
+             TRUE        FALSE    -3.583963e-03     0.8871172
+             TRUE        FALSE    -4.353290e-03     0.8759714
+             TRUE        FALSE     2.446595e-02     0.2204642
  sign_same_interaction sig10_interaction robust_flag robust_flag_strict
-                  TRUE             FALSE        TRUE              FALSE
                  FALSE             FALSE        TRUE              FALSE
-                  TRUE             FALSE        TRUE              FALSE
-                  TRUE             FALSE        TRUE              FALSE
                  FALSE             FALSE        TRUE              FALSE
-                  TRUE             FALSE        TRUE              FALSE
                  FALSE             FALSE        TRUE              FALSE
-                  TRUE             FALSE        TRUE              FALSE
-                  TRUE             FALSE        TRUE              FALSE
+                 FALSE             FALSE        TRUE              FALSE
+                 FALSE             FALSE       FALSE              FALSE
+                 FALSE             FALSE       FALSE              FALSE
                   TRUE             FALSE       FALSE              FALSE
                   TRUE             FALSE       FALSE              FALSE
                   TRUE             FALSE       FALSE              FALSE
+                 FALSE             FALSE       FALSE              FALSE
                   TRUE             FALSE       FALSE              FALSE
                   TRUE             FALSE       FALSE              FALSE
+                 FALSE             FALSE       FALSE              FALSE
+                 FALSE             FALSE       FALSE              FALSE
                   TRUE             FALSE       FALSE              FALSE
  fit_error
       <NA>
@@ -941,11 +939,11 @@ COUNTRY ROBUSTNESS TABLE: WEST (LEAVE-ONE-OUT)
       <NA>
       <NA>
 
-Robust count (main rule): 9 out of 15 
+Robust count (main rule): 4 out of 15 
 Robust count (strict rule): 0 out of 15 
 
 SCRIPT: 08_robustness.R
-Generated: 2026-05-01 16:32:22 
+Generated: 2026-05-08 15:45:15 
 Result file: C:/Users/maxim/OneDrive/Documents/University - Year 3/ANIP/maxim-ANIP/08_robustness/08_output/08_01_baseline_full_model.txt 
 
 BASELINE MODEL: FULL SAMPLE
@@ -958,37 +956,37 @@ Observations: 375
 Fixed-effects: year: 18
 Standard-errors: Clustered (country) 
                         Estimate Std. Error   t value  Pr(>|t|)    
-log_energy_lag         -0.333048   0.139152 -2.393421 0.0252427 *  
-log1p_gasdep            0.082059   0.092116  0.890818 0.3822511    
-energy_gasdep_int       0.024887   0.046645  0.533536 0.5987814    
-log_gdp_pc              0.968850   0.271015  3.574894 0.0016058 ** 
-threat                 -0.000117   0.000271 -0.432783 0.6692038    
-log_area                8.733980   3.660932  2.385726 0.0256671 *  
-nato                    0.058081   0.096863  0.599619 0.5546220    
-ideology               -0.005582   0.017497 -0.319054 0.7525654    
-seats                   0.000619   0.001004  0.616648 0.5435230    
-ideol_seats            -0.000023   0.000091 -0.255121 0.8008971    
-mean_log_energy_lag     1.243681   0.383990  3.238838 0.0036256 ** 
-mean_log1p_gasdep       0.115077   0.199533  0.576732 0.5697228    
-mean_energy_gasdep_int  0.063588   0.088750  0.716476 0.4809097    
-mean_log_gdp_pc        -0.317810   0.274835 -1.156367 0.2594013    
-mean_threat             0.000166   0.000257  0.647166 0.5239315    
-mean_log_area          -8.089656   3.691266 -2.191567 0.0387992 *  
-mean_nato               0.325100   0.311824  1.042577 0.3079797    
-mean_ideology          -0.048831   0.143379 -0.340575 0.7365146    
-mean_seats              0.000150   0.005566  0.026875 0.9787916    
-mean_ideol_seats        0.001128   0.001126  1.001069 0.3272100    
+log_energy_lag         -0.196551   0.129074 -1.522777 0.1414463    
+log1p_gasdep            0.021664   0.080787  0.268164 0.7909639    
+energy_gasdep_int       0.002124   0.041908  0.050673 0.9600240    
+log_gdp_pc              1.302272   0.427276  3.047848 0.0057099 ** 
+threat                 -0.000109   0.000275 -0.398225 0.6941371    
+log_area               10.068315   4.115159  2.446641 0.0224803 *  
+nato                    0.029313   0.097136  0.301771 0.7655386    
+ideology               -0.005557   0.015886 -0.349791 0.7296786    
+seats                   0.001084   0.000949  1.142001 0.2652038    
+ideol_seats            -0.000046   0.000090 -0.515336 0.6112361    
+mean_log_energy_lag     1.155482   0.383281  3.014709 0.0061733 ** 
+mean_log1p_gasdep       0.163046   0.198717  0.820497 0.4203559    
+mean_energy_gasdep_int  0.080154   0.085072  0.942196 0.3558842    
+mean_log_gdp_pc        -0.668079   0.385601 -1.732564 0.0965638 .  
+mean_threat             0.000164   0.000252  0.652744 0.5203929    
+mean_log_area          -9.417717   4.153033 -2.267672 0.0330559 *  
+mean_nato               0.359623   0.305330  1.177816 0.2509137    
+mean_ideology          -0.045899   0.143094 -0.320765 0.7512849    
+mean_seats             -0.000334   0.005589 -0.059831 0.9528072    
+mean_ideol_seats        0.001143   0.001128  1.013308 0.3214551    
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-RMSE: 0.420896     Adj. R2: 0.924302
-                 Within R2: 0.931073
+RMSE: 0.421854     Adj. R2: 0.923879
+                 Within R2: 0.930688
 
 Joint Mundlak test (all mean_* terms = 0):
 $stat
-[1] 41.76248
+[1] 48.8703
 
 $p
-[1] 3.469109e-53
+[1] 1.170943e-59
 
 $df1
 [1] 10
@@ -1000,7 +998,7 @@ $vcov
 [1] "Clustered (country)"
 
 SCRIPT: 08_robustness.R
-Generated: 2026-05-01 16:32:22 
+Generated: 2026-05-08 15:45:15 
 Result file: C:/Users/maxim/OneDrive/Documents/University - Year 3/ANIP/maxim-ANIP/08_robustness/08_output/08_02_model_re.txt 
 
 ALTERNATIVE MODEL FAMILY
@@ -1017,42 +1015,40 @@ Unbalanced Panel: n = 24, T = 12-18, N = 375
 
 Effects:
                     var   std.dev share
-idiosyncratic   0.02050   0.14319 0.000
-individual    146.07750  12.08625 0.999
-time            0.05903   0.24297 0.000
+idiosyncratic   0.02104   0.14505 0.000
+individual    202.14173  14.21766 0.999
+time            0.08436   0.29044 0.000
 theta:
            Min.   1st Qu.    Median      Mean   3rd Qu.      Max.
-id    0.9965801 0.9969411 0.9971267 0.9970081 0.9971267 0.9972076
-time  0.7173574 0.8805677 0.8805677 0.8739133 0.8805677 0.8805677
-total 0.7173572 0.8805663 0.8805667 0.8739124 0.8805669 0.8805670
+id    0.9970550 0.9973659 0.9975257 0.9974236 0.9975257 0.9975954
+time  0.7577401 0.8985867 0.8985867 0.8928856 0.8985867 0.8985867
+total 0.7577399 0.8985855 0.8985859 0.8928848 0.8985860 0.8985861
 
 Residuals:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
- -3.968  -1.255  -0.479  -0.152   0.317   8.521 
+ -5.323  -2.073  -0.547  -0.196   0.700  12.169 
 
 Coefficients:
-                     Estimate  Std. Error z-value Pr(>|z|)  
-(Intercept)       -2.6540e+01  1.0430e+02 -0.2545  0.79913  
-log_energy_lag    -2.7773e-01  5.7187e-01 -0.4857  0.62721  
-log1p_gasdep       4.9638e-02  2.9689e-01  0.1672  0.86722  
-energy_gasdep_int  1.4720e-02  1.2994e-01  0.1133  0.90980  
-log_gdp_pc         9.0975e-01  5.5197e-01  1.6482  0.09931 .
-threat            -6.2946e-05  1.0378e-03 -0.0607  0.95164  
-log_area           2.1884e+00  9.2103e+00  0.2376  0.81219  
-nato               6.6663e-02  5.9507e-01  0.1120  0.91080  
-ideology          -5.1134e-03  4.9806e-02 -0.1027  0.91823  
-seats              5.3700e-04  4.0989e-03  0.1310  0.89577  
-ideol_seats       -1.3568e-05  3.7606e-04 -0.0361  0.97122  
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+                     Estimate  Std. Error z-value Pr(>|z|)
+(Intercept)       -3.6671e+01  1.1773e+02 -0.3115   0.7554
+log_energy_lag    -1.4560e-01  5.5326e-01 -0.2632   0.7924
+log1p_gasdep      -9.6757e-03  2.8603e-01 -0.0338   0.9730
+energy_gasdep_int -7.6565e-03  1.2644e-01 -0.0606   0.9517
+log_gdp_pc         1.2003e+00  7.6562e-01  1.5677   0.1169
+threat            -5.1067e-05  1.0391e-03 -0.0491   0.9608
+log_area           2.8687e+00  1.0379e+01  0.2764   0.7823
+nato               3.6519e-02  5.9410e-01  0.0615   0.9510
+ideology          -5.3185e-03  4.9933e-02 -0.1065   0.9152
+seats              9.3607e-04  4.1242e-03  0.2270   0.8204
+ideol_seats       -3.1747e-05  3.7895e-04 -0.0838   0.9332
 
-Total Sum of Squares:    973.96
-Residual Sum of Squares: 2024.2
-R-Squared:      0.7425
-Adj. R-Squared: 0.73543
-Chisq: 3.41639 on 10 DF, p-value: 0.96986
+Total Sum of Squares:    972.96
+Residual Sum of Squares: 4178.7
+R-Squared:      0.74288
+Adj. R-Squared: 0.73581
+Chisq: 3.18373 on 10 DF, p-value: 0.97676
 SCRIPT: 08_robustness.R
-Generated: 2026-05-01 16:32:22 
+Generated: 2026-05-08 15:45:15 
 Result file: C:/Users/maxim/OneDrive/Documents/University - Year 3/ANIP/maxim-ANIP/08_robustness/08_output/08_03_model_fe_driscoll_kraay.txt 
 
 ALTERNATIVE MODEL FAMILY
@@ -1068,49 +1064,49 @@ Unbalanced Panel: n = 24, T = 12-18, N = 375
 
 Residuals:
       Min.    1st Qu.     Median    3rd Qu.       Max. 
--0.4168698 -0.0782475 -0.0046646  0.0756320  0.5863606 
+-0.5037030 -0.0778590 -0.0022942  0.0698711  0.6334884 
 
 Coefficients:
                      Estimate  Std. Error t-value  Pr(>|t|)    
-log_energy_lag    -2.8002e-01  8.2419e-02 -3.3976 0.0007647 ***
-log1p_gasdep       4.0362e-02  4.2807e-02  0.9429 0.3464471    
-energy_gasdep_int  8.6574e-03  1.8806e-02  0.4603 0.6455784    
-log_gdp_pc         8.7772e-01  8.0598e-02 10.8900 < 2.2e-16 ***
-threat            -6.1601e-05  1.4915e-04 -0.4130 0.6798719    
-log_area           8.8789e+00  3.1698e+00  2.8011 0.0053994 ** 
-nato               5.5814e-02  8.5759e-02  0.6508 0.5156206    
-ideology          -6.2901e-03  7.1618e-03 -0.8783 0.3804425    
-seats              9.0966e-04  6.0498e-04  1.5036 0.1336495    
-ideol_seats       -2.3115e-05  5.4092e-05 -0.4273 0.6694241    
+log_energy_lag    -1.5380e-01  8.0755e-02 -1.9045  0.057733 .  
+log1p_gasdep      -1.5716e-02  4.1648e-02 -0.3774  0.706148    
+energy_gasdep_int -1.2481e-02  1.8463e-02 -0.6760  0.499510    
+log_gdp_pc         1.1619e+00  1.1241e-01 10.3358 < 2.2e-16 ***
+threat            -5.8143e-05  1.5112e-04 -0.3848  0.700675    
+log_area           1.0132e+01  3.2008e+00  3.1654  0.001696 ** 
+nato               2.8375e-02  8.6557e-02  0.3278  0.743263    
+ideology          -6.5106e-03  7.2634e-03 -0.8964  0.370731    
+seats              1.3136e-03  6.1463e-04  2.1372  0.033332 *  
+ideol_seats       -4.2051e-05  5.5204e-05 -0.7617  0.446774    
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
-Total Sum of Squares:    10.079
-Residual Sum of Squares: 6.6427
-R-Squared:      0.34093
-Adj. R-Squared: 0.23922
-F-statistic: 16.7602 on 10 and 324 DF, p-value: < 2.22e-16
+Total Sum of Squares:    10.066
+Residual Sum of Squares: 6.8164
+R-Squared:      0.32286
+Adj. R-Squared: 0.21836
+F-statistic: 15.4481 on 10 and 324 DF, p-value: < 2.22e-16
 
 Driscoll-Kraay robust coefficient table:
 
 t test of coefficients:
 
                      Estimate  Std. Error t value  Pr(>|t|)    
-log_energy_lag    -2.8002e-01  3.0127e-02 -9.2948 < 2.2e-16 ***
-log1p_gasdep       4.0362e-02  2.9200e-02  1.3822    0.1678    
-energy_gasdep_int  8.6574e-03  1.5461e-02  0.5599    0.5759    
-log_gdp_pc         8.7772e-01  1.0119e-01  8.6739 < 2.2e-16 ***
-threat            -6.1601e-05  1.8289e-04 -0.3368    0.7365    
-log_area           8.8789e+00  1.9289e+00  4.6032 5.983e-06 ***
-nato               5.5814e-02  3.2368e-02  1.7244    0.0856 .  
-ideology          -6.2901e-03  1.0767e-02 -0.5842    0.5595    
-seats              9.0966e-04  5.3125e-04  1.7123    0.0878 .  
-ideol_seats       -2.3115e-05  6.1981e-05 -0.3729    0.7094    
+log_energy_lag    -1.5380e-01  2.8384e-02 -5.4184 1.175e-07 ***
+log1p_gasdep      -1.5716e-02  3.1846e-02 -0.4935    0.6220    
+energy_gasdep_int -1.2481e-02  1.4871e-02 -0.8393    0.4019    
+log_gdp_pc         1.1619e+00  1.0086e-01 11.5198 < 2.2e-16 ***
+threat            -5.8143e-05  1.9004e-04 -0.3060    0.7598    
+log_area           1.0132e+01  2.2230e+00  4.5578 7.334e-06 ***
+nato               2.8375e-02  3.0475e-02  0.9311    0.3525    
+ideology          -6.5106e-03  1.1340e-02 -0.5741    0.5663    
+seats              1.3136e-03  5.1166e-04  2.5673    0.0107 *  
+ideol_seats       -4.2051e-05  6.1593e-05 -0.6827    0.4953    
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 SCRIPT: 08_robustness.R
-Generated: 2026-05-01 16:32:23 
+Generated: 2026-05-08 15:45:15 
 Result file: C:/Users/maxim/OneDrive/Documents/University - Year 3/ANIP/maxim-ANIP/08_robustness/08_output/08_04_model_pcse.txt 
 
 ALTERNATIVE MODEL FAMILY
@@ -1126,85 +1122,85 @@ Unbalanced Panel: n = 24, T = 12-18, N = 375
 
 Residuals:
      Min.   1st Qu.    Median   3rd Qu.      Max. 
--1.342588 -0.199625  0.038791  0.273396  1.354201 
+-1.321162 -0.194980  0.034531  0.266216  1.368057 
 
 Coefficients:
                      Estimate  Std. Error t-value  Pr(>|t|)    
-(Intercept)       -5.6168e+00  7.7185e-01 -7.2771 2.295e-12 ***
-log_energy_lag     6.1200e-01  1.6081e-01  3.8057 0.0001671 ***
-log1p_gasdep       1.4579e-01  7.5723e-02  1.9253 0.0550123 .  
-energy_gasdep_int  5.8136e-02  3.4502e-02  1.6850 0.0928849 .  
-log_gdp_pc         6.6952e-01  5.5264e-02 12.1149 < 2.2e-16 ***
-threat             7.3003e-05  4.4779e-05  1.6303 0.1039478    
-log_area           6.3916e-01  2.6412e-02 24.1998 < 2.2e-16 ***
-nato               4.2973e-01  7.3706e-02  5.8303 1.266e-08 ***
-ideology           1.3916e-02  2.0404e-02  0.6820 0.4956773    
-seats              6.2835e-03  1.0337e-03  6.0786 3.194e-09 ***
-ideol_seats        3.5257e-05  1.6356e-04  0.2156 0.8294624    
-factor(year)2007  -1.2174e-01  1.4068e-01 -0.8653 0.3874482    
-factor(year)2008  -2.7085e-01  1.4151e-01 -1.9140 0.0564364 .  
-factor(year)2009  -3.6334e-01  1.4280e-01 -2.5444 0.0113793 *  
-factor(year)2010  -4.3796e-01  1.4390e-01 -3.0435 0.0025169 ** 
-factor(year)2011  -5.8753e-01  1.4530e-01 -4.0434 6.494e-05 ***
-factor(year)2012  -5.9788e-01  1.4626e-01 -4.0878 5.417e-05 ***
-factor(year)2013  -6.8983e-01  1.4712e-01 -4.6888 3.956e-06 ***
-factor(year)2014  -7.0176e-01  1.4815e-01 -4.7367 3.173e-06 ***
-factor(year)2015  -5.2816e-01  1.4723e-01 -3.5875 0.0003819 ***
-factor(year)2016  -4.4089e-01  1.4624e-01 -3.0148 0.0027611 ** 
-factor(year)2017  -4.1376e-01  1.4517e-01 -2.8503 0.0046295 ** 
-factor(year)2018  -3.7832e-01  1.4871e-01 -2.5440 0.0113909 *  
-factor(year)2019  -2.8188e-01  1.5131e-01 -1.8629 0.0633162 .  
-factor(year)2020  -3.6290e-01  1.6021e-01 -2.2652 0.0241194 *  
-factor(year)2021  -3.1466e-01  1.7292e-01 -1.8197 0.0696638 .  
-factor(year)2022  -3.8884e-01  1.9130e-01 -2.0327 0.0428470 *  
-factor(year)2023  -8.3445e-01  2.8436e-01 -2.9345 0.0035630 ** 
+(Intercept)       -5.4287e+00  7.6905e-01 -7.0590 9.186e-12 ***
+log_energy_lag     6.8500e-01  1.6042e-01  4.2700 2.526e-05 ***
+log1p_gasdep       1.1856e-01  7.6301e-02  1.5538 0.1211425    
+energy_gasdep_int  4.5698e-02  3.4636e-02  1.3194 0.1879124    
+log_gdp_pc         6.5683e-01  5.5096e-02 11.9216 < 2.2e-16 ***
+threat             7.8505e-05  4.4990e-05  1.7449 0.0818829 .  
+log_area           6.4473e-01  2.6627e-02 24.2131 < 2.2e-16 ***
+nato               4.4001e-01  7.4700e-02  5.8903 9.113e-09 ***
+ideology           1.3226e-02  2.0505e-02  0.6450 0.5193397    
+seats              6.2496e-03  1.0385e-03  6.0177 4.496e-09 ***
+ideol_seats        3.9732e-05  1.6437e-04  0.2417 0.8091384    
+factor(year)2007  -2.7801e-02  1.4108e-01 -0.1971 0.8438914    
+factor(year)2008  -1.0211e-01  1.4146e-01 -0.7219 0.4708695    
+factor(year)2009  -2.4458e-01  1.4347e-01 -1.7047 0.0891491 .  
+factor(year)2010  -3.3639e-01  1.4467e-01 -2.3252 0.0206385 *  
+factor(year)2011  -4.3938e-01  1.4609e-01 -3.0077 0.0028245 ** 
+factor(year)2012  -4.9355e-01  1.4720e-01 -3.3529 0.0008879 ***
+factor(year)2013  -5.5711e-01  1.4815e-01 -3.7605 0.0001989 ***
+factor(year)2014  -5.6451e-01  1.4909e-01 -3.7865 0.0001800 ***
+factor(year)2015  -4.9914e-01  1.4798e-01 -3.3730 0.0008276 ***
+factor(year)2016  -4.0711e-01  1.4697e-01 -2.7701 0.0059057 ** 
+factor(year)2017  -3.5212e-01  1.4577e-01 -2.4156 0.0162251 *  
+factor(year)2018  -2.7525e-01  1.4901e-01 -1.8472 0.0655671 .  
+factor(year)2019  -2.0204e-01  1.5194e-01 -1.3297 0.1844771    
+factor(year)2020  -2.5978e-01  1.6081e-01 -1.6155 0.1071218    
+factor(year)2021  -1.6533e-01  1.7321e-01 -0.9545 0.3404823    
+factor(year)2022  -2.8403e-01  1.9196e-01 -1.4796 0.1398936    
+factor(year)2023  -6.3610e-01  2.8566e-01 -2.2268 0.0266034 *  
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
-Total Sum of Squares:    973.96
-Residual Sum of Squares: 81.919
-R-Squared:      0.91589
-Adj. R-Squared: 0.90935
-F-statistic: 139.947 on 27 and 347 DF, p-value: < 2.22e-16
+Total Sum of Squares:    972.96
+Residual Sum of Squares: 82.667
+R-Squared:      0.91504
+Adj. R-Squared: 0.90842
+F-statistic: 138.409 on 27 and 347 DF, p-value: < 2.22e-16
 
 PCSE robust coefficient table:
 
 t test of coefficients:
 
                      Estimate  Std. Error t value  Pr(>|t|)    
-(Intercept)       -5.6168e+00  2.4878e+00 -2.2577 0.0245833 *  
-log_energy_lag     6.1200e-01  4.6687e-01  1.3109 0.1907691    
-log1p_gasdep       1.4579e-01  2.1375e-01  0.6821 0.4956553    
-energy_gasdep_int  5.8136e-02  9.7693e-02  0.5951 0.5521737    
-log_gdp_pc         6.6952e-01  1.8081e-01  3.7030 0.0002478 ***
-threat             7.3003e-05  1.5127e-04  0.4826 0.6296740    
-log_area           6.3916e-01  8.7083e-02  7.3396 1.533e-12 ***
-nato               4.2973e-01  2.3887e-01  1.7990 0.0728874 .  
-ideology           1.3916e-02  3.4581e-02  0.4024 0.6876158    
-seats              6.2835e-03  2.0326e-03  3.0913 0.0021540 ** 
-ideol_seats        3.5257e-05  2.2852e-04  0.1543 0.8774778    
-factor(year)2007  -1.2174e-01  4.2980e-02 -2.8324 0.0048897 ** 
-factor(year)2008  -2.7085e-01  7.3527e-02 -3.6837 0.0002665 ***
-factor(year)2009  -3.6334e-01  1.0101e-01 -3.5970 0.0003686 ***
-factor(year)2010  -4.3796e-01  1.2195e-01 -3.5914 0.0003763 ***
-factor(year)2011  -5.8753e-01  1.3753e-01 -4.2721 2.504e-05 ***
-factor(year)2012  -5.9788e-01  1.5118e-01 -3.9548 9.289e-05 ***
-factor(year)2013  -6.8983e-01  1.6013e-01 -4.3079 2.149e-05 ***
-factor(year)2014  -7.0176e-01  1.6879e-01 -4.1576 4.057e-05 ***
-factor(year)2015  -5.2816e-01  1.5909e-01 -3.3198 0.0009964 ***
-factor(year)2016  -4.4089e-01  1.4599e-01 -3.0201 0.0027145 ** 
-factor(year)2017  -4.1376e-01  1.4183e-01 -2.9172 0.0037616 ** 
-factor(year)2018  -3.7832e-01  1.3852e-01 -2.7311 0.0066348 ** 
-factor(year)2019  -2.8188e-01  1.4673e-01 -1.9210 0.0555463 .  
-factor(year)2020  -3.6290e-01  1.6973e-01 -2.1381 0.0332073 *  
-factor(year)2021  -3.1466e-01  1.7158e-01 -1.8339 0.0675255 .  
-factor(year)2022  -3.8884e-01  2.1457e-01 -1.8122 0.0708144 .  
-factor(year)2023  -8.3445e-01  3.6153e-01 -2.3081 0.0215819 *  
+(Intercept)       -5.4287e+00  2.4866e+00 -2.1832 0.0296896 *  
+log_energy_lag     6.8500e-01  4.6548e-01  1.4716 0.1420302    
+log1p_gasdep       1.1856e-01  2.1568e-01  0.5497 0.5828775    
+energy_gasdep_int  4.5698e-02  9.8019e-02  0.4662 0.6413501    
+log_gdp_pc         6.5683e-01  1.8155e-01  3.6179 0.0003411 ***
+threat             7.8505e-05  1.5157e-04  0.5180 0.6048206    
+log_area           6.4473e-01  8.7849e-02  7.3391 1.539e-12 ***
+nato               4.4001e-01  2.4293e-01  1.8112 0.0709691 .  
+ideology           1.3226e-02  3.4441e-02  0.3840 0.7011919    
+seats              6.2496e-03  2.0308e-03  3.0774 0.0022540 ** 
+ideol_seats        3.9732e-05  2.2869e-04  0.1737 0.8621759    
+factor(year)2007  -2.7801e-02  3.2997e-02 -0.8425 0.4000661    
+factor(year)2008  -1.0211e-01  5.4959e-02 -1.8580 0.0640223 .  
+factor(year)2009  -2.4458e-01  9.8963e-02 -2.4714 0.0139371 *  
+factor(year)2010  -3.3639e-01  1.1963e-01 -2.8118 0.0052067 ** 
+factor(year)2011  -4.3938e-01  1.3338e-01 -3.2943 0.0010883 ** 
+factor(year)2012  -4.9355e-01  1.4973e-01 -3.2962 0.0010812 ** 
+factor(year)2013  -5.5711e-01  1.5959e-01 -3.4909 0.0005434 ***
+factor(year)2014  -5.6451e-01  1.6721e-01 -3.3761 0.0008185 ***
+factor(year)2015  -4.9914e-01  1.5939e-01 -3.1315 0.0018871 ** 
+factor(year)2016  -4.0711e-01  1.4616e-01 -2.7853 0.0056420 ** 
+factor(year)2017  -3.5212e-01  1.4102e-01 -2.4971 0.0129854 *  
+factor(year)2018  -2.7525e-01  1.3504e-01 -2.0383 0.0422730 *  
+factor(year)2019  -2.0204e-01  1.4706e-01 -1.3738 0.1703854    
+factor(year)2020  -2.5978e-01  1.6873e-01 -1.5396 0.1245583    
+factor(year)2021  -1.6533e-01  1.6102e-01 -1.0268 0.3052268    
+factor(year)2022  -2.8403e-01  2.0896e-01 -1.3593 0.1749462    
+factor(year)2023  -6.3610e-01  3.5492e-01 -1.7922 0.0739674 .  
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 SCRIPT: 08_robustness.R
-Generated: 2026-05-01 16:32:23 
+Generated: 2026-05-08 15:45:15 
 Result file: C:/Users/maxim/OneDrive/Documents/University - Year 3/ANIP/maxim-ANIP/08_robustness/08_output/08_05_placebo_health_model.txt 
 
 PLACEBO TEST: HEALTH SPENDING AS DEPENDENT VARIABLE
@@ -1216,38 +1212,38 @@ OLS estimation, Dep. Var.: log_health_spend
 Observations: 375
 Fixed-effects: year: 18
 Standard-errors: Clustered (country) 
-                        Estimate Std. Error   t value  Pr(>|t|)    
-log_energy_lag         -0.097962   0.088639 -1.105175 0.2805112    
-log1p_gasdep           -0.038481   0.038036 -1.011703 0.3222057    
-energy_gasdep_int      -0.027023   0.019538 -1.383113 0.1799108    
-log_gdp_pc              0.011430   0.165548  0.069045 0.9455504    
-threat                 -0.000142   0.000202 -0.700335 0.4907426    
-log_area                1.470227   2.940778  0.499945 0.6218635    
-nato                   -0.016452   0.053318 -0.308553 0.7604388    
-ideology                0.011625   0.005239  2.219096 0.0366247 *  
-seats                   0.001578   0.000533  2.962115 0.0069836 ** 
-ideol_seats            -0.000077   0.000041 -1.893043 0.0710024 .  
-mean_log_energy_lag    -0.378102   0.406526 -0.930082 0.3619884    
-mean_log1p_gasdep       0.269209   0.161772  1.664128 0.1096537    
-mean_energy_gasdep_int  0.133614   0.072884  1.833244 0.0797420 .  
-mean_log_gdp_pc         0.261920   0.200547  1.306031 0.2044540    
-mean_threat             0.000217   0.000205  1.061281 0.2995798    
-mean_log_area          -1.428267   2.945607 -0.484880 0.6323474    
-mean_nato               0.112140   0.163388  0.686340 0.4993601    
-mean_ideology          -0.117195   0.068982 -1.698921 0.1028225    
-mean_seats             -0.006519   0.003232 -2.016942 0.0555213 .  
-mean_ideol_seats        0.000912   0.000560  1.626673 0.1174309    
+                        Estimate Std. Error   t value Pr(>|t|)    
+log_energy_lag         -0.085402   0.086056 -0.992399 0.331329    
+log1p_gasdep           -0.049219   0.036728 -1.340098 0.193303    
+energy_gasdep_int      -0.031397   0.019347 -1.622827 0.118255    
+log_gdp_pc             -0.071151   0.255222 -0.278782 0.782903    
+threat                 -0.000148   0.000226 -0.655989 0.518340    
+log_area                1.682154   2.860001  0.588166 0.562153    
+nato                   -0.026104   0.051602 -0.505882 0.617754    
+ideology                0.010360   0.005578  1.857333 0.076115 .  
+seats                   0.001547   0.000509  3.038652 0.005835 ** 
+ideol_seats            -0.000068   0.000045 -1.528910 0.139924    
+mean_log_energy_lag    -0.375245   0.401766 -0.933991 0.360011    
+mean_log1p_gasdep       0.277264   0.158766  1.746364 0.094092 .  
+mean_energy_gasdep_int  0.136503   0.071282  1.914955 0.068016 .  
+mean_log_gdp_pc         0.337518   0.270983  1.245533 0.225476    
+mean_threat             0.000226   0.000227  0.993207 0.330944    
+mean_log_area          -1.638375   2.865879 -0.571683 0.573082    
+mean_nato               0.123123   0.163559  0.752773 0.459222    
+mean_ideology          -0.113908   0.068801 -1.655619 0.111381    
+mean_seats             -0.006452   0.003245 -1.988347 0.058801 .  
+mean_ideol_seats        0.000894   0.000563  1.587173 0.126127    
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-RMSE: 0.1808     Adj. R2: 0.501036
-               Within R2: 0.522227
+RMSE: 0.180958     Adj. R2: 0.500166
+                 Within R2: 0.521394
 
 Joint Mundlak test (all mean_* terms = 0):
 $stat
-[1] 0.8825583
+[1] 0.9501175
 
 $p
-[1] 0.549758
+[1] 0.4872034
 
 $df1
 [1] 10
@@ -1259,85 +1255,85 @@ $vcov
 [1] "Clustered (country)"
 
 SCRIPT: 08_robustness.R
-Generated: 2026-05-01 16:32:23 
+Generated: 2026-05-08 15:45:15 
 Result file: C:/Users/maxim/OneDrive/Documents/University - Year 3/ANIP/maxim-ANIP/08_robustness/08_output/08_06_country_robust_full.txt 
 
 COUNTRY ROBUSTNESS TABLE: FULL SAMPLE (LEAVE-ONE-OUT)
  split omitted_country n_countries n_obs coef_energy   p_energy
-  full          cyprus          23   359  -0.4521833 0.01266375
-  full         belgium          23   361  -0.3506183 0.01689958
-  full        slovenia          23   358  -0.3520073 0.01703351
-  full         estonia          23   357  -0.3643722 0.01728599
-  full         ireland          23   360  -0.3594936 0.02035898
-  full           italy          23   363  -0.3401750 0.02206734
-  full          sweden          23   358  -0.3461953 0.02464411
-  full         austria          23   361  -0.3291877 0.02685454
-  full         croatia          23   360  -0.3524648 0.02771744
-  full        portugal          23   358  -0.3297891 0.02790397
-  full          latvia          23   358  -0.2957377 0.02793097
-  full           spain          23   361  -0.3246179 0.02892760
-  full         denmark          23   358  -0.3662541 0.02912181
-  full          greece          23   357  -0.3457438 0.03002922
-  full         germany          23   359  -0.3183640 0.03070879
-  full          poland          23   361  -0.3188348 0.03114110
-  full          france          23   358  -0.3223701 0.03298821
-  full       lithuania          23   360  -0.2871437 0.03672483
-  full         hungary          23   358  -0.2968479 0.03944218
-  full         romania          23   360  -0.3200334 0.04682321
-  full         finland          23   357  -0.2951356 0.04925937
-  full           malta          23   363  -0.3641740 0.05182495
-  full      luxembourg          23   362  -0.3029052 0.05418932
-  full        bulgaria          23   358  -0.2004137 0.06069713
+  full         estonia          23   357  -0.2811119 0.03032635
+  full          cyprus          23   359  -0.2942361 0.04133975
+  full         belgium          23   361  -0.2353336 0.06744914
+  full        slovenia          23   358  -0.2196838 0.09867959
+  full         ireland          23   360  -0.2164113 0.11888762
+  full         croatia          23   360  -0.2183042 0.12127196
+  full           italy          23   363  -0.1999327 0.13234903
+  full          greece          23   357  -0.2052203 0.13362441
+  full         denmark          23   358  -0.2085003 0.13782003
+  full          sweden          23   358  -0.2026744 0.13814612
+  full          poland          23   361  -0.1997009 0.14251878
+  full        portugal          23   358  -0.1951745 0.14657593
+  full           spain          23   361  -0.1891991 0.15255979
+  full         austria          23   361  -0.1942321 0.15372002
+  full          france          23   358  -0.1917448 0.15529720
+  full         germany          23   359  -0.1810028 0.16929141
+  full         hungary          23   358  -0.1797669 0.18991878
+  full          latvia          23   358  -0.1704210 0.21167413
+  full       lithuania          23   360  -0.1531901 0.22877747
+  full         finland          23   357  -0.1602976 0.23152130
+  full         romania          23   360  -0.1725177 0.24311633
+  full           malta          23   363  -0.1648888 0.31344674
+  full      luxembourg          23   362  -0.1327471 0.32752878
+  full        bulgaria          23   358  -0.0957485 0.47173021
  sign_same_energy sig10_energy coef_interaction p_interaction
-             TRUE         TRUE      0.050093729     0.3208188
-             TRUE         TRUE     -0.003299220     0.9368680
-             TRUE         TRUE      0.015051753     0.7503450
-             TRUE         TRUE      0.019382805     0.6667945
-             TRUE         TRUE      0.045747985     0.3298580
-             TRUE         TRUE      0.029259932     0.5379142
-             TRUE         TRUE      0.028157336     0.5806907
-             TRUE         TRUE      0.017872760     0.7137276
-             TRUE         TRUE      0.026401066     0.5944089
-             TRUE         TRUE      0.021664260     0.6362852
-             TRUE         TRUE      0.024635146     0.6087424
-             TRUE         TRUE      0.021641164     0.6869990
-             TRUE         TRUE      0.031862709     0.5145712
-             TRUE         TRUE      0.033361127     0.4735656
-             TRUE         TRUE      0.021503597     0.6472969
-             TRUE         TRUE      0.017742921     0.6980479
-             TRUE         TRUE      0.022321290     0.6690476
-             TRUE         TRUE      0.043552855     0.3501691
-             TRUE         TRUE      0.015465975     0.7273839
-             TRUE         TRUE      0.015880488     0.7056740
-             TRUE         TRUE      0.022335203     0.6317134
-             TRUE         TRUE      0.040587094     0.4253894
-             TRUE         TRUE      0.047973416     0.3393419
-             TRUE         TRUE     -0.008655906     0.8430768
+             TRUE         TRUE    -0.0001674189     0.9966284
+             TRUE         TRUE     0.0221318713     0.6018340
+             TRUE         TRUE    -0.0220832576     0.5679795
+             TRUE         TRUE    -0.0069165014     0.8707999
+             TRUE        FALSE     0.0217135976     0.6089035
+             TRUE        FALSE     0.0043411972     0.9233701
+             TRUE        FALSE     0.0062085710     0.8834291
+             TRUE        FALSE     0.0149738533     0.7116267
+             TRUE        FALSE     0.0036614730     0.9318889
+             TRUE        FALSE     0.0030171116     0.9461583
+             TRUE        FALSE    -0.0017826876     0.9662002
+             TRUE        FALSE    -0.0012979532     0.9749133
+             TRUE        FALSE     0.0002975053     0.9951113
+             TRUE        FALSE    -0.0032701969     0.9414349
+             TRUE        FALSE     0.0015724408     0.9736757
+             TRUE        FALSE    -0.0019378697     0.9633178
+             TRUE        FALSE    -0.0063191370     0.8748504
+             TRUE        FALSE     0.0021422601     0.9611160
+             TRUE        FALSE     0.0199614506     0.6370723
+             TRUE        FALSE     0.0004500194     0.9916365
+             TRUE        FALSE    -0.0082886312     0.8235141
+             TRUE        FALSE     0.0040933247     0.9253471
+             TRUE        FALSE     0.0292282060     0.5175588
+             TRUE        FALSE    -0.0249788933     0.5567344
  sign_same_interaction sig10_interaction robust_flag robust_flag_strict
-                  TRUE             FALSE        TRUE              FALSE
                  FALSE             FALSE        TRUE              FALSE
                   TRUE             FALSE        TRUE              FALSE
-                  TRUE             FALSE        TRUE              FALSE
-                  TRUE             FALSE        TRUE              FALSE
-                  TRUE             FALSE        TRUE              FALSE
-                  TRUE             FALSE        TRUE              FALSE
-                  TRUE             FALSE        TRUE              FALSE
-                  TRUE             FALSE        TRUE              FALSE
-                  TRUE             FALSE        TRUE              FALSE
-                  TRUE             FALSE        TRUE              FALSE
-                  TRUE             FALSE        TRUE              FALSE
-                  TRUE             FALSE        TRUE              FALSE
-                  TRUE             FALSE        TRUE              FALSE
-                  TRUE             FALSE        TRUE              FALSE
-                  TRUE             FALSE        TRUE              FALSE
-                  TRUE             FALSE        TRUE              FALSE
-                  TRUE             FALSE        TRUE              FALSE
-                  TRUE             FALSE        TRUE              FALSE
-                  TRUE             FALSE        TRUE              FALSE
-                  TRUE             FALSE        TRUE              FALSE
-                  TRUE             FALSE        TRUE              FALSE
-                  TRUE             FALSE        TRUE              FALSE
                  FALSE             FALSE        TRUE              FALSE
+                 FALSE             FALSE        TRUE              FALSE
+                  TRUE             FALSE       FALSE              FALSE
+                  TRUE             FALSE       FALSE              FALSE
+                  TRUE             FALSE       FALSE              FALSE
+                  TRUE             FALSE       FALSE              FALSE
+                  TRUE             FALSE       FALSE              FALSE
+                  TRUE             FALSE       FALSE              FALSE
+                 FALSE             FALSE       FALSE              FALSE
+                 FALSE             FALSE       FALSE              FALSE
+                  TRUE             FALSE       FALSE              FALSE
+                 FALSE             FALSE       FALSE              FALSE
+                  TRUE             FALSE       FALSE              FALSE
+                 FALSE             FALSE       FALSE              FALSE
+                 FALSE             FALSE       FALSE              FALSE
+                  TRUE             FALSE       FALSE              FALSE
+                  TRUE             FALSE       FALSE              FALSE
+                  TRUE             FALSE       FALSE              FALSE
+                 FALSE             FALSE       FALSE              FALSE
+                  TRUE             FALSE       FALSE              FALSE
+                  TRUE             FALSE       FALSE              FALSE
+                 FALSE             FALSE       FALSE              FALSE
  fit_error
       <NA>
       <NA>
@@ -1364,10 +1360,10 @@ COUNTRY ROBUSTNESS TABLE: FULL SAMPLE (LEAVE-ONE-OUT)
       <NA>
       <NA>
 
-Robust count (main rule): 24 out of 24 
+Robust count (main rule): 4 out of 24 
 Robust count (strict rule): 0 out of 24 
 SCRIPT: 08_robustness.R
-Generated: 2026-05-01 16:32:23 
+Generated: 2026-05-08 15:45:15 
 Result file: C:/Users/maxim/OneDrive/Documents/University - Year 3/ANIP/maxim-ANIP/08_robustness/08_output/08_07_baseline_low_gasdep_model.txt 
 
 BASELINE MODEL: LOW GASDEP
@@ -1375,38 +1371,38 @@ OLS estimation, Dep. Var.: log_def_spend
 Observations: 189
 Fixed-effects: year: 18
 Standard-errors: Clustered (country) 
-                        Estimate Std. Error    t value   Pr(>|t|)    
-log_energy_lag         -0.148608   0.112589  -1.319922 2.1367e-01    
-log1p_gasdep           -0.075033   0.076254  -0.983990 3.4627e-01    
-energy_gasdep_int      -0.046507   0.044394  -1.047591 3.1730e-01    
-log_gdp_pc              1.241041   0.335650   3.697429 3.5173e-03 ** 
-threat                  0.000588   0.000462   1.271257 2.2986e-01    
-log_area               10.176200   1.410664   7.213767 1.7220e-05 ***
-nato                   -0.069701   0.073944  -0.942624 3.6612e-01    
-ideology                0.026581   0.014295   1.859457 8.9896e-02 .  
-seats                   0.005540   0.002807   1.973337 7.4108e-02 .  
-ideol_seats            -0.000999   0.000241  -4.145859 1.6278e-03 ** 
-mean_log_energy_lag     0.213526   0.114436   1.865892 8.8927e-02 .  
-mean_log1p_gasdep       2.177347   0.076320  28.529052 1.1516e-11 ***
-mean_energy_gasdep_int  0.887223   0.043790  20.260940 4.6503e-10 ***
-mean_log_gdp_pc        -1.274987   0.346744  -3.677027 3.6447e-03 ** 
-mean_threat             0.000445   0.000455   0.977922 3.4913e-01    
-mean_log_area          -9.386181   1.409167  -6.660803 3.5589e-05 ***
-mean_nato              -0.372577   0.084486  -4.409908 1.0459e-03 ** 
-mean_ideology           0.475838   0.017448  27.271760 1.8786e-11 ***
-mean_seats              0.026015   0.002781   9.355840 1.4321e-06 ***
-mean_ideol_seats       -0.003971   0.000239 -16.592104 3.9240e-09 ***
+                         Estimate Std. Error    t value   Pr(>|t|)    
+log_energy_lag          -0.123401   0.148880  -0.828859 4.2480e-01    
+log1p_gasdep            -0.065946   0.098378  -0.670330 5.1647e-01    
+energy_gasdep_int       -0.032664   0.053079  -0.615391 5.5082e-01    
+log_gdp_pc               1.711353   0.489781   3.494121 5.0220e-03 ** 
+threat                   0.000425   0.000401   1.058514 3.1251e-01    
+log_area                12.762052   1.986749   6.423584 4.9178e-05 ***
+nato                    -0.056853   0.086344  -0.658453 5.2379e-01    
+ideology                 0.025874   0.013285   1.947662 7.7425e-02 .  
+seats                    0.005332   0.002429   2.194731 5.0549e-02 .  
+ideol_seats             -0.000935   0.000208  -4.494782 9.0899e-04 ***
+mean_log_energy_lag      0.176909   0.159491   1.109212 2.9100e-01    
+mean_log1p_gasdep        2.170758   0.091041  23.843723 8.0477e-11 ***
+mean_energy_gasdep_int   0.876199   0.049021  17.874064 1.7780e-09 ***
+mean_log_gdp_pc         -1.740964   0.500984  -3.475088 5.1932e-03 ** 
+mean_threat              0.000606   0.000391   1.548223 1.4984e-01    
+mean_log_area          -11.971172   1.984385  -6.032685 8.5174e-05 ***
+mean_nato               -0.382703   0.099849  -3.832797 2.7809e-03 ** 
+mean_ideology            0.470392   0.017458  26.943886 2.1420e-11 ***
+mean_seats               0.026118   0.002562  10.193155 6.1045e-07 ***
+mean_ideol_seats        -0.004054   0.000232 -17.502324 2.2243e-09 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-RMSE: 0.132722     Adj. R2: 0.984672
-                 Within R2: 0.98669 
+RMSE: 0.136954     Adj. R2: 0.983643
+                 Within R2: 0.985796
 
 Joint Mundlak test (all mean_* terms = 0):
 $stat
-[1] 2018.308
+[1] 1003.94
 
 $p
-[1] 2.612312e-155
+[1] 1.139499e-132
 
 $df1
 [1] 10
@@ -1418,7 +1414,7 @@ $vcov
 [1] "Clustered (country)"
 
 SCRIPT: 08_robustness.R
-Generated: 2026-05-01 16:32:23 
+Generated: 2026-05-08 15:45:15 
 Result file: C:/Users/maxim/OneDrive/Documents/University - Year 3/ANIP/maxim-ANIP/08_robustness/08_output/08_08_baseline_high_gasdep_model.txt 
 
 BASELINE MODEL: HIGH GASDEP
@@ -1426,38 +1422,38 @@ OLS estimation, Dep. Var.: log_def_spend
 Observations: 186
 Fixed-effects: year: 18
 Standard-errors: Clustered (country) 
-                        Estimate Std. Error   t value   Pr(>|t|)    
-log_energy_lag         -0.803973   0.349333 -2.301451 0.04192474 *  
-log1p_gasdep            0.543867   0.226485  2.401334 0.03514949 *  
-energy_gasdep_int       0.156628   0.057423  2.727614 0.01966202 *  
-log_gdp_pc              1.126588   0.568686  1.981037 0.07313951 .  
-threat                 -0.000770   0.000578 -1.333166 0.20942934    
-log_area                6.405493   6.075872  1.054251 0.31437444    
-nato                    0.599878   0.130427  4.599328 0.00076577 ***
-ideology               -0.001884   0.029444 -0.063982 0.95013236    
-seats                  -0.001142   0.000959 -1.190444 0.25892901    
-ideol_seats             0.000036   0.000125  0.287119 0.77935727    
-mean_log_energy_lag     2.900957   2.337824  1.240879 0.24046298    
-mean_log1p_gasdep      -0.991016   0.772519 -1.282838 0.22591986    
-mean_energy_gasdep_int -0.414753   0.359617 -1.153320 0.27322413    
-mean_log_gdp_pc         0.387164   0.559021  0.692576 0.50293482    
-mean_threat             0.000378   0.000573  0.658815 0.52356590    
-mean_log_area          -5.770760   6.114915 -0.943719 0.36558001    
-mean_nato               1.571194   0.388272  4.046628 0.00192659 ** 
-mean_ideology          -0.623760   0.192205 -3.245287 0.00780031 ** 
-mean_seats             -0.016868   0.010368 -1.626978 0.13202070    
-mean_ideol_seats        0.003272   0.001855  1.764517 0.10535666    
+                        Estimate Std. Error   t value  Pr(>|t|)    
+log_energy_lag         -0.750502   0.352934 -2.126463 0.0569280 .  
+log1p_gasdep            0.472763   0.255149  1.852889 0.0908951 .  
+energy_gasdep_int       0.142006   0.066032  2.150570 0.0545928 .  
+log_gdp_pc              1.172295   0.572606  2.047297 0.0652789 .  
+threat                 -0.000335   0.000380 -0.880510 0.3974128    
+log_area                6.867408   7.353715  0.933869 0.3704179    
+nato                    0.611765   0.142395  4.296243 0.0012639 ** 
+ideology               -0.006838   0.024958 -0.273989 0.7891697    
+seats                  -0.000967   0.000931 -1.038489 0.3213317    
+ideol_seats             0.000042   0.000109  0.384358 0.7080394    
+mean_log_energy_lag     3.227632   2.379489  1.356439 0.2021463    
+mean_log1p_gasdep      -1.039965   0.801154 -1.298084 0.2208160    
+mean_energy_gasdep_int -0.456482   0.370368 -1.232509 0.2434524    
+mean_log_gdp_pc         0.325411   0.563305  0.577681 0.5751138    
+mean_threat            -0.000063   0.000370 -0.169528 0.8684588    
+mean_log_area          -6.210267   7.403660 -0.838810 0.4194309    
+mean_nato               1.613382   0.389183  4.145556 0.0016287 ** 
+mean_ideology          -0.618682   0.187147 -3.305861 0.0070048 ** 
+mean_seats             -0.016766   0.010173 -1.648041 0.1275827    
+mean_ideol_seats        0.003175   0.001814  1.749971 0.1079278    
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-RMSE: 0.221305     Adj. R2: 0.957805
-                 Within R2: 0.966103
+RMSE: 0.2166     Adj. R2: 0.959574
+               Within R2: 0.967524
 
 Joint Mundlak test (all mean_* terms = 0):
 $stat
-[1] 32.30688
+[1] 61.43742
 
 $p
-[1] 1.999344e-32
+[1] 1.270061e-47
 
 $df1
 [1] 10
@@ -1469,39 +1465,40 @@ $vcov
 [1] "Clustered (country)"
 
 SCRIPT: 08_robustness.R
-Generated: 2026-05-01 16:32:23 
+Generated: 2026-05-08 15:45:15 
 Result file: C:/Users/maxim/OneDrive/Documents/University - Year 3/ANIP/maxim-ANIP/08_robustness/08_output/08_09_country_robust_low_gasdep.txt 
 
 COUNTRY ROBUSTNESS TABLE: LOW GASDEP (LEAVE-ONE-OUT)
-      split omitted_country n_countries n_obs coef_energy   p_energy
- low_gasdep          cyprus          11   173 -0.26432324 0.04713658
- low_gasdep        slovenia          11   172 -0.20863567 0.08624476
- low_gasdep          latvia          11   172 -0.14614137 0.16187606
- low_gasdep       lithuania          11   174 -0.13869878 0.22067182
- low_gasdep         croatia          11   174 -0.13672616 0.26016758
- low_gasdep          sweden          11   172 -0.12570619 0.30596237
- low_gasdep         romania          11   174 -0.13710003 0.37684057
- low_gasdep      luxembourg          11   176 -0.12166892 0.37853980
- low_gasdep           malta          11   177 -0.14882907 0.40078343
- low_gasdep        bulgaria          11   172 -0.10639933 0.50487188
- low_gasdep         denmark          11   172 -0.06097771 0.60910284
- low_gasdep         estonia          11   171 -0.06067940 0.64914350
+      split omitted_country n_countries n_obs coef_energy  p_energy
+ low_gasdep          cyprus          11   173 -0.27083857 0.0480030
+ low_gasdep        slovenia          11   172 -0.18795934 0.2183914
+ low_gasdep       lithuania          11   174 -0.12249512 0.3674677
+ low_gasdep          latvia          11   172 -0.10934511 0.4238441
+ low_gasdep         croatia          11   174 -0.11339112 0.4740709
+ low_gasdep         romania          11   174 -0.13656102 0.4985931
+ low_gasdep        bulgaria          11   172 -0.12609829 0.5620524
+ low_gasdep          sweden          11   172 -0.08402241 0.6103173
+ low_gasdep         estonia          11   171 -0.07145748 0.7057324
+ low_gasdep      luxembourg          11   176 -0.05054648 0.7367800
+ low_gasdep           malta          11   177 -0.05971087 0.7714113
+ low_gasdep         denmark          11   172 -0.01595278 0.9209343
  sign_same_energy sig10_energy coef_interaction p_interaction
-             TRUE         TRUE      -0.02931895    0.48928295
-             TRUE         TRUE      -0.05467396    0.21965513
-             TRUE        FALSE      -0.02156848    0.70513986
-             TRUE        FALSE      -0.01551190    0.78934212
-             TRUE        FALSE      -0.04633245    0.32360875
-             TRUE        FALSE      -0.05959420    0.18117407
-             TRUE        FALSE      -0.05638645    0.26708787
-             TRUE        FALSE      -0.04214389    0.40356049
-             TRUE        FALSE      -0.04820473    0.45028910
-             TRUE        FALSE      -0.07763088    0.09166044
-             TRUE        FALSE      -0.07060483    0.14151540
-             TRUE        FALSE      -0.07964458    0.05032175
+             TRUE         TRUE     -0.007562532     0.8622620
+             TRUE        FALSE     -0.042971444     0.4116311
+             TRUE        FALSE      0.003169858     0.9595400
+             TRUE        FALSE     -0.009787103     0.8849096
+             TRUE        FALSE     -0.032377902     0.5635793
+             TRUE        FALSE     -0.039224268     0.5106295
+             TRUE        FALSE     -0.049738984     0.4257222
+             TRUE        FALSE     -0.047328681     0.3837435
+             TRUE        FALSE     -0.074285634     0.1177724
+             TRUE        FALSE     -0.020012027     0.7405313
+             TRUE        FALSE     -0.052376856     0.4758902
+             TRUE        FALSE     -0.073390411     0.1933015
  sign_same_interaction sig10_interaction robust_flag robust_flag_strict
                   TRUE             FALSE        TRUE              FALSE
-                  TRUE             FALSE        TRUE              FALSE
+                  TRUE             FALSE       FALSE              FALSE
+                 FALSE             FALSE       FALSE              FALSE
                   TRUE             FALSE       FALSE              FALSE
                   TRUE             FALSE       FALSE              FALSE
                   TRUE             FALSE       FALSE              FALSE
@@ -1509,9 +1506,8 @@ COUNTRY ROBUSTNESS TABLE: LOW GASDEP (LEAVE-ONE-OUT)
                   TRUE             FALSE       FALSE              FALSE
                   TRUE             FALSE       FALSE              FALSE
                   TRUE             FALSE       FALSE              FALSE
-                  TRUE              TRUE       FALSE              FALSE
                   TRUE             FALSE       FALSE              FALSE
-                  TRUE              TRUE       FALSE              FALSE
+                  TRUE             FALSE       FALSE              FALSE
  fit_error
       <NA>
       <NA>
@@ -1526,52 +1522,52 @@ COUNTRY ROBUSTNESS TABLE: LOW GASDEP (LEAVE-ONE-OUT)
       <NA>
       <NA>
 
-Robust count (main rule): 2 out of 12 
+Robust count (main rule): 1 out of 12 
 Robust count (strict rule): 0 out of 12 
 SCRIPT: 08_robustness.R
-Generated: 2026-05-01 16:32:23 
+Generated: 2026-05-08 15:45:15 
 Result file: C:/Users/maxim/OneDrive/Documents/University - Year 3/ANIP/maxim-ANIP/08_robustness/08_output/08_10_country_robust_high_gasdep.txt 
 
 COUNTRY ROBUSTNESS TABLE: HIGH GASDEP (LEAVE-ONE-OUT)
-       split omitted_country n_countries n_obs coef_energy    p_energy
- high_gasdep         finland          11   168  -0.7515876 0.008280394
- high_gasdep         austria          11   172  -0.7309590 0.027958234
- high_gasdep           italy          11   174  -0.7580026 0.030059659
- high_gasdep         belgium          11   172  -0.6901264 0.030513456
- high_gasdep         germany          11   170  -0.6985134 0.031563962
- high_gasdep          poland          11   172  -0.9389927 0.032110272
- high_gasdep           spain          11   172  -0.8128006 0.038029072
- high_gasdep          france          11   169  -0.8306514 0.052476996
- high_gasdep         hungary          11   169  -0.6358232 0.092999754
- high_gasdep        portugal          11   169  -0.7266918 0.159838735
- high_gasdep          greece          11   168  -0.4791280 0.219869900
- high_gasdep         ireland          11   171  -0.1554344 0.482999289
+       split omitted_country n_countries n_obs coef_energy   p_energy
+ high_gasdep         finland          11   168 -0.72901382 0.02167788
+ high_gasdep           spain          11   172 -0.84374249 0.02919695
+ high_gasdep         austria          11   172 -0.69917825 0.05550213
+ high_gasdep         belgium          11   172 -0.65843252 0.05801544
+ high_gasdep           italy          11   174 -0.71382115 0.05944904
+ high_gasdep          france          11   169 -0.83562342 0.06097740
+ high_gasdep          poland          11   172 -0.88729569 0.07028362
+ high_gasdep        portugal          11   169 -0.76171658 0.11199764
+ high_gasdep         germany          11   170 -0.53515651 0.11570597
+ high_gasdep         hungary          11   169 -0.59894063 0.11855861
+ high_gasdep          greece          11   168 -0.46475462 0.28111307
+ high_gasdep         ireland          11   171 -0.06079255 0.83475729
  sign_same_energy sig10_energy coef_interaction p_interaction
-             TRUE         TRUE       0.10078950    0.01818449
-             TRUE         TRUE       0.07835560    0.17342088
-             TRUE         TRUE       0.09380953    0.10766229
-             TRUE         TRUE       0.07600844    0.16202512
-             TRUE         TRUE       0.08295391    0.14658623
-             TRUE         TRUE       0.13039073    0.05417225
-             TRUE         TRUE       0.10739139    0.10404872
-             TRUE         TRUE       0.10410773    0.13701412
-             TRUE         TRUE       0.09031736    0.17262220
-             TRUE        FALSE       0.08590092    0.27928371
-             TRUE        FALSE       0.04956536    0.42789181
-             TRUE        FALSE       0.02047897    0.63255986
+             TRUE         TRUE       0.09589855    0.04589681
+             TRUE         TRUE       0.11337197    0.09712040
+             TRUE         TRUE       0.07378226    0.27787966
+             TRUE         TRUE       0.06812373    0.28657402
+             TRUE         TRUE       0.08302127    0.22429767
+             TRUE         TRUE       0.10211164    0.18317007
+             TRUE         TRUE       0.11654014    0.15715979
+             TRUE        FALSE       0.08516128    0.28055420
+             TRUE        FALSE       0.04908744    0.42870136
+             TRUE        FALSE       0.08072474    0.25075163
+             TRUE        FALSE       0.04311192    0.54415966
+             TRUE        FALSE      -0.01698597    0.73107171
  sign_same_interaction sig10_interaction robust_flag robust_flag_strict
                   TRUE              TRUE        TRUE               TRUE
-                  TRUE             FALSE        TRUE              FALSE
-                  TRUE             FALSE        TRUE              FALSE
-                  TRUE             FALSE        TRUE              FALSE
-                  TRUE             FALSE        TRUE              FALSE
                   TRUE              TRUE        TRUE               TRUE
                   TRUE             FALSE        TRUE              FALSE
                   TRUE             FALSE        TRUE              FALSE
                   TRUE             FALSE        TRUE              FALSE
+                  TRUE             FALSE        TRUE              FALSE
+                  TRUE             FALSE        TRUE              FALSE
                   TRUE             FALSE       FALSE              FALSE
                   TRUE             FALSE       FALSE              FALSE
                   TRUE             FALSE       FALSE              FALSE
+                  TRUE             FALSE       FALSE              FALSE
+                 FALSE             FALSE       FALSE              FALSE
  fit_error
       <NA>
       <NA>
@@ -1586,10 +1582,10 @@ COUNTRY ROBUSTNESS TABLE: HIGH GASDEP (LEAVE-ONE-OUT)
       <NA>
       <NA>
 
-Robust count (main rule): 9 out of 12 
+Robust count (main rule): 7 out of 12 
 Robust count (strict rule): 2 out of 12 
 SCRIPT: 08_robustness.R
-Generated: 2026-05-01 16:32:23 
+Generated: 2026-05-08 15:45:15 
 Result file: C:/Users/maxim/OneDrive/Documents/University - Year 3/ANIP/maxim-ANIP/08_robustness/08_output/08_11_baseline_east_model.txt 
 
 BASELINE MODEL: EAST
@@ -1598,37 +1594,37 @@ Observations: 145
 Fixed-effects: year: 18
 Standard-errors: Clustered (country) 
                          Estimate Std. Error   t value   Pr(>|t|)    
-log_energy_lag          -0.734636   0.260183 -2.823537 2.2372e-02 *  
-log1p_gasdep             0.152137   0.258205  0.589209 5.7198e-01    
-energy_gasdep_int        0.079378   0.071128  1.115986 2.9682e-01    
-log_gdp_pc               1.629236   0.422422  3.856894 4.8301e-03 ** 
-threat                   0.000310   0.000278  1.115882 2.9687e-01    
-log_area                13.865776   3.903939  3.551740 7.4904e-03 ** 
-nato                     0.292539   0.158719  1.843125 1.0255e-01    
-ideology                -0.027353   0.018896 -1.447511 1.8578e-01    
-seats                    0.001594   0.001723  0.925499 3.8178e-01    
-ideol_seats             -0.000097   0.000206 -0.472579 6.4914e-01    
-mean_log_energy_lag    -29.436409   4.108072 -7.165504 9.5626e-05 ***
-mean_log1p_gasdep       21.125003   3.549375  5.951753 3.4131e-04 ***
-mean_energy_gasdep_int   9.504967   1.570043  6.053951 3.0458e-04 ***
-mean_log_gdp_pc         10.993157   1.874517  5.864529 3.7653e-04 ***
-mean_threat             -0.002864   0.000866 -3.306478 1.0755e-02 *  
-mean_log_area          -10.000519   4.094439 -2.442464 4.0409e-02 *  
-mean_nato               -5.163619   0.866547 -5.958848 3.3861e-04 ***
-mean_ideology           -0.650787   0.091907 -7.080893 1.0394e-04 ***
+log_energy_lag          -0.283309   0.184535 -1.535257 1.6327e-01    
+log1p_gasdep            -0.351750   0.213455 -1.647888 1.3799e-01    
+energy_gasdep_int        0.002403   0.057272  0.041965 9.6756e-01    
+log_gdp_pc               2.542580   0.488413  5.205796 8.1661e-04 ***
+threat                   0.000103   0.000227  0.454711 6.6140e-01    
+log_area                14.430797   3.538086  4.078702 3.5405e-03 ** 
+nato                     0.278723   0.124755  2.234167 5.5932e-02 .  
+ideology                -0.015442   0.020882 -0.739489 4.8074e-01    
+seats                    0.002591   0.001505  1.722366 1.2330e-01    
+ideol_seats             -0.000256   0.000193 -1.330270 2.2010e-01    
+mean_log_energy_lag    -30.654084   3.598353 -8.518921 2.7701e-05 ***
+mean_log1p_gasdep       24.012959   3.230290  7.433684 7.3783e-05 ***
+mean_energy_gasdep_int  10.667519   1.433329  7.442478 7.3167e-05 ***
+mean_log_gdp_pc         10.388135   1.782287  5.828543 3.9221e-04 ***
+mean_threat             -0.002970   0.000771 -3.854801 4.8445e-03 ** 
+mean_log_area          -10.596391   3.691593 -2.870411 2.0816e-02 *  
+mean_nato               -4.354902   0.703812 -6.187592 2.6296e-04 ***
+mean_ideology           -0.546034   0.075732 -7.210127 9.1541e-05 ***
 ... 2 variables were removed because of collinearity (mean_seats and
 mean_ideol_seats)
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-RMSE: 0.138347     Adj. R2: 0.971312
-                 Within R2: 0.977416
+RMSE: 0.129642     Adj. R2: 0.974792
+                 Within R2: 0.980155
 
 Joint Mundlak test (all mean_* terms = 0):
 $stat
-[1] 1839.757
+[1] 416.6666
 
 $p
-[1] 1.533453e-112
+[1] 5.223577e-78
 
 $df1
 [1] 8
@@ -1640,7 +1636,7 @@ $vcov
 [1] "Clustered (country)"
 
 SCRIPT: 08_robustness.R
-Generated: 2026-05-01 16:32:23 
+Generated: 2026-05-08 15:45:15 
 Result file: C:/Users/maxim/OneDrive/Documents/University - Year 3/ANIP/maxim-ANIP/08_robustness/08_output/08_12_baseline_west_model.txt 
 
 BASELINE MODEL: WEST
@@ -1648,38 +1644,38 @@ OLS estimation, Dep. Var.: log_def_spend
 Observations: 230
 Fixed-effects: year: 18
 Standard-errors: Clustered (country) 
-                         Estimate Std. Error   t value  Pr(>|t|)    
-log_energy_lag          -0.135432   0.073664 -1.838509 0.0872942 .  
-log1p_gasdep             0.044177   0.048353  0.913639 0.3763730    
-energy_gasdep_int        0.014281   0.026285  0.543322 0.5954539    
-log_gdp_pc               0.539090   0.333842  1.614807 0.1286572    
-threat                  -0.000235   0.000134 -1.755392 0.1010385    
-log_area               -18.582292  13.623903 -1.363948 0.1941121    
-nato                     0.725161   0.334676  2.166758 0.0479937 *  
-ideology                 0.013620   0.011458  1.188764 0.2543061    
-seats                    0.000734   0.000894  0.820978 0.4254185    
-ideol_seats             -0.000018   0.000073 -0.245645 0.8095218    
-mean_log_energy_lag      3.308858   0.978491  3.381594 0.0044737 ** 
-mean_log1p_gasdep       -0.658974   0.313670 -2.100851 0.0542476 .  
-mean_energy_gasdep_int  -0.490350   0.195931 -2.502663 0.0253359 *  
-mean_log_gdp_pc         -0.828846   0.284414 -2.914224 0.0113193 *  
-mean_threat             -0.000318   0.000140 -2.271643 0.0394102 *  
-mean_log_area           18.957047  13.605082  1.393380 0.1852332    
-mean_nato               -0.189491   0.258646 -0.732626 0.4758747    
-mean_ideology           -0.281266   0.140585 -2.000680 0.0652071 .  
-mean_seats              -0.001643   0.005291 -0.310549 0.7607188    
-mean_ideol_seats         0.000677   0.001096  0.617649 0.5467231    
+                           Estimate Std. Error   t value  Pr(>|t|)    
+log_energy_lag          -0.11499676   0.077712 -1.479772 0.1610829    
+log1p_gasdep             0.01627459   0.046725  0.348309 0.7327901    
+energy_gasdep_int        0.00036040   0.025048  0.014388 0.9887231    
+log_gdp_pc               0.55849685   0.461366  1.210528 0.2461177    
+threat                  -0.00010959   0.000214 -0.511935 0.6166763    
+log_area               -15.27309643  13.853515 -1.102471 0.2888489    
+nato                     0.74674811   0.329457  2.266603 0.0397874 *  
+ideology                 0.00787230   0.009691  0.812332 0.4301982    
+seats                    0.00072348   0.000957  0.756119 0.4621119    
+ideol_seats              0.00000476   0.000072  0.065921 0.9483729    
+mean_log_energy_lag      3.26418373   0.984659  3.315041 0.0051071 ** 
+mean_log1p_gasdep       -0.62249957   0.312864 -1.989679 0.0665269 .  
+mean_energy_gasdep_int  -0.47217246   0.195351 -2.417052 0.0298763 *  
+mean_log_gdp_pc         -0.83813656   0.375133 -2.234241 0.0422910 *  
+mean_threat             -0.00044126   0.000186 -2.369955 0.0326947 *  
+mean_log_area           15.64469304  13.835196  1.130789 0.2771438    
+mean_nato               -0.21593928   0.256621 -0.841473 0.4142259    
+mean_ideology           -0.27926434   0.140599 -1.986240 0.0669445 .  
+mean_seats              -0.00174878   0.005272 -0.331727 0.7450094    
+mean_ideol_seats         0.00067977   0.001096  0.620390 0.5449685    
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-RMSE: 0.198373     Adj. R2: 0.985086
-                 Within R2: 0.987292
+RMSE: 0.199859     Adj. R2: 0.984842
+                 Within R2: 0.987084
 
 Joint Mundlak test (all mean_* terms = 0):
 $stat
-[1] 17.6477
+[1] 16.85107
 
 $p
-[1] 1.431352e-22
+[1] 1.060878e-21
 
 $df1
 [1] 10
@@ -1691,105 +1687,105 @@ $vcov
 [1] "Clustered (country)"
 
 SCRIPT: 08_robustness.R
-Generated: 2026-05-01 16:32:23 
+Generated: 2026-05-08 15:45:15 
 Result file: C:/Users/maxim/OneDrive/Documents/University - Year 3/ANIP/maxim-ANIP/08_robustness/08_output/08_13_country_robust_east.txt 
 
 COUNTRY ROBUSTNESS TABLE: EAST (LEAVE-ONE-OUT)
  split omitted_country n_countries n_obs coef_energy   p_energy
-  east         romania           8   130  -1.0167210 0.01001010
-  east       lithuania           8   130  -0.7194804 0.02815108
-  east          poland           8   131  -0.5962574 0.03837600
-  east          latvia           8   128  -0.6569485 0.04193651
-  east         estonia           8   127  -0.5196140 0.10380009
-  east         hungary           8   128  -0.4841957 0.13180456
-  east        bulgaria           8   128  -0.2093240 0.72755249
-  east         croatia           8    NA          NA         NA
-  east        slovenia           8    NA          NA         NA
+  east        slovenia           8   128  -0.4303567 0.06690412
+  east         croatia           8   130  -0.3602332 0.07934619
+  east       lithuania           8   130  -0.3171165 0.10580082
+  east         romania           8   130  -0.3211716 0.27874879
+  east          poland           8   131  -0.2288207 0.29386266
+  east          latvia           8   128  -0.2660904 0.31195356
+  east        bulgaria           8   128   0.4648457 0.39331416
+  east         estonia           8   127  -0.1165575 0.57963769
+  east         hungary           8   128  -0.1151770 0.66626993
  sign_same_energy sig10_energy coef_interaction p_interaction
-             TRUE         TRUE       0.12984821     0.1230880
-             TRUE         TRUE       0.11742967     0.1760944
-             TRUE         TRUE       0.04393032     0.5247498
-             TRUE         TRUE       0.08862649     0.2923644
-             TRUE        FALSE       0.03924490     0.6177885
-             TRUE        FALSE       0.02007688     0.7968935
-             TRUE        FALSE      -0.05654881     0.6704010
-            FALSE        FALSE               NA            NA
-            FALSE        FALSE               NA            NA
+             TRUE         TRUE     -0.000853253     0.9877804
+             TRUE         TRUE      0.031952917     0.5614566
+             TRUE        FALSE      0.044450787     0.4700331
+             TRUE        FALSE      0.010379596     0.8865565
+             TRUE        FALSE     -0.008411049     0.8986917
+             TRUE        FALSE      0.007698209     0.9265257
+            FALSE        FALSE     -0.181118474     0.2031351
+             TRUE        FALSE     -0.042759441     0.4844204
+             TRUE        FALSE     -0.042763479     0.5321791
  sign_same_interaction sig10_interaction robust_flag robust_flag_strict
-                  TRUE             FALSE        TRUE              FALSE
-                  TRUE             FALSE        TRUE              FALSE
-                  TRUE             FALSE        TRUE              FALSE
+                 FALSE             FALSE        TRUE              FALSE
                   TRUE             FALSE        TRUE              FALSE
                   TRUE             FALSE       FALSE              FALSE
                   TRUE             FALSE       FALSE              FALSE
                  FALSE             FALSE       FALSE              FALSE
+                  TRUE             FALSE       FALSE              FALSE
                  FALSE             FALSE       FALSE              FALSE
                  FALSE             FALSE       FALSE              FALSE
-                                                                     fit_error
-                                                                          <NA>
-                                                                          <NA>
-                                                                          <NA>
-                                                                          <NA>
-                                                                          <NA>
-                                                                          <NA>
-                                                                          <NA>
- system is computationally singular: reciprocal condition number = 4.04607e-19
- system is computationally singular: reciprocal condition number = 2.48852e-19
+                 FALSE             FALSE       FALSE              FALSE
+ fit_error
+      <NA>
+      <NA>
+      <NA>
+      <NA>
+      <NA>
+      <NA>
+      <NA>
+      <NA>
+      <NA>
 
-Robust count (main rule): 4 out of 9 
+Robust count (main rule): 2 out of 9 
 Robust count (strict rule): 0 out of 9 
 SCRIPT: 08_robustness.R
-Generated: 2026-05-01 16:32:23 
+Generated: 2026-05-08 15:45:15 
 Result file: C:/Users/maxim/OneDrive/Documents/University - Year 3/ANIP/maxim-ANIP/08_robustness/08_output/08_14_country_robust_west.txt 
 
 COUNTRY ROBUSTNESS TABLE: WEST (LEAVE-ONE-OUT)
  split omitted_country n_countries n_obs coef_energy   p_energy
-  west           italy          14   218  -0.1727825 0.02334710
-  west         belgium          14   216  -0.1632890 0.03124961
-  west         ireland          14   215  -0.1604923 0.03149990
-  west          sweden          14   213  -0.1774526 0.04555681
-  west         germany          14   214  -0.1493004 0.04938981
-  west         austria          14   216  -0.1542781 0.05261773
-  west          greece          14   212  -0.1546555 0.07177945
-  west           spain          14   216  -0.1374700 0.09637813
-  west         denmark          14   213  -0.1474629 0.09916679
-  west         finland          14   212  -0.1206185 0.10786572
-  west           malta          14   218  -0.1985422 0.11182432
-  west        portugal          14   213  -0.1241441 0.12226306
-  west          france          14   213  -0.1116119 0.13425087
-  west          cyprus          14   214  -0.1175465 0.19307595
-  west      luxembourg          14   217  -0.0690238 0.21354149
+  west           italy          14   218 -0.15312479 0.04734331
+  west         belgium          14   216 -0.14603062 0.06745133
+  west          sweden          14   213 -0.16340287 0.07357085
+  west         germany          14   214 -0.13235408 0.08683421
+  west         austria          14   216 -0.13339850 0.10825073
+  west          greece          14   212 -0.14349679 0.10855560
+  west         ireland          14   215 -0.15563209 0.11009548
+  west           spain          14   216 -0.11934248 0.15935337
+  west         denmark          14   213 -0.11186284 0.18642204
+  west         finland          14   212 -0.10095062 0.19997175
+  west           malta          14   218 -0.18200252 0.20173942
+  west        portugal          14   213 -0.10749734 0.20615576
+  west          france          14   213 -0.09386185 0.25142782
+  west          cyprus          14   214 -0.10367330 0.30231599
+  west      luxembourg          14   217 -0.03217403 0.47753878
  sign_same_energy sig10_energy coef_interaction p_interaction
-             TRUE         TRUE      0.013123438     0.5973397
-             TRUE         TRUE     -0.005310565     0.8304283
-             TRUE         TRUE      0.029282161     0.2142778
-             TRUE         TRUE      0.005308115     0.8510058
-             TRUE         TRUE     -0.006346106     0.8063828
-             TRUE         TRUE      0.002503736     0.9265302
-             TRUE         TRUE     -0.008127284     0.7502872
-             TRUE         TRUE      0.018511298     0.5239871
-             TRUE         TRUE      0.018129827     0.5463544
-             TRUE        FALSE      0.007869189     0.7793500
-             TRUE        FALSE      0.025150977     0.3745777
-             TRUE        FALSE      0.014775096     0.6276106
-             TRUE        FALSE      0.009758975     0.7118533
-             TRUE        FALSE      0.009297207     0.7481813
-             TRUE        FALSE      0.032926828     0.1812318
+             TRUE         TRUE    -4.765503e-04     0.9837940
+             TRUE         TRUE    -1.763384e-02     0.4628329
+             TRUE         TRUE    -9.638043e-03     0.7291665
+             TRUE         TRUE    -1.924224e-02     0.4332507
+             TRUE        FALSE    -1.019935e-02     0.7087055
+             TRUE        FALSE    -1.235473e-02     0.6458505
+             TRUE        FALSE     6.757538e-03     0.7962322
+             TRUE        FALSE     7.306345e-03     0.7952461
+             TRUE        FALSE     2.555852e-03     0.9252796
+             TRUE        FALSE    -5.468092e-03     0.8392121
+             TRUE        FALSE     1.615728e-02     0.6132278
+             TRUE        FALSE     3.747023e-05     0.9989595
+             TRUE        FALSE    -3.583963e-03     0.8871172
+             TRUE        FALSE    -4.353290e-03     0.8759714
+             TRUE        FALSE     2.446595e-02     0.2204642
  sign_same_interaction sig10_interaction robust_flag robust_flag_strict
-                  TRUE             FALSE        TRUE              FALSE
                  FALSE             FALSE        TRUE              FALSE
-                  TRUE             FALSE        TRUE              FALSE
-                  TRUE             FALSE        TRUE              FALSE
                  FALSE             FALSE        TRUE              FALSE
-                  TRUE             FALSE        TRUE              FALSE
                  FALSE             FALSE        TRUE              FALSE
-                  TRUE             FALSE        TRUE              FALSE
-                  TRUE             FALSE        TRUE              FALSE
+                 FALSE             FALSE        TRUE              FALSE
+                 FALSE             FALSE       FALSE              FALSE
+                 FALSE             FALSE       FALSE              FALSE
                   TRUE             FALSE       FALSE              FALSE
                   TRUE             FALSE       FALSE              FALSE
                   TRUE             FALSE       FALSE              FALSE
+                 FALSE             FALSE       FALSE              FALSE
                   TRUE             FALSE       FALSE              FALSE
                   TRUE             FALSE       FALSE              FALSE
+                 FALSE             FALSE       FALSE              FALSE
+                 FALSE             FALSE       FALSE              FALSE
                   TRUE             FALSE       FALSE              FALSE
  fit_error
       <NA>
@@ -1808,25 +1804,25 @@ COUNTRY ROBUSTNESS TABLE: WEST (LEAVE-ONE-OUT)
       <NA>
       <NA>
 
-Robust count (main rule): 9 out of 15 
+Robust count (main rule): 4 out of 15 
 Robust count (strict rule): 0 out of 15 
 SCRIPT: 08_robustness.R
-Generated: 2026-05-01 16:32:24 
+Generated: 2026-05-08 15:45:15 
 Result file: C:/Users/maxim/OneDrive/Documents/University - Year 3/ANIP/maxim-ANIP/08_robustness/08_output/08_15_loo_significance_summary.txt 
 
 LEAVE-ONE-OUT COUNTRY EXCLUSION TEST
 Target coefficient: log_energy_lag
 
 Full-sample benchmark (baseline CRE):
-  beta = -0.333048  | p = 0.02524 
+  beta = -0.196551  | p = 0.1414 
 
 LOO summary over omitted-country re-estimations:
   Total exclusions: 24 
   Successful fits: 24 
-  Significant at 10%: 24 
-  Significant at 5%: 21 
+  Significant at 10%: 4 
+  Significant at 5%: 2 
   Significant at 1%: 0 
   Negative coefficient count: 24 
   Same sign as benchmark: 24 
-  Coefficient range: -0.452183 to -0.200414 
-  p-value range: 0.01266 to 0.0607 
+  Coefficient range: -0.294236 to -0.095748 
+  p-value range: 0.03033 to 0.4717 

@@ -294,7 +294,7 @@ run_one_model <- function(panel, type_name, model_name, header_text, common_coun
   cat("Type:", type_name, "(compatibility label; estimation uses 05-spec sample)\n")
   cat("Countries:", length(unique(model_data$country)), "\n")
   cat("Observations:", nrow(model_data), "\n\n")
-  print(summary(model))
+  print_signif(model)
   cat("\nJoint Mundlak test (all mean_* terms = 0):\n")
   print(mundlak_test)
 

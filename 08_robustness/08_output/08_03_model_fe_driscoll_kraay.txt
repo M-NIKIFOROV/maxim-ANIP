@@ -1,5 +1,5 @@
 SCRIPT: 08_robustness.R
-Generated: 2026-05-01 16:32:22 
+Generated: 2026-05-08 15:45:15 
 Result file: C:/Users/maxim/OneDrive/Documents/University - Year 3/ANIP/maxim-ANIP/08_robustness/08_output/08_03_model_fe_driscoll_kraay.txt 
 
 ALTERNATIVE MODEL FAMILY
@@ -15,44 +15,44 @@ Unbalanced Panel: n = 24, T = 12-18, N = 375
 
 Residuals:
       Min.    1st Qu.     Median    3rd Qu.       Max. 
--0.4168698 -0.0782475 -0.0046646  0.0756320  0.5863606 
+-0.5037030 -0.0778590 -0.0022942  0.0698711  0.6334884 
 
 Coefficients:
                      Estimate  Std. Error t-value  Pr(>|t|)    
-log_energy_lag    -2.8002e-01  8.2419e-02 -3.3976 0.0007647 ***
-log1p_gasdep       4.0362e-02  4.2807e-02  0.9429 0.3464471    
-energy_gasdep_int  8.6574e-03  1.8806e-02  0.4603 0.6455784    
-log_gdp_pc         8.7772e-01  8.0598e-02 10.8900 < 2.2e-16 ***
-threat            -6.1601e-05  1.4915e-04 -0.4130 0.6798719    
-log_area           8.8789e+00  3.1698e+00  2.8011 0.0053994 ** 
-nato               5.5814e-02  8.5759e-02  0.6508 0.5156206    
-ideology          -6.2901e-03  7.1618e-03 -0.8783 0.3804425    
-seats              9.0966e-04  6.0498e-04  1.5036 0.1336495    
-ideol_seats       -2.3115e-05  5.4092e-05 -0.4273 0.6694241    
+log_energy_lag    -1.5380e-01  8.0755e-02 -1.9045  0.057733 .  
+log1p_gasdep      -1.5716e-02  4.1648e-02 -0.3774  0.706148    
+energy_gasdep_int -1.2481e-02  1.8463e-02 -0.6760  0.499510    
+log_gdp_pc         1.1619e+00  1.1241e-01 10.3358 < 2.2e-16 ***
+threat            -5.8143e-05  1.5112e-04 -0.3848  0.700675    
+log_area           1.0132e+01  3.2008e+00  3.1654  0.001696 ** 
+nato               2.8375e-02  8.6557e-02  0.3278  0.743263    
+ideology          -6.5106e-03  7.2634e-03 -0.8964  0.370731    
+seats              1.3136e-03  6.1463e-04  2.1372  0.033332 *  
+ideol_seats       -4.2051e-05  5.5204e-05 -0.7617  0.446774    
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
-Total Sum of Squares:    10.079
-Residual Sum of Squares: 6.6427
-R-Squared:      0.34093
-Adj. R-Squared: 0.23922
-F-statistic: 16.7602 on 10 and 324 DF, p-value: < 2.22e-16
+Total Sum of Squares:    10.066
+Residual Sum of Squares: 6.8164
+R-Squared:      0.32286
+Adj. R-Squared: 0.21836
+F-statistic: 15.4481 on 10 and 324 DF, p-value: < 2.22e-16
 
 Driscoll-Kraay robust coefficient table:
 
 t test of coefficients:
 
                      Estimate  Std. Error t value  Pr(>|t|)    
-log_energy_lag    -2.8002e-01  3.0127e-02 -9.2948 < 2.2e-16 ***
-log1p_gasdep       4.0362e-02  2.9200e-02  1.3822    0.1678    
-energy_gasdep_int  8.6574e-03  1.5461e-02  0.5599    0.5759    
-log_gdp_pc         8.7772e-01  1.0119e-01  8.6739 < 2.2e-16 ***
-threat            -6.1601e-05  1.8289e-04 -0.3368    0.7365    
-log_area           8.8789e+00  1.9289e+00  4.6032 5.983e-06 ***
-nato               5.5814e-02  3.2368e-02  1.7244    0.0856 .  
-ideology          -6.2901e-03  1.0767e-02 -0.5842    0.5595    
-seats              9.0966e-04  5.3125e-04  1.7123    0.0878 .  
-ideol_seats       -2.3115e-05  6.1981e-05 -0.3729    0.7094    
+log_energy_lag    -1.5380e-01  2.8384e-02 -5.4184 1.175e-07 ***
+log1p_gasdep      -1.5716e-02  3.1846e-02 -0.4935    0.6220    
+energy_gasdep_int -1.2481e-02  1.4871e-02 -0.8393    0.4019    
+log_gdp_pc         1.1619e+00  1.0086e-01 11.5198 < 2.2e-16 ***
+threat            -5.8143e-05  1.9004e-04 -0.3060    0.7598    
+log_area           1.0132e+01  2.2230e+00  4.5578 7.334e-06 ***
+nato               2.8375e-02  3.0475e-02  0.9311    0.3525    
+ideology          -6.5106e-03  1.1340e-02 -0.5741    0.5663    
+seats              1.3136e-03  5.1166e-04  2.5673    0.0107 *  
+ideol_seats       -4.2051e-05  6.1593e-05 -0.6827    0.4953    
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 

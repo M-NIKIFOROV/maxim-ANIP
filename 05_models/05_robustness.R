@@ -16,7 +16,7 @@ write_block <- function(path, header, model, notes = NULL) {
   cat(
     capture.output({
       cat(header, "\n\n")
-      print(summary(model))
+      print_signif(model)
       if (!is.null(notes)) {
         cat("\nNotes:\n")
         cat(paste0("- ", notes), sep = "\n")
@@ -35,7 +35,7 @@ write_lag_block <- function(path, model_name, lag_k, model_obj, p_original) {
       cat("Model:", toupper(model_name), "\n")
       cat("Lag  :", lag_k, "\n")
       cat("Original p(log_energy_lag):", round(p_original, 4), "\n\n")
-      print(summary(model_obj))
+      print_signif(model_obj)
     }),
     sep = "\n",
     file = path
@@ -227,7 +227,7 @@ for (mn in selected_models) {
     cat(
       capture.output({
         cat("\n-- Lag", k, "--\n\n")
-        print(summary(model_k))
+        print_signif(model_k)
       }),
       sep = "\n",
       file = lag_file,
@@ -258,3 +258,68 @@ for (mn in selected_models) {
     message(sprintf("Saved: 05_models/05_output/05_robustness_03_%s_lag%s_full.txt", mn, k))
   }
 }
+
+# ---------------------------------------------------------------------------
+# Robustness 04: Real energy prices (HICP-deflated) vs nominal — baseline CRE
+# ---------------------------------------------------------------------------
+
+hicp_long <- read_csv("data/clean/hicp_cleaned.csv", show_col_types = FALSE) %>%
+  mutate(country = tolower(country)) %>%
+  pivot_year_values("hicp") %>%
+  mutate(hicp = as.numeric(hicp)) %>%
+  select(country, year, hicp)
+
+base_for_real_energy <- prepare_05_data(panel, "baseline", common_countries)
+
+energy_nominal_long <- read_csv("data/clean/energy_cleaned.csv", show_col_types = FALSE) %>%
+  mutate(country = tolower(country)) %>%
+  filter(currency == "eur", tax == "i_tax") %>%
+  pivot_year_values("energy_price_raw") %>%
+  mutate(energy_price_raw = as.numeric(energy_price_raw)) %>%
+  group_by(country, year) %>%
+  summarise(energy_price_raw = mean(energy_price_raw, na.rm = TRUE), .groups = "drop") %>%
+  mutate(energy_price_raw = if_else(is.nan(energy_price_raw), NA_real_, energy_price_raw))
+
+real_energy_data <- base_for_real_energy %>%
+  left_join(hicp_long, by = c("country", "year")) %>%
+  left_join(energy_nominal_long, by = c("country", "year")) %>%
+  mutate(
+    real_energy = if_else(!is.na(energy_price_raw) & !is.na(hicp) & hicp > 0,
+                          energy_price_raw / (hicp / 100), NA_real_),
+    real_energy_lag = lag(real_energy, 1),
+    log_real_energy_lag = if_else(!is.na(real_energy_lag) & real_energy_lag > 0,
+                                  log(real_energy_lag), NA_real_),
+    real_energy_gasdep_int = log_real_energy_lag * log1p_gasdep
+  ) %>%
+  filter(!is.na(log_real_energy_lag), !is.na(real_energy_gasdep_int)) %>%
+  group_by(country) %>%
+  mutate(
+    mean_log_real_energy_lag    = mean(log_real_energy_lag,    na.rm = TRUE),
+    mean_real_energy_gasdep_int = mean(real_energy_gasdep_int, na.rm = TRUE)
+  ) %>%
+  ungroup()
+
+real_energy_model <- feols(
+  log_def_spend ~
+    log_real_energy_lag + log1p_gasdep + real_energy_gasdep_int +
+    log_gdp_pc + threat + log_area + nato + ideology + seats + ideol_seats +
+    mean_log_real_energy_lag + mean_log1p_gasdep + mean_real_energy_gasdep_int +
+    mean_log_gdp_pc + mean_threat + mean_log_area + mean_nato +
+    mean_ideology + mean_seats + mean_ideol_seats |
+    year,
+  data = real_energy_data,
+  cluster = "country"
+)
+
+out_real <- "05_models/05_output/05_robustness_04_real_energy_full.txt"
+sink(out_real, split = TRUE)
+cat("SCRIPT: 05_robustness.R\n")
+cat("CHECK: Real energy prices (HICP-deflated, 2015=100) vs nominal — baseline CRE\n\n")
+cat("Nominal baseline log_energy_lag coef :", round(coef(base_models$baseline$model)["log_energy_lag"], 5), "\n")
+cat("Real    baseline log_real_energy_lag  :", round(coef(real_energy_model)["log_real_energy_lag"], 5), "\n\n")
+cat("--- NOMINAL MODEL (baseline) ---\n\n")
+print_signif(base_models$baseline$model)
+cat("\n--- REAL ENERGY MODEL ---\n\n")
+print_signif(real_energy_model)
+sink()
+message("Saved: 05_models/05_output/05_robustness_04_real_energy_full.txt")

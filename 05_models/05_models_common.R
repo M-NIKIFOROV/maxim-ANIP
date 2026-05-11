@@ -166,7 +166,7 @@ run_05_model <- function(panel, model_name, common_countries) {
   cat("Countries   :", length(unique(model_data$country)), "\n")
   cat("Observations:", nrow(model_data), "\n")
   cat("Year range  :", min(model_data$year), "-", max(model_data$year), "\n\n")
-  print(summary(model))
+  print_signif(model)
   cat("\nJoint Mundlak test (all mean_* terms = 0):\n")
   print(mundlak_test)
 

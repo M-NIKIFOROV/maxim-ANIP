@@ -1,55 +1,55 @@
 SCRIPT: 08_robustness.R
-Generated: 2026-05-01 16:32:23 
+Generated: 2026-05-08 15:45:15 
 Result file: C:/Users/maxim/OneDrive/Documents/University - Year 3/ANIP/maxim-ANIP/08_robustness/08_output/08_14_country_robust_west.txt 
 
 COUNTRY ROBUSTNESS TABLE: WEST (LEAVE-ONE-OUT)
  split omitted_country n_countries n_obs coef_energy   p_energy
-  west           italy          14   218  -0.1727825 0.02334710
-  west         belgium          14   216  -0.1632890 0.03124961
-  west         ireland          14   215  -0.1604923 0.03149990
-  west          sweden          14   213  -0.1774526 0.04555681
-  west         germany          14   214  -0.1493004 0.04938981
-  west         austria          14   216  -0.1542781 0.05261773
-  west          greece          14   212  -0.1546555 0.07177945
-  west           spain          14   216  -0.1374700 0.09637813
-  west         denmark          14   213  -0.1474629 0.09916679
-  west         finland          14   212  -0.1206185 0.10786572
-  west           malta          14   218  -0.1985422 0.11182432
-  west        portugal          14   213  -0.1241441 0.12226306
-  west          france          14   213  -0.1116119 0.13425087
-  west          cyprus          14   214  -0.1175465 0.19307595
-  west      luxembourg          14   217  -0.0690238 0.21354149
+  west           italy          14   218 -0.15312479 0.04734331
+  west         belgium          14   216 -0.14603062 0.06745133
+  west          sweden          14   213 -0.16340287 0.07357085
+  west         germany          14   214 -0.13235408 0.08683421
+  west         austria          14   216 -0.13339850 0.10825073
+  west          greece          14   212 -0.14349679 0.10855560
+  west         ireland          14   215 -0.15563209 0.11009548
+  west           spain          14   216 -0.11934248 0.15935337
+  west         denmark          14   213 -0.11186284 0.18642204
+  west         finland          14   212 -0.10095062 0.19997175
+  west           malta          14   218 -0.18200252 0.20173942
+  west        portugal          14   213 -0.10749734 0.20615576
+  west          france          14   213 -0.09386185 0.25142782
+  west          cyprus          14   214 -0.10367330 0.30231599
+  west      luxembourg          14   217 -0.03217403 0.47753878
  sign_same_energy sig10_energy coef_interaction p_interaction
-             TRUE         TRUE      0.013123438     0.5973397
-             TRUE         TRUE     -0.005310565     0.8304283
-             TRUE         TRUE      0.029282161     0.2142778
-             TRUE         TRUE      0.005308115     0.8510058
-             TRUE         TRUE     -0.006346106     0.8063828
-             TRUE         TRUE      0.002503736     0.9265302
-             TRUE         TRUE     -0.008127284     0.7502872
-             TRUE         TRUE      0.018511298     0.5239871
-             TRUE         TRUE      0.018129827     0.5463544
-             TRUE        FALSE      0.007869189     0.7793500
-             TRUE        FALSE      0.025150977     0.3745777
-             TRUE        FALSE      0.014775096     0.6276106
-             TRUE        FALSE      0.009758975     0.7118533
-             TRUE        FALSE      0.009297207     0.7481813
-             TRUE        FALSE      0.032926828     0.1812318
+             TRUE         TRUE    -4.765503e-04     0.9837940
+             TRUE         TRUE    -1.763384e-02     0.4628329
+             TRUE         TRUE    -9.638043e-03     0.7291665
+             TRUE         TRUE    -1.924224e-02     0.4332507
+             TRUE        FALSE    -1.019935e-02     0.7087055
+             TRUE        FALSE    -1.235473e-02     0.6458505
+             TRUE        FALSE     6.757538e-03     0.7962322
+             TRUE        FALSE     7.306345e-03     0.7952461
+             TRUE        FALSE     2.555852e-03     0.9252796
+             TRUE        FALSE    -5.468092e-03     0.8392121
+             TRUE        FALSE     1.615728e-02     0.6132278
+             TRUE        FALSE     3.747023e-05     0.9989595
+             TRUE        FALSE    -3.583963e-03     0.8871172
+             TRUE        FALSE    -4.353290e-03     0.8759714
+             TRUE        FALSE     2.446595e-02     0.2204642
  sign_same_interaction sig10_interaction robust_flag robust_flag_strict
-                  TRUE             FALSE        TRUE              FALSE
                  FALSE             FALSE        TRUE              FALSE
-                  TRUE             FALSE        TRUE              FALSE
-                  TRUE             FALSE        TRUE              FALSE
                  FALSE             FALSE        TRUE              FALSE
-                  TRUE             FALSE        TRUE              FALSE
                  FALSE             FALSE        TRUE              FALSE
-                  TRUE             FALSE        TRUE              FALSE
-                  TRUE             FALSE        TRUE              FALSE
+                 FALSE             FALSE        TRUE              FALSE
+                 FALSE             FALSE       FALSE              FALSE
+                 FALSE             FALSE       FALSE              FALSE
                   TRUE             FALSE       FALSE              FALSE
                   TRUE             FALSE       FALSE              FALSE
                   TRUE             FALSE       FALSE              FALSE
+                 FALSE             FALSE       FALSE              FALSE
                   TRUE             FALSE       FALSE              FALSE
                   TRUE             FALSE       FALSE              FALSE
+                 FALSE             FALSE       FALSE              FALSE
+                 FALSE             FALSE       FALSE              FALSE
                   TRUE             FALSE       FALSE              FALSE
  fit_error
       <NA>
@@ -68,5 +68,5 @@ COUNTRY ROBUSTNESS TABLE: WEST (LEAVE-ONE-OUT)
       <NA>
       <NA>
 
-Robust count (main rule): 9 out of 15 
+Robust count (main rule): 4 out of 15 
 Robust count (strict rule): 0 out of 15 

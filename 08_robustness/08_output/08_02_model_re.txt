@@ -1,5 +1,5 @@
 SCRIPT: 08_robustness.R
-Generated: 2026-05-01 16:32:22 
+Generated: 2026-05-08 15:45:15 
 Result file: C:/Users/maxim/OneDrive/Documents/University - Year 3/ANIP/maxim-ANIP/08_robustness/08_output/08_02_model_re.txt 
 
 ALTERNATIVE MODEL FAMILY
@@ -16,37 +16,35 @@ Unbalanced Panel: n = 24, T = 12-18, N = 375
 
 Effects:
                     var   std.dev share
-idiosyncratic   0.02050   0.14319 0.000
-individual    146.07750  12.08625 0.999
-time            0.05903   0.24297 0.000
+idiosyncratic   0.02104   0.14505 0.000
+individual    202.14173  14.21766 0.999
+time            0.08436   0.29044 0.000
 theta:
            Min.   1st Qu.    Median      Mean   3rd Qu.      Max.
-id    0.9965801 0.9969411 0.9971267 0.9970081 0.9971267 0.9972076
-time  0.7173574 0.8805677 0.8805677 0.8739133 0.8805677 0.8805677
-total 0.7173572 0.8805663 0.8805667 0.8739124 0.8805669 0.8805670
+id    0.9970550 0.9973659 0.9975257 0.9974236 0.9975257 0.9975954
+time  0.7577401 0.8985867 0.8985867 0.8928856 0.8985867 0.8985867
+total 0.7577399 0.8985855 0.8985859 0.8928848 0.8985860 0.8985861
 
 Residuals:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
- -3.968  -1.255  -0.479  -0.152   0.317   8.521 
+ -5.323  -2.073  -0.547  -0.196   0.700  12.169 
 
 Coefficients:
-                     Estimate  Std. Error z-value Pr(>|z|)  
-(Intercept)       -2.6540e+01  1.0430e+02 -0.2545  0.79913  
-log_energy_lag    -2.7773e-01  5.7187e-01 -0.4857  0.62721  
-log1p_gasdep       4.9638e-02  2.9689e-01  0.1672  0.86722  
-energy_gasdep_int  1.4720e-02  1.2994e-01  0.1133  0.90980  
-log_gdp_pc         9.0975e-01  5.5197e-01  1.6482  0.09931 .
-threat            -6.2946e-05  1.0378e-03 -0.0607  0.95164  
-log_area           2.1884e+00  9.2103e+00  0.2376  0.81219  
-nato               6.6663e-02  5.9507e-01  0.1120  0.91080  
-ideology          -5.1134e-03  4.9806e-02 -0.1027  0.91823  
-seats              5.3700e-04  4.0989e-03  0.1310  0.89577  
-ideol_seats       -1.3568e-05  3.7606e-04 -0.0361  0.97122  
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+                     Estimate  Std. Error z-value Pr(>|z|)
+(Intercept)       -3.6671e+01  1.1773e+02 -0.3115   0.7554
+log_energy_lag    -1.4560e-01  5.5326e-01 -0.2632   0.7924
+log1p_gasdep      -9.6757e-03  2.8603e-01 -0.0338   0.9730
+energy_gasdep_int -7.6565e-03  1.2644e-01 -0.0606   0.9517
+log_gdp_pc         1.2003e+00  7.6562e-01  1.5677   0.1169
+threat            -5.1067e-05  1.0391e-03 -0.0491   0.9608
+log_area           2.8687e+00  1.0379e+01  0.2764   0.7823
+nato               3.6519e-02  5.9410e-01  0.0615   0.9510
+ideology          -5.3185e-03  4.9933e-02 -0.1065   0.9152
+seats              9.3607e-04  4.1242e-03  0.2270   0.8204
+ideol_seats       -3.1747e-05  3.7895e-04 -0.0838   0.9332
 
-Total Sum of Squares:    973.96
-Residual Sum of Squares: 2024.2
-R-Squared:      0.7425
-Adj. R-Squared: 0.73543
-Chisq: 3.41639 on 10 DF, p-value: 0.96986
+Total Sum of Squares:    972.96
+Residual Sum of Squares: 4178.7
+R-Squared:      0.74288
+Adj. R-Squared: 0.73581
+Chisq: 3.18373 on 10 DF, p-value: 0.97676

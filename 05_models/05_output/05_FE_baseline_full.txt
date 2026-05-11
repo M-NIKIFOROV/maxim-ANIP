@@ -1,5 +1,5 @@
 SCRIPT: 05_FE_baseline.R
-Generated: 2026-05-01 09:16:30 
+Generated: 2026-05-08 14:57:32 
 Output file: C:/Users/maxim/OneDrive/Documents/University - Year 3/ANIP/maxim-ANIP/05_models/05_output/05_FE_baseline_full.txt 
 
 ====================================================
@@ -13,18 +13,18 @@ OLS estimation, Dep. Var.: log_def_spend
 Observations: 375
 Fixed-effects: country: 24,  year: 18
 Standard-errors: Clustered (country) 
-                   Estimate Std. Error   t value   Pr(>|t|)    
-log_energy_lag    -0.280023   0.127162 -2.202099 0.03795381 *  
-log1p_gasdep       0.040362   0.062909  0.641594 0.52747993    
-energy_gasdep_int  0.008657   0.031880  0.271560 0.78838298    
-log_gdp_pc         0.877718   0.201176  4.362932 0.00022785 ***
-threat            -0.000062   0.000250 -0.246302 0.80763327    
-log_area           8.878865   3.336401  2.661211 0.01395163 *  
-nato               0.055814   0.065199  0.856057 0.40079728    
-ideology          -0.006290   0.015318 -0.410640 0.68513719    
-seats              0.000910   0.000876  1.038700 0.30974131    
-ideol_seats       -0.000023   0.000084 -0.274354 0.78626134    
+                   Estimate Std. Error   t value  Pr(>|t|)    
+log_energy_lag    -0.153796   0.118857 -1.293958 0.2085232    
+log1p_gasdep      -0.015716   0.055920 -0.281055 0.7811808    
+energy_gasdep_int -0.012481   0.029102 -0.428871 0.6720070    
+log_gdp_pc         1.161881   0.357198  3.252761 0.0035065 ** 
+threat            -0.000058   0.000263 -0.221262 0.8268410    
+log_area          10.131898   3.891206  2.603794 0.0158745 **  
+nato               0.028375   0.066359  0.427599 0.6729200    
+ideology          -0.006511   0.013695 -0.475415 0.6389751    
+seats              0.001314   0.000854  1.538050 0.1376815    
+ideol_seats       -0.000042   0.000082 -0.514349 0.6119152    
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-RMSE: 0.133094     Adj. R2: 0.992127
-                 Within R2: 0.34093 
+Signif. codes:  0 '**' 0.05 '*' 0.1 ' ' 1
+RMSE: 0.134822     Adj. R2: 0.991913
+                 Within R2: 0.322857 

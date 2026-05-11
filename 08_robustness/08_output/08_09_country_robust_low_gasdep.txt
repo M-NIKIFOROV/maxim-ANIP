@@ -1,37 +1,38 @@
 SCRIPT: 08_robustness.R
-Generated: 2026-05-01 16:32:23 
+Generated: 2026-05-08 15:45:15 
 Result file: C:/Users/maxim/OneDrive/Documents/University - Year 3/ANIP/maxim-ANIP/08_robustness/08_output/08_09_country_robust_low_gasdep.txt 
 
 COUNTRY ROBUSTNESS TABLE: LOW GASDEP (LEAVE-ONE-OUT)
-      split omitted_country n_countries n_obs coef_energy   p_energy
- low_gasdep          cyprus          11   173 -0.26432324 0.04713658
- low_gasdep        slovenia          11   172 -0.20863567 0.08624476
- low_gasdep          latvia          11   172 -0.14614137 0.16187606
- low_gasdep       lithuania          11   174 -0.13869878 0.22067182
- low_gasdep         croatia          11   174 -0.13672616 0.26016758
- low_gasdep          sweden          11   172 -0.12570619 0.30596237
- low_gasdep         romania          11   174 -0.13710003 0.37684057
- low_gasdep      luxembourg          11   176 -0.12166892 0.37853980
- low_gasdep           malta          11   177 -0.14882907 0.40078343
- low_gasdep        bulgaria          11   172 -0.10639933 0.50487188
- low_gasdep         denmark          11   172 -0.06097771 0.60910284
- low_gasdep         estonia          11   171 -0.06067940 0.64914350
+      split omitted_country n_countries n_obs coef_energy  p_energy
+ low_gasdep          cyprus          11   173 -0.27083857 0.0480030
+ low_gasdep        slovenia          11   172 -0.18795934 0.2183914
+ low_gasdep       lithuania          11   174 -0.12249512 0.3674677
+ low_gasdep          latvia          11   172 -0.10934511 0.4238441
+ low_gasdep         croatia          11   174 -0.11339112 0.4740709
+ low_gasdep         romania          11   174 -0.13656102 0.4985931
+ low_gasdep        bulgaria          11   172 -0.12609829 0.5620524
+ low_gasdep          sweden          11   172 -0.08402241 0.6103173
+ low_gasdep         estonia          11   171 -0.07145748 0.7057324
+ low_gasdep      luxembourg          11   176 -0.05054648 0.7367800
+ low_gasdep           malta          11   177 -0.05971087 0.7714113
+ low_gasdep         denmark          11   172 -0.01595278 0.9209343
  sign_same_energy sig10_energy coef_interaction p_interaction
-             TRUE         TRUE      -0.02931895    0.48928295
-             TRUE         TRUE      -0.05467396    0.21965513
-             TRUE        FALSE      -0.02156848    0.70513986
-             TRUE        FALSE      -0.01551190    0.78934212
-             TRUE        FALSE      -0.04633245    0.32360875
-             TRUE        FALSE      -0.05959420    0.18117407
-             TRUE        FALSE      -0.05638645    0.26708787
-             TRUE        FALSE      -0.04214389    0.40356049
-             TRUE        FALSE      -0.04820473    0.45028910
-             TRUE        FALSE      -0.07763088    0.09166044
-             TRUE        FALSE      -0.07060483    0.14151540
-             TRUE        FALSE      -0.07964458    0.05032175
+             TRUE         TRUE     -0.007562532     0.8622620
+             TRUE        FALSE     -0.042971444     0.4116311
+             TRUE        FALSE      0.003169858     0.9595400
+             TRUE        FALSE     -0.009787103     0.8849096
+             TRUE        FALSE     -0.032377902     0.5635793
+             TRUE        FALSE     -0.039224268     0.5106295
+             TRUE        FALSE     -0.049738984     0.4257222
+             TRUE        FALSE     -0.047328681     0.3837435
+             TRUE        FALSE     -0.074285634     0.1177724
+             TRUE        FALSE     -0.020012027     0.7405313
+             TRUE        FALSE     -0.052376856     0.4758902
+             TRUE        FALSE     -0.073390411     0.1933015
  sign_same_interaction sig10_interaction robust_flag robust_flag_strict
                   TRUE             FALSE        TRUE              FALSE
-                  TRUE             FALSE        TRUE              FALSE
+                  TRUE             FALSE       FALSE              FALSE
+                 FALSE             FALSE       FALSE              FALSE
                   TRUE             FALSE       FALSE              FALSE
                   TRUE             FALSE       FALSE              FALSE
                   TRUE             FALSE       FALSE              FALSE
@@ -39,9 +40,8 @@ COUNTRY ROBUSTNESS TABLE: LOW GASDEP (LEAVE-ONE-OUT)
                   TRUE             FALSE       FALSE              FALSE
                   TRUE             FALSE       FALSE              FALSE
                   TRUE             FALSE       FALSE              FALSE
-                  TRUE              TRUE       FALSE              FALSE
                   TRUE             FALSE       FALSE              FALSE
-                  TRUE              TRUE       FALSE              FALSE
+                  TRUE             FALSE       FALSE              FALSE
  fit_error
       <NA>
       <NA>
@@ -56,5 +56,5 @@ COUNTRY ROBUSTNESS TABLE: LOW GASDEP (LEAVE-ONE-OUT)
       <NA>
       <NA>
 
-Robust count (main rule): 2 out of 12 
+Robust count (main rule): 1 out of 12 
 Robust count (strict rule): 0 out of 12 

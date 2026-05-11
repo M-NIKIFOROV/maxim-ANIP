@@ -41,4 +41,14 @@ iso <- c(
   sk = "slovakia"
 )
 
+# Helper: print fixest model summary with simplified significance codes
+# * = p < 0.1,  ** = p < 0.05  (no *** level)
+print_signif <- function(x) {
+  out <- capture.output(print(summary(x)))
+  out <- gsub("\\*\\*\\*", "**", out)
+  out <- gsub("(?<!\\*)\\*(?!\\*)", "**", out, perl = TRUE)
+  out <- gsub(" \\.[ ]*$", " *", out, perl = TRUE)
+  out <- gsub("Signif\\..*", "Signif. codes:  0 '**' 0.05 '*' 0.1 ' ' 1", out)
+  cat(paste(out, collapse = "\n"), "\n")
+}
 

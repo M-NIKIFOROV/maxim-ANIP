@@ -2,38 +2,38 @@ SCRIPT: 05_robustness.R
 CHECK: Alternative lag as standalone result
 Model: MAIN 
 Lag  : 2 
-Original p(log_energy_lag): 0.1185 
+Original p(log_energy_lag): 0.7772 
 
 OLS estimation, Dep. Var.: log_def_spend
 Observations: 300
 Fixed-effects: year: 16
 Standard-errors: Clustered (country) 
-                           Estimate Std. Error   t value  Pr(>|t|)    
-log_energy_lag            -0.357893   0.151620 -2.360458 0.0271073 *  
-log1p_gasdep               0.114878   0.098818  1.162518 0.2569459    
-energy_gasdep_int          0.032576   0.039058  0.834039 0.4128377    
-debtgdp_lag                0.003839   0.003184  1.205715 0.2401853    
-political_stress_lag      -0.215310   0.180259 -1.194447 0.2444760    
-log_gdp_pc                 1.413019   0.454992  3.105592 0.0049811 ** 
-threat                    -0.000341   0.000273 -1.249193 0.2241588    
-log_area                   8.227051   4.004688  2.054355 0.0514758 .  
-nato                       0.264803   0.206532  1.282143 0.2125657    
-ideology                  -0.020910   0.016413 -1.274004 0.2153857    
-seats                     -0.000112   0.000918 -0.122441 0.9036131    
-ideol_seats                0.000085   0.000073  1.163115 0.2567087    
-mean_log_energy_lag        1.382812   0.486236  2.843909 0.0091917 ** 
-mean_log1p_gasdep         -0.134648   0.231374 -0.581949 0.5662622    
-mean_energy_gasdep_int    -0.030499   0.100201 -0.304375 0.7635793    
-mean_debtgdp_lag           0.003536   0.003654  0.967517 0.3433500    
-mean_political_stress_lag -1.619100   1.303208 -1.242395 0.2266094    
-mean_log_gdp_pc           -0.868929   0.413991 -2.098906 0.0470028 *  
-mean_threat                0.000233   0.000276  0.843702 0.4075259    
-mean_log_area             -7.529867   3.995449 -1.884611 0.0721818 .  
-mean_nato                  0.388300   0.325414  1.193249 0.2449359    
-mean_ideology             -0.018592   0.086195 -0.215699 0.8311236    
-mean_seats                 0.002292   0.004989  0.459469 0.6502107    
-mean_ideol_seats           0.000637   0.001018  0.625605 0.5377332    
+                           Estimate Std. Error   t value Pr(>|t|)    
+log_energy_lag            -0.147576   0.151781 -0.972296 0.341019    
+log1p_gasdep               0.021976   0.093838  0.234192 0.816908    
+energy_gasdep_int         -0.001314   0.039357 -0.033399 0.973645    
+debtgdp_lag                0.002593   0.002991  0.866853 0.394977    
+political_stress_lag      -0.152359   0.136381 -1.117157 0.275462    
+log_gdp_pc                 1.783603   0.730582  2.441345 0.022742 **  
+threat                    -0.000302   0.000275 -1.098717 0.283260    
+log_area                   8.260872   4.052750  2.038338 0.053174 *
+nato                       0.173930   0.242223  0.718061 0.479951    
+ideology                  -0.019305   0.016292 -1.184982 0.248125    
+seats                      0.000521   0.000801  0.650859 0.521587    
+ideol_seats                0.000042   0.000079  0.524243 0.605126    
+mean_log_energy_lag        1.179333   0.529783  2.226068 0.036092 **  
+mean_log1p_gasdep         -0.039900   0.242245 -0.164711 0.870611    
+mean_energy_gasdep_int     0.004194   0.104539  0.040119 0.968344    
+mean_debtgdp_lag           0.004672   0.003546  1.317843 0.200532    
+mean_political_stress_lag -1.674163   1.301477 -1.286356 0.211117    
+mean_log_gdp_pc           -1.255810   0.610311 -2.057657 0.051132 *
+mean_threat                0.000201   0.000255  0.789270 0.438016    
+mean_log_area             -7.561539   4.046992 -1.868434 0.074492 *
+mean_nato                  0.483356   0.360730  1.339939 0.193354    
+mean_ideology             -0.018193   0.083988 -0.216613 0.830420    
+mean_seats                 0.001595   0.004956  0.321928 0.750415    
+mean_ideol_seats           0.000680   0.001021  0.666367 0.511806    
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-RMSE: 0.372161     Adj. R2: 0.938063
-                 Within R2: 0.944955
+Signif. codes:  0 '**' 0.05 '*' 0.1 ' ' 1
+RMSE: 0.374755     Adj. R2: 0.937144
+                 Within R2: 0.944139 
