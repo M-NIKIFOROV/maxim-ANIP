@@ -1,5 +1,5 @@
 SCRIPT: 08_robustness.R
-Generated: 2026-05-08 15:45:15 
+Generated: 2026-05-11 16:22:02 
 Result file: C:/Users/maxim/OneDrive/Documents/University - Year 3/ANIP/maxim-ANIP/08_robustness/08_output/08_02_model_re.txt 
 
 ALTERNATIVE MODEL FAMILY

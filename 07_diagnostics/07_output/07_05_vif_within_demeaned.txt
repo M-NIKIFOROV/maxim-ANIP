@@ -1,5 +1,5 @@
 SCRIPT: 07_diagnostics.R
-Generated: 2026-05-01 10:35:17 
+Generated: 2026-05-11 16:14:54 
 Result file: C:/Users/maxim/OneDrive/Documents/University - Year 3/ANIP/maxim-ANIP/07_diagnostics/07_output/07_05_vif_within_demeaned.txt 
 
 TEST 4: VARIANCE INFLATION FACTORS (car::vif)
@@ -7,13 +7,13 @@ Applied to within-demeaned regressors (FE variation)
 Rule of thumb: VIF > 10 indicates high multicollinearity
 
       log_energy_lag         log1p_gasdep    energy_gasdep_int 
-               4.444                5.168                7.896 
+               4.030                4.964                7.648 
          debtgdp_lag political_stress_lag           log_gdp_pc 
-               1.889                1.490                1.423 
+               1.863                1.526                1.409 
               threat             log_area                 nato 
-               1.132                1.140                1.068 
+               1.208                1.148                1.068 
             ideology                seats          ideol_seats 
-               2.530                1.673                2.958 
+               2.539                1.708                2.971 
 
-Max VIF  : 7.896 
-Mean VIF : 2.734 
+Max VIF  : 7.648 
+Mean VIF : 2.674 

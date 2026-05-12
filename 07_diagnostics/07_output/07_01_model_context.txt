@@ -1,5 +1,5 @@
 SCRIPT: 07_diagnostics.R
-Generated: 2026-05-01 10:35:17 
+Generated: 2026-05-11 16:14:54 
 Result file: C:/Users/maxim/OneDrive/Documents/University - Year 3/ANIP/maxim-ANIP/07_diagnostics/07_output/07_01_model_context.txt 
 
 MODEL CONTEXT: MAIN SPECIFICATION (05 SAMPLE)
@@ -15,28 +15,28 @@ plm(formula = fe_formula, data = pdata, effect = "twoways", model = "within")
 Unbalanced Panel: n = 24, T = 8-16, N = 322
 
 Residuals:
-      Min.    1st Qu.     Median    3rd Qu.       Max. 
--0.4015570 -0.0781621 -0.0047003  0.0676735  0.6195374 
+     Min.   1st Qu.    Median   3rd Qu.      Max. 
+-0.479681 -0.074803 -0.001066  0.060649  0.657230 
 
 Coefficients:
                         Estimate  Std. Error t-value  Pr(>|t|)    
-log_energy_lag       -3.2204e-01  1.0691e-01 -3.0122  0.002839 ** 
-log1p_gasdep          1.8670e-02  5.1777e-02  0.3606  0.718694    
-energy_gasdep_int    -3.3394e-03  2.4020e-02 -0.1390  0.889534    
-debtgdp_lag           1.3840e-03  1.0034e-03  1.3792  0.168962    
-political_stress_lag -1.1267e-01  1.0282e-01 -1.0958  0.274141    
-log_gdp_pc            9.8490e-01  1.1405e-01  8.6353 5.181e-16 ***
-threat               -1.7577e-04  1.6314e-04 -1.0775  0.282238    
-log_area              8.3663e+00  3.4604e+00  2.4177  0.016280 *  
-nato                  7.0649e-02  1.1730e-01  0.6023  0.547471    
-ideology             -1.2859e-02  8.8343e-03 -1.4556  0.146659    
-seats                 7.5320e-04  6.7054e-04  1.1233  0.262315    
-ideol_seats           2.2591e-05  6.0166e-05  0.3755  0.707602    
+log_energy_lag       -1.2682e-01  1.0475e-01 -1.2107   0.22707    
+log1p_gasdep         -5.7533e-02  5.0557e-02 -1.1380   0.25614    
+energy_gasdep_int    -3.3959e-02  2.3789e-02 -1.4275   0.15460    
+debtgdp_lag           2.6951e-04  9.8279e-04  0.2742   0.78412    
+political_stress_lag -5.9613e-02  1.0717e-01 -0.5563   0.57849    
+log_gdp_pc            1.1891e+00  1.5333e-01  7.7555 1.808e-13 ***
+threat               -1.7685e-04  1.6680e-04 -1.0602   0.29000    
+log_area              8.3859e+00  3.5333e+00  2.3734   0.01833 *  
+nato                  3.6815e-02  1.1945e-01  0.3082   0.75816    
+ideology             -1.4309e-02  9.0093e-03 -1.5882   0.11341    
+seats                 1.0808e-03  6.8767e-04  1.5717   0.11720    
+ideol_seats           8.7197e-06  6.1646e-05  0.1414   0.88762    
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
-Total Sum of Squares:    8.5621
-Residual Sum of Squares: 5.4793
-R-Squared:      0.36005
-Adj. R-Squared: 0.23917
-F-statistic: 12.6591 on 12 and 270 DF, p-value: < 2.22e-16
+Total Sum of Squares:    8.5522
+Residual Sum of Squares: 5.7121
+R-Squared:      0.3321
+Adj. R-Squared: 0.20594
+F-statistic: 11.1875 on 12 and 270 DF, p-value: < 2.22e-16

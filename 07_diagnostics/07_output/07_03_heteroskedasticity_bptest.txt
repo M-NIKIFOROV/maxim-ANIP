@@ -1,5 +1,5 @@
 SCRIPT: 07_diagnostics.R
-Generated: 2026-05-01 10:35:17 
+Generated: 2026-05-11 16:14:54 
 Result file: C:/Users/maxim/OneDrive/Documents/University - Year 3/ANIP/maxim-ANIP/07_diagnostics/07_output/07_03_heteroskedasticity_bptest.txt 
 
 TEST 2: BREUSCH-PAGAN HETEROSKEDASTICITY (bptest)
@@ -9,5 +9,5 @@ H0: Homoskedastic errors
 	studentized Breusch-Pagan test
 
 data:  fe_model
-BP = 54.25, df = 12, p-value = 2.465e-07
+BP = 56.936, df = 12, p-value = 8.119e-08
 

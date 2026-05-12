@@ -1,0 +1,38 @@
+SCRIPT: 08_robustness.R
+Generated: 2026-05-11 16:22:02 
+Result file: C:/Users/maxim/OneDrive/Documents/University - Year 3/ANIP/maxim-ANIP/08_robustness/08_output/08_17_chow_test_east_west.txt 
+
+CHOW TEST: East vs. West EU Split
+Testing whether energy coefficient differs between East and West European countries
+
+H0: log_energy_lag coefficient is the same for East and West
+H1: log_energy_lag coefficient differs between East and West
+
+Groups:
+  Group 1 (East): 9 countries
+  Group 2 (West): 15 countries
+  Pooled        : 24 countries
+
+Sample sizes:
+  Pooled observations: 375 
+  East obs           : 145 
+  West obs           : 230 
+
+Residual sum of squares:
+  Pooled model (SSR_pooled): 66.7354 
+  East model (SSR_1)       : 2.437 
+  West model (SSR_2)       : 9.187 
+  Sum of split models      : 11.6241 
+
+log_energy_lag coefficients by group:
+  Pooled        : -0.196551 
+  East          : -0.283309 
+  West          : -0.114997 
+  Difference (E-W): -0.168312 
+
+Chow test F-statistic:
+  F(df1=20, df2=335) = 79.414
+  p-value: 0 
+
+RESULT: *** REJECT H0 at p < 0.10 ***
+The energy coefficient DIFFERS SIGNIFICANTLY between East and West EU.

@@ -1,0 +1,39 @@
+SCRIPT: 08_robustness.R
+Generated: 2026-05-11 16:22:02 
+Result file: C:/Users/maxim/OneDrive/Documents/University - Year 3/ANIP/maxim-ANIP/08_robustness/08_output/08_16_chow_test_gasdep.txt 
+
+CHOW TEST: Gas-Dependency Split
+Testing whether energy coefficient differs between low and high gas-dependency countries
+
+H0: log_energy_lag coefficient is the same for both groups
+H1: log_energy_lag coefficient differs between groups
+
+Groups:
+  Group 1 (Low gasdep) : 12 countries
+  Group 2 (High gasdep): 12 countries
+  Pooled             : 24 countries
+
+Sample sizes:
+  Pooled observations: 375 
+  Low gasdep obs     : 189 
+  High gasdep obs    : 186 
+
+Residual sum of squares:
+  Pooled model (SSR_pooled): 66.7354 
+  Low gasdep model (SSR_1) : 3.545 
+  High gasdep model (SSR_2): 8.7263 
+  Sum of split models      : 12.2713 
+
+log_energy_lag coefficients by group:
+  Pooled         : -0.196551 
+  Low gasdep     : -0.123401 
+  High gasdep    : -0.750502 
+  Difference (L-H): 0.627101 
+
+Chow test F-statistic:
+  F(df1=20, df2=335) = 74.3423
+  p-value: 0 
+
+RESULT: *** REJECT H0 at p < 0.10 ***
+The energy coefficient DIFFERS SIGNIFICANTLY between low and high gas-dependency countries.
+This supports a conditional (heterogeneous) relationship.

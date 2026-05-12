@@ -630,6 +630,167 @@ write_result_file_08("08_15_loo_significance_summary.txt", {
     signif(loo_full_sig$max_p, 4), "\n")
 })
 
+# ========================================================================
+# CHOW TEST: Testing heterogeneity between groups
+# ========================================================================
+# Chow test compares whether coefficients differ significantly between two 
+# groups by testing: H0: coef_group1 = coef_group2
+# Test statistic: F = [(SSR_pooled - SSR_1 - SSR_2) / k] / [(SSR_1 + SSR_2) / (n - 2k)]
+# where SSR = sum of squared residuals, k = number of coefficients, n = total obs
+
+run_chow_test <- function(pooled_model, group1_model, group2_model, 
+                          group1_name, group2_name) {
+  # Extract residuals and compute SSR
+  residuals_pooled <- residuals(pooled_model)
+  residuals_g1     <- residuals(group1_model)
+  residuals_g2     <- residuals(group2_model)
+  
+  ssr_pooled <- sum(residuals_pooled^2, na.rm = TRUE)
+  ssr_g1     <- sum(residuals_g1^2, na.rm = TRUE)
+  ssr_g2     <- sum(residuals_g2^2, na.rm = TRUE)
+  
+  # Number of observations and parameters
+  # k = number of regressors (excluding intercept and FE dummies)
+  n_pooled <- length(residuals_pooled)
+  n_g1     <- length(residuals_g1)
+  n_g2     <- length(residuals_g2)
+  
+  # For feols with fixed effects, count parameters carefully
+  # Assumption: same specification across models
+  k <- length(coef(pooled_model))
+  
+  # Chow test F-statistic
+  numerator   <- ssr_pooled - ssr_g1 - ssr_g2
+  denominator <- ssr_g1 + ssr_g2
+  f_stat <- (numerator / k) / (denominator / (n_pooled - 2*k))
+  
+  # p-value (two-tailed, df1 = k, df2 = n_pooled - 2k)
+  df1 <- k
+  df2 <- n_pooled - 2*k
+  p_value <- 1 - pf(f_stat, df1, df2)
+  
+  # Extract and compare energy coefficient
+  coef_pooled <- coef(pooled_model)["log_energy_lag"]
+  coef_g1     <- coef(group1_model)["log_energy_lag"]
+  coef_g2     <- coef(group2_model)["log_energy_lag"]
+  
+  return(list(
+    group1_name = group1_name,
+    group2_name = group2_name,
+    n_pooled = n_pooled,
+    n_g1 = n_g1,
+    n_g2 = n_g2,
+    k = k,
+    ssr_pooled = ssr_pooled,
+    ssr_g1 = ssr_g1,
+    ssr_g2 = ssr_g2,
+    f_stat = f_stat,
+    df1 = df1,
+    df2 = df2,
+    p_value = p_value,
+    coef_pooled = coef_pooled,
+    coef_g1 = coef_g1,
+    coef_g2 = coef_g2,
+    coef_diff = coef_g1 - coef_g2
+  ))
+}
+
+# Chow test: Low vs. High gas dependency
+chow_gasdep <- run_chow_test(res_full$model, res_low_gasdep$model, res_high_gasdep$model,
+                             "Low gas-dependency", "High gas-dependency")
+
+# Chow test: East vs. West
+chow_east_west <- run_chow_test(res_full$model, res_east$model, res_west$model,
+                                "East EU", "West EU")
+
+write_result_file_08("08_16_chow_test_gasdep.txt", {
+  cat("CHOW TEST: Gas-Dependency Split\n")
+  cat("Testing whether energy coefficient differs between low and high gas-dependency countries\n\n")
+  
+  cat("H0: log_energy_lag coefficient is the same for both groups\n")
+  cat("H1: log_energy_lag coefficient differs between groups\n\n")
+  
+  cat("Groups:\n")
+  cat("  Group 1 (Low gasdep) :", length(low_gasdep_countries), "countries\n")
+  cat("  Group 2 (High gasdep):", length(high_gasdep_countries), "countries\n")
+  cat("  Pooled             :", length(common_countries), "countries\n\n")
+  
+  cat("Sample sizes:\n")
+  cat("  Pooled observations:", chow_gasdep$n_pooled, "\n")
+  cat("  Low gasdep obs     :", chow_gasdep$n_g1, "\n")
+  cat("  High gasdep obs    :", chow_gasdep$n_g2, "\n\n")
+  
+  cat("Residual sum of squares:\n")
+  cat("  Pooled model (SSR_pooled):", round(chow_gasdep$ssr_pooled, 4), "\n")
+  cat("  Low gasdep model (SSR_1) :", round(chow_gasdep$ssr_g1, 4), "\n")
+  cat("  High gasdep model (SSR_2):", round(chow_gasdep$ssr_g2, 4), "\n")
+  cat("  Sum of split models      :", round(chow_gasdep$ssr_g1 + chow_gasdep$ssr_g2, 4), "\n\n")
+  
+  cat("log_energy_lag coefficients by group:\n")
+  cat("  Pooled         :", round(chow_gasdep$coef_pooled, 6), "\n")
+  cat("  Low gasdep     :", round(chow_gasdep$coef_g1, 6), "\n")
+  cat("  High gasdep    :", round(chow_gasdep$coef_g2, 6), "\n")
+  cat("  Difference (L-H):", round(chow_gasdep$coef_diff, 6), "\n\n")
+  
+  cat("Chow test F-statistic:\n")
+  cat("  F(df1=", chow_gasdep$df1, ", df2=", chow_gasdep$df2, ") = ", 
+      round(chow_gasdep$f_stat, 4), "\n", sep = "")
+  cat("  p-value:", signif(chow_gasdep$p_value, 4), "\n\n")
+  
+  if (chow_gasdep$p_value < 0.10) {
+    cat("RESULT: *** REJECT H0 at p < 0.10 ***\n")
+    cat("The energy coefficient DIFFERS SIGNIFICANTLY between low and high gas-dependency countries.\n")
+    cat("This supports a conditional (heterogeneous) relationship.\n")
+  } else {
+    cat("RESULT: FAIL TO REJECT H0\n")
+    cat("No statistically significant difference in energy coefficients between groups.\n")
+    cat("The apparent heterogeneity may be due to sampling variation.\n")
+  }
+})
+
+write_result_file_08("08_17_chow_test_east_west.txt", {
+  cat("CHOW TEST: East vs. West EU Split\n")
+  cat("Testing whether energy coefficient differs between East and West European countries\n\n")
+  
+  cat("H0: log_energy_lag coefficient is the same for East and West\n")
+  cat("H1: log_energy_lag coefficient differs between East and West\n\n")
+  
+  cat("Groups:\n")
+  cat("  Group 1 (East):", length(east_countries), "countries\n")
+  cat("  Group 2 (West):", length(west_countries), "countries\n")
+  cat("  Pooled        :", length(common_countries), "countries\n\n")
+  
+  cat("Sample sizes:\n")
+  cat("  Pooled observations:", chow_east_west$n_pooled, "\n")
+  cat("  East obs           :", chow_east_west$n_g1, "\n")
+  cat("  West obs           :", chow_east_west$n_g2, "\n\n")
+  
+  cat("Residual sum of squares:\n")
+  cat("  Pooled model (SSR_pooled):", round(chow_east_west$ssr_pooled, 4), "\n")
+  cat("  East model (SSR_1)       :", round(chow_east_west$ssr_g1, 4), "\n")
+  cat("  West model (SSR_2)       :", round(chow_east_west$ssr_g2, 4), "\n")
+  cat("  Sum of split models      :", round(chow_east_west$ssr_g1 + chow_east_west$ssr_g2, 4), "\n\n")
+  
+  cat("log_energy_lag coefficients by group:\n")
+  cat("  Pooled        :", round(chow_east_west$coef_pooled, 6), "\n")
+  cat("  East          :", round(chow_east_west$coef_g1, 6), "\n")
+  cat("  West          :", round(chow_east_west$coef_g2, 6), "\n")
+  cat("  Difference (E-W):", round(chow_east_west$coef_diff, 6), "\n\n")
+  
+  cat("Chow test F-statistic:\n")
+  cat("  F(df1=", chow_east_west$df1, ", df2=", chow_east_west$df2, ") = ", 
+      round(chow_east_west$f_stat, 4), "\n", sep = "")
+  cat("  p-value:", signif(chow_east_west$p_value, 4), "\n\n")
+  
+  if (chow_east_west$p_value < 0.10) {
+    cat("RESULT: *** REJECT H0 at p < 0.10 ***\n")
+    cat("The energy coefficient DIFFERS SIGNIFICANTLY between East and West EU.\n")
+  } else {
+    cat("RESULT: FAIL TO REJECT H0\n")
+    cat("No statistically significant difference in energy coefficients between East and West.\n")
+  }
+})
+
 message("Saved: 08_robustness/08_output/08_01_baseline_full_model.txt")
 message("Saved: 08_robustness/08_output/08_02_model_re.txt")
 message("Saved: 08_robustness/08_output/08_03_model_fe_driscoll_kraay.txt")
@@ -645,6 +806,8 @@ message("Saved: 08_robustness/08_output/08_12_baseline_west_model.txt")
 message("Saved: 08_robustness/08_output/08_13_country_robust_east.txt")
 message("Saved: 08_robustness/08_output/08_14_country_robust_west.txt")
 message("Saved: 08_robustness/08_output/08_15_loo_significance_summary.txt")
+message("Saved: 08_robustness/08_output/08_16_chow_test_gasdep.txt")
+message("Saved: 08_robustness/08_output/08_17_chow_test_east_west.txt")
 
 invisible(list(
   full = list(result = res_full, table = tab_full),
@@ -657,5 +820,9 @@ invisible(list(
     high_gasdep = tab_high,
     east = tab_east,
     west = tab_west
+  ),
+  chow_tests = list(
+    gasdep = chow_gasdep,
+    east_west = chow_east_west
   )
 ))

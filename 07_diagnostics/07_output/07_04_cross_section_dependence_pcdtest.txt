@@ -1,5 +1,5 @@
 SCRIPT: 07_diagnostics.R
-Generated: 2026-05-01 10:35:17 
+Generated: 2026-05-11 16:14:54 
 Result file: C:/Users/maxim/OneDrive/Documents/University - Year 3/ANIP/maxim-ANIP/07_diagnostics/07_output/07_04_cross_section_dependence_pcdtest.txt 
 
 TEST 3: PESARAN CD TEST (pcdtest)
@@ -9,6 +9,6 @@ H0: No cross-sectional dependence
 	Pesaran CD test for cross-sectional dependence in panels
 
 data:  log_def_spend ~ log_energy_lag + log1p_gasdep + energy_gasdep_int +     debtgdp_lag + political_stress_lag + log_gdp_pc + threat +     log_area + nato + ideology + seats + ideol_seats
-z = -0.90597, p-value = 0.365
+z = -0.38146, p-value = 0.7029
 alternative hypothesis: cross-sectional dependence
 
